@@ -1,16 +1,25 @@
-<h1>Joyage</h1>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <div class="simple-form-for">
-        <%= simple_form_for @search do |s| %>
-          <%= s.input :origin, label: "Hometown" %>
-          <%= s.input :dep_date, label: "Date from" %>
-          <%= s.input :ret_date, label: "Date to" %>
-          <%= s.input :max_budget, label: "Your maximum budget" %>
-          <%= s.submit "Get results", class: "create-sock" %>
-        <% end %>
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="new-search col-md-8 col-md-offset-2">
+        <h1>Joyage</h1>
+        <div class="simple-form-for">
+          <%= simple_form_for @search do |s| %>
+          <div class="input-form">
+            <div class="origins">
+              <%= s.input :origin, label: "Hometown", placeholder: "Enter starting point" %>
+              <button id="add-origin">+</button>
+            </div>
+            <div class="dates">
+              <%= s.input :dep_date, label: "Date from" %>
+              <%= s.input :ret_date, label: "Date to" %>
+            </div>
+            <%= s.input :max_budget, label: "Your maximum budget" %>
+          </div>
+            <%= s.submit "Get results", class: "create-trip" %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

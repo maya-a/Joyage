@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap');
+
+$white: #E3E3E3;
+$blue: #467DCF;
+
+.wrapper {
+  background: linear-gradient(160deg, #6a6ed4 0%, #a03cb0 159%);
+  height: 1000px;
+  text-align: center;
+  h1 {
+    color: $white;
+    // font-family: "Lato", "sans-serif";
+    font-weight: lighter;
+  }
+}
+
+#add-origin {
+  border: none;
+  color: $blue;
+  height: 25px;
+  border-radius: 4px;
+  width: 25px;
+}
+
+
+.new-search {
+  position: relative;
+
+}
+
+.form-control {
+  color: $blue;
+  font-family: "Lato", "sans-serif";
+  font-weight: lighter;
+}
+
+.form-control-label {
+  color: $white;
+  font-family: "Lato", "sans-serif";
+  font-weight: lighter;
+}
+
+.input-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .dates {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+
+.create-trip {
+  background: linear-gradient(160deg, #F28D17 0%, #EF682E 80%);
+  border-radius: 25px;
+  text-align: center;
+  color: $white;
+  font-family: "Lato", "sans-serif";
+  font-weight: lighter;
+  padding: 10px 8px;
+  width: 100%;
+  border: none;
+  margin-top: 30px;
+}
