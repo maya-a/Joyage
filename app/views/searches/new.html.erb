@@ -1,2 +1,17 @@
-<h1>Searches#new</h1>
-<p>Find me in app/views/searches/new.html.erb</p>
+<h1>Joyage</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="simple-form-for">
+        <%= simple_form_for search do |s| %>
+          <%= s.input :origin, label: "Hometown" %>
+          <%= s.input :dep_date, label: "Date from" %>
+          <%= s.input :ret_date, label: "Date to" %>
+          <%= s.input :max_budget, label: "Your maximum budget" %>
+          <%= s.submit "Get results", class: "create-sock" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
