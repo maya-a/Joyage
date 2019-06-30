@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <div class="simple-form-for">
-        <%= simple_form_for search do |s| %>
+        <%= simple_form_for @search do |s| %>
           <%= s.input :origin, label: "Hometown" %>
           <%= s.input :dep_date, label: "Date from" %>
           <%= s.input :ret_date, label: "Date to" %>
