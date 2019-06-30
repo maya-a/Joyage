@@ -12,8 +12,8 @@
               <button id="add-origin">+</button>
             </div>
             <div class="dates">
-              <%= s.input :dep_date, label: "Date from" %>
-              <%= s.input :ret_date, label: "Date to" %>
+              <%= s.input :dep_date, as: :string, label: "Date from", required: false, input_html: {class: "datepicker"} %>
+              <%= s.input :ret_date, as: :string,  label: "Date to" required: false, input_html: {class: "datepicker"} %>
             </div>
             <%= s.input :max_budget, label: "Your maximum budget" %>
           </div>
