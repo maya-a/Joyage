@@ -4,31 +4,35 @@ require 'rubygems'
 
 class SearchesController < ApplicationController
   def new
-<<<<<<< HEAD
     @search = Search.new()
   end
 
   def create
-    @search = Search.new (search_params)
+    @search = Search.new(search_params)
     @possible_trips = []
-    middle_points = find_middle(@search)
-    #if the airport is nearby any of the averages (300 km), we search for possible trips through the API
-    LIST.each do |airport| #LIST is defined in the trip model as all the airports
-     dot = Geokit::LatLng.new(airport[:latitude], airport[:longitude])
-      middle_points.each do |point|
-        if point.distance_to(dot) < 300 #km
-          trip = Trip.new
-          trip.destination = dot
-          @possible_trips << trip
+    @search.origins.each do |origin|
+      Trip.all.each do |trip|
+        if trip.category == @search.category
+          oap_code = origin.code
+          dap_code = trip.dap_code
+          dep_date = @search.dep_date.slice(0..9)
+          ret_date = @search.ret_date
+          possible_trips << [oap_code, dap_code, dep_date, ret_date]
         end
       end
+    end
+    #if the category matches, create trip (API) call
+
+    end
+
+    #if the airport is nearby any of the averages (300 km), we search for possible trips through the API
   end
 
 
   private
 
   def search_params(search)
-    params.require(:search).permit(:max_budget, :dep_date, :ret_date)
+    params.require(:search_).permit(:max_budget, :dep_date, :ret_date, :origins)
   end
 
   # def find_middle
@@ -49,18 +53,15 @@ class SearchesController < ApplicationController
   #   end
   #   return @mid
   # end
+    # LIST.each do |airport| #LIST is defined in the trip model as all the airports
+    #  dot = Geokit::LatLng.new(airport[:latitude], airport[:longitude])
+    #   middle_points.each do |point|
+    #     if point.distance_to(dot) < 300 #km
+    #       trip = Trip.new
+    #       trip.destination = dot
+    #       @possible_trips << trip
+    #     end
+    #   end
 end
 
 
-<<<<<<< HEAD
-=======
-a = Geokit::LatLng.new(13.0627081,80.274658)
-b = Geokit::LatLng.new(12.8550615,80.2264393)
-m1 = a.midpoint_to(b)
-m2 = b.midpoint_to(a)
-if m1.distance_to( m2 ) > 0
-  puts "Mid-points are separate"
-else
-  puts "Mid-points are the same location"
-end
->>>>>>> b0bfff1ab122ec26a1c4067f3388ed2b0942d23f
