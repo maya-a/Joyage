@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_01_084831) do
+ActiveRecord::Schema.define(version: 2019_07_01_173130) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "destinations", force: :cascade do |t|
+    t.string "dap_name"
+    t.string "d_city"
+    t.string "d_country"
+    t.string "dap_code"
+    t.integer "dap_id"
+    t.float "d_latitude"
+    t.float "d_longitude"
+    t.integer "category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "flights", force: :cascade do |t|
     t.bigint "itinerary_id"
@@ -41,7 +55,6 @@ ActiveRecord::Schema.define(version: 2019_07_01_084831) do
     t.float "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "category"
   end
 
   create_table "search_origins", force: :cascade do |t|
@@ -59,6 +72,7 @@ ActiveRecord::Schema.define(version: 2019_07_01_084831) do
     t.date "dep_date"
     t.date "ret_date"
     t.bigint "user_id"
+    t.integer "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_searches_on_user_id"
@@ -66,10 +80,12 @@ ActiveRecord::Schema.define(version: 2019_07_01_084831) do
 
   create_table "trips", force: :cascade do |t|
     t.integer "avg_price"
-    t.string "destination"
+    t.integer "category"
     t.bigint "search_id"
+    t.bigint "destination_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["destination_id"], name: "index_trips_on_destination_id"
     t.index ["search_id"], name: "index_trips_on_search_id"
   end
 
@@ -91,5 +107,6 @@ ActiveRecord::Schema.define(version: 2019_07_01_084831) do
   add_foreign_key "search_origins", "origins"
   add_foreign_key "search_origins", "searches"
   add_foreign_key "searches", "users"
+  add_foreign_key "trips", "destinations"
   add_foreign_key "trips", "searches"
 end
