@@ -6,8 +6,6 @@ require 'oauth2'
 
 class SearchesController < ApplicationController
   def new
-
-
     client = OAuth2::Client.new("tEDDbA3LWoIm4FsWZ4QFFNkvGDjaJlOr", "AzXPuVGJkX4ap2Df", site: 'https://test.api.amadeus.com', token_url: 'https://test.api.amadeus.com/v1/security/oauth2/token')
     token = client.client_credentials.get_token
     response = token.get('https://test.api.amadeus.com/v1/shopping/flight-offers?origin=NYC&destination=MAD&departureDate=2019-08-01&returnDate=2019-09-01&max=2')
@@ -35,8 +33,8 @@ class SearchesController < ApplicationController
         }
 
 
-
       itineraries << flight_option
+
       end
     raise
       # carrier_code = flight_offer["services"][0]["segments"][0]["flightSegment"]["carrierCode"]

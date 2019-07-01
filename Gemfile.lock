@@ -107,9 +107,7 @@ GEM
     marcel (0.3.3)
       mimemagic (~> 0.3.2)
     method_source (0.9.2)
-    mime-types (3.2.2)
-      mime-types-data (~> 3.2015)
-    mime-types-data (3.2019.0331)
+    mime-types (1.25.1)
     mimemagic (0.3.3)
     mini_mime (1.0.1)
     mini_portile2 (2.4.0)
@@ -248,6 +246,7 @@ DEPENDENCIES
   rails (= 5.2.3)
   redactor-rails!
   redis
+  rest-client
   sassc-rails
   simple_form
   spring
@@ -258,7 +257,6 @@ DEPENDENCIES
   webpacker
 
 RUBY VERSION
-
    ruby 2.5.5p105
 
 BUNDLED WITH
