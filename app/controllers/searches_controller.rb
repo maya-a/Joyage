@@ -4,5 +4,6 @@ class SearchesController < ApplicationController
   end
 
   def create
+    raise
   end
 end
