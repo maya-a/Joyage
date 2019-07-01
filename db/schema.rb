@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_30_143142) do
+
+ActiveRecord::Schema.define(version: 2019_07_01_084831) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,11 +34,26 @@ ActiveRecord::Schema.define(version: 2019_06_30_143142) do
   end
 
   create_table "origins", force: :cascade do |t|
+    t.integer "airport_id"
+    t.string "name"
+    t.string "city"
+    t.string "country"
+    t.string "code"
     t.float "latitude"
     t.float "longitude"
-    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "category"
+  end
+
+  create_table "search_origins", force: :cascade do |t|
+    t.bigint "origin_id"
+    t.bigint "search_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["origin_id"], name: "index_search_origins_on_origin_id"
+    t.index ["search_id"], name: "index_search_origins_on_search_id"
+
   end
 
   create_table "searches", force: :cascade do |t|
@@ -74,6 +91,8 @@ ActiveRecord::Schema.define(version: 2019_06_30_143142) do
   add_foreign_key "flights", "itineraries"
   add_foreign_key "itineraries", "trips"
   add_foreign_key "itineraries", "users"
+  add_foreign_key "search_origins", "origins"
+  add_foreign_key "search_origins", "searches"
   add_foreign_key "searches", "users"
   add_foreign_key "trips", "searches"
 end

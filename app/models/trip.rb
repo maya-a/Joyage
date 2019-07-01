@@ -1,5 +1,12 @@
 class Trip < ApplicationRecord
+  require "csv"
+
   belongs_to :search
+
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
+
+
   has_many :initerarys
 
   require "csv"
@@ -40,4 +47,5 @@ class Trip < ApplicationRecord
   else
     puts "Mid-points are the same location"
   end
+>>>>>>> b0bfff1ab122ec26a1c4067f3388ed2b0942d23f
   end
