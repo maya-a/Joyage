@@ -1,2 +1,34 @@
-<h1>Searches#new</h1>
-<p>Find me in app/views/searches/new.html.erb</p>
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="new-search col-md-12 col-md-offset-2">
+        <div class="headline">
+          <%= image_tag "Joyage.png", {alt: "logo"}  %>
+          <h1>Joyage</h1>
+        </div>
+        <div class="simple-form-for">
+          <%= simple_form_for @search do |s| %>
+          <div class="input-form">
+            <div class="origins">
+            <div class="add-origins">
+              <p>Add Hometowns</p>
+              <input class="form-control string optional" placeholder="Enter starting point" type="text" name="search[origin][]" id="search_origin">
+
+            </div>
+              <button id="add-origin">+</button>
+
+            </div>
+            <div class="dates">
+              <%= s.input :dep_date, label: "Date from", as: :string, required: false, input_html: {id: "dep_date"}  %>
+              <%= s.input :ret_date, label: "Date to", as: :string, required: false, input_html: {id: "ret_date"} %>
+            </div>
+            <%= s.input :max_budget, label: "Your maximum budget", input_html: { class: "js-range-slider" } %>
+
+          </div>
+            <%= s.submit "Get results", class: "create-trip" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

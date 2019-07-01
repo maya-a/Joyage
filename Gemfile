@@ -7,7 +7,8 @@ gem 'pg', '~> 0.21'
 gem 'puma'
 gem 'rails', '5.2.3'
 gem 'redis'
-
+gem 'coffee-rails'
+gem 'unirest', '~> 1.1', '>= 1.1.2'
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
 gem 'sassc-rails'
@@ -16,7 +17,12 @@ gem 'uglifier'
 gem 'webpacker'
 
 gem 'devise'
+
+gem 'oauth2', '~> 1.2'
+
 gem 'geocoder'
+
+
 
 
 
@@ -34,3 +40,5 @@ group :development, :test do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'dotenv-rails'
 end
+
+gem 'redactor-rails', github: 'glyph-fr/redactor-rails'
