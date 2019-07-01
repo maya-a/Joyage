@@ -6,25 +6,25 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'csv'
-
+# Origin.destroy_all
 puts "creating all origins"
-CSV.foreach(Rails.root.join('public', "airports.csv")) do |row|
-  Origin.create!(
-   airport_id: row[0],
-   name: row[1],
-   city: row[2],
-   country: row[3],
-   code: row[4],
-   latitude: row[6],
-   longitude: row[7],
-   category: 0
-  )
-end
+# CSV.foreach(Rails.root.join('public', "airports.csv")) do |row|
+#   Origin.create!(
+#    airport_id: row[0],
+#    name: row[1],
+#    city: row[2],
+#    country: row[3],
+#    code: row[4],
+#    latitude: row[6],
+#    longitude: row[7],
+#    category: 0
+#   )
+# end
 
 
 puts "creating beach origins(1)"
 
-Origin.create! (
+Origin.create!(
   airport_id: 994,
   name: "Seychelles International Airport",
   city: "Mahe",
@@ -34,7 +34,7 @@ Origin.create! (
   longitude: 55.521801,
   category: 1
    )
-Origin.create! (
+Origin.create!(
   airport_id: 3275,
   name: "Soekarno-Hatta International Airport",
   city: "Jakarta",
@@ -44,7 +44,7 @@ Origin.create! (
   longitude: 106.65599823,
   category: 1
   )
-Origin.create! (
+Origin.create!(
   airport_id: 1446,
   name: "Dimokritos Airport",
   city: "Alexandroupolis",
@@ -55,7 +55,7 @@ Origin.create! (
   category: 1
   )
 
-Origin.create! (
+Origin.create!(
    airport_id: 1460,
    name: "Ioannis Kapodistrias International Airport",
    city: "Kerkyra/corfu",
@@ -66,7 +66,7 @@ Origin.create! (
    category: 1
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 3885,
   name: "Suvarnabhumi Airport",
   city: "Bangkok",
@@ -77,7 +77,7 @@ Origin.create! (
   category: 1
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 3157,
   name: "Don Mueang International Airport",
   city: "Bangkok",
@@ -88,7 +88,7 @@ Origin.create! (
   category: 1
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 3720,
   name: "Portland International Airport",
   city: "Portland",
@@ -99,7 +99,7 @@ Origin.create! (
   category: 1
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 1760,
   name: "Punta Cana International Airport",
   city: "Punta Cana",
@@ -110,7 +110,7 @@ Origin.create! (
   category: 1
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 1992,
   name: "Moorea Airport",
   city: "Moorea",
@@ -121,7 +121,7 @@ Origin.create! (
   category: 1
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 1208,
   name: "Zagreb Airport",
   city: "Zagreb",
@@ -132,7 +132,7 @@ Origin.create! (
   category: 1
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 1638,
   name: "Humberto Delgado Airport (Lisbon Portela Airport)",
   city: "Lisbon",
@@ -143,7 +143,7 @@ Origin.create! (
   category: 1
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 1626,
   name: "Faro Airport",
   city: "Faro",
@@ -154,7 +154,7 @@ Origin.create! (
   category: 1
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 2433,
   name: "Puerto Princesa Airport",
   city: "Puerto Princesa",
@@ -165,7 +165,7 @@ Origin.create! (
   category: 1
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 1852,
   name: "Cancún International Airport",
   city: "Cancun",
@@ -176,7 +176,7 @@ Origin.create! (
   category: 1
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 4279,
   name: "San Pedro Airport",
   city: "San Pedro",
@@ -187,7 +187,7 @@ Origin.create! (
   category: 1
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 3564,
   name: "Pensacola Regional Airport",
   city: "Pensacola",
@@ -198,7 +198,7 @@ Origin.create! (
   category: 1
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 1780,
   name: "Sangster International Airport",
   city: "Montego Bay",
@@ -209,7 +209,7 @@ Origin.create! (
   category: 1
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 2890,
   name: "Luis Munoz Marin International Airport",
   city: "San Juan",
@@ -219,7 +219,7 @@ Origin.create! (
   longitude: -66.0018005371,
   category: 1
    )
-Origin.create! (
+Origin.create!(
   airport_id: 2899,
   name: "Princess Juliana International Airport",
   city: "Philipsburg",
@@ -233,7 +233,7 @@ Origin.create! (
 puts "creating city origins(2)"
 
 
-Origin.create! (
+Origin.create!(
   airport_id: 2359,
   name: "Tokyo Haneda International Airport",
   city: "Tokyo",
@@ -244,7 +244,7 @@ Origin.create! (
   category: 2
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 1489,
   name: "Budapest Liszt Ferenc International Airport",
   city: "Budapest",
@@ -255,7 +255,7 @@ Origin.create! (
   category: 2
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 1657,
   name: "Henri Coandă International Airport",
   city: "Bucharest",
@@ -266,7 +266,7 @@ Origin.create! (
   category: 2
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 1194,
   name: "Sofia Airport",
   city: "Sofia",
@@ -277,7 +277,7 @@ Origin.create! (
   category: 2
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 3093,
   name: "Indira Gandhi International Airport",
   city: "Delhi",
@@ -288,7 +288,7 @@ Origin.create! (
   category: 2
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 2997,
   name: "Chhatrapati Shivaji International Airport",
   city: "Mumbai",
@@ -299,7 +299,7 @@ Origin.create! (
   category: 2
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 3988,
   name: "Ministro Pistarini International Airport",
   city: "Buenos Aires",
@@ -310,7 +310,7 @@ Origin.create! (
   category: 2
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 1590,
   name: "Ben Gurion International Airport",
   city: "Tel-aviv",
@@ -321,7 +321,7 @@ Origin.create! (
   category: 2
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 3380,
   name: "Chinggis Khaan International Airport",
   city: "Ulan Bator",
@@ -332,7 +332,7 @@ Origin.create! (
   category: 2
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 813,
   name: "OR Tambo International Airport",
   city: "Johannesburg",
@@ -343,7 +343,7 @@ Origin.create! (
   category: 2
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 797,
   name: "Cape Town International Airport",
   city: "Cape Town",
@@ -354,7 +354,7 @@ Origin.create! (
   category: 2
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 1186,
   name: "Abeid Amani Karume International Airport",
   city: "Zanzibar",
@@ -365,7 +365,7 @@ Origin.create! (
   category: 2
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 3964,
   name: "Zvartnots International Airport",
   city: "Yerevan",
@@ -376,7 +376,7 @@ Origin.create! (
   category: 2
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 1739,
   name: "Belgrade Nikola Tesla Airport",
   city: "Belgrade",
@@ -387,7 +387,7 @@ Origin.create! (
   category: 2
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 1662,
   name: "Transilvania Târgu Mureş International Airport",
   city: "Tirgu Mures",
@@ -398,7 +398,7 @@ Origin.create! (
   category: 2
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 3304,
   name: "Kuala Lumpur International Airport",
   city: "Kuala Lumpur",
@@ -409,7 +409,7 @@ Origin.create! (
   category: 2
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 2985,
   name: "Sheremetyevo International Airport",
   city: "Moscow",
@@ -420,7 +420,7 @@ Origin.create! (
   category: 2
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 4029,
   name: "Domodedovo International Airport",
   city: "Moscow",
@@ -431,7 +431,7 @@ Origin.create! (
   category: 2
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 580,
   name: "Amsterdam Airport Schiphol",
   city: "Amsterdam",
@@ -442,7 +442,7 @@ Origin.create! (
   category: 2
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 1382,
   name: "Charles de Gaulle International Airport",
   city: "Paris",
@@ -453,7 +453,7 @@ Origin.create! (
   category: 2
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 1354,
   name: "Nice-Côte d'Azur Airport",
   city: "Nice",
@@ -464,7 +464,7 @@ Origin.create! (
   category: 2
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 1555,
   name: "Leonardo da Vinci–Fiumicino Airport",
   city: "Rome",
@@ -475,7 +475,7 @@ Origin.create! (
   category: 2
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 1561,
   name: "Naples International Airport",
   city: "Naples",
@@ -486,7 +486,7 @@ Origin.create! (
   category: 2
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 302,
   name: "Brussels Airport",
   city: "Brussels",
@@ -496,7 +496,7 @@ Origin.create! (
   longitude: 4.48443984985,
   category: 2
    )
-Origin.create! (
+Origin.create!(
   airport_id: 507,
   name: "London Heathrow Airport",
   city: "London",
@@ -508,7 +508,7 @@ Origin.create! (
    )
 
 
-Origin.create! (
+Origin.create!(
   airport_id: 340,
   name: "Frankfurt am Main Airport",
   city: "Frankfurt",
@@ -519,7 +519,7 @@ Origin.create! (
   category: 2
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 3682,
   name: "Hartsfield Jackson Atlanta International Airport",
   city: "Atlanta",
@@ -530,7 +530,7 @@ Origin.create! (
   category: 2
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 3364,
   name: "Beijing Capital International Airport",
   city: "Beijing",
@@ -541,7 +541,7 @@ Origin.create! (
   category: 2
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 2188,
   name: "Dubai International Airport",
   city: "Dubai",
@@ -552,7 +552,7 @@ Origin.create! (
   category: 2
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 3484,
   name: "Los Angeles International Airport",
   city: "Los Angeles",
@@ -563,7 +563,7 @@ Origin.create! (
   category: 2
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 3830,
   name: "Chicago O'Hare International Airport",
   city: "Chicago",
@@ -575,7 +575,7 @@ Origin.create! (
    )
 
 
-Origin.create! (
+Origin.create!(
   airport_id: 3077,
   name: "Hong Kong International Airport",
   city: "Hong Kong",
@@ -587,7 +587,7 @@ Origin.create! (
    )
 
 
-Origin.create! (
+Origin.create!(
   airport_id: 3406,
   name: "Shanghai Pudong International Airport",
   city: "Shanghai",
@@ -599,7 +599,7 @@ Origin.create! (
    )
 
 
-Origin.create! (
+Origin.create!(
  airport_id: 3930,
   name: "Incheon International Airport",
   city: "Seoul",
@@ -611,7 +611,7 @@ Origin.create! (
    )
 
 
-Origin.create! (
+Origin.create!(
   airport_id: 13696,
   name: "Istanbul Airport",
   city: "Istanbul",
@@ -624,7 +624,7 @@ Origin.create! (
 
 
 
-Origin.create! (
+Origin.create!(
   airport_id: 3316,
   name: "Singapore Changi Airport",
   city: "Singapore",
@@ -637,7 +637,7 @@ Origin.create! (
 
 
 
-Origin.create! (
+Origin.create!(
   airport_id: 3797,
   name: "John F Kennedy International Airport",
   city: "New York",
@@ -650,7 +650,7 @@ Origin.create! (
 
 
 
-Origin.create! (
+Origin.create!(
   airport_id: 1229,
   name: "Adolfo Suárez Madrid–Barajas Airport",
   city: "Madrid",
@@ -661,7 +661,7 @@ Origin.create! (
   category: 2
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 1218,
   name: "Barcelona International Airport",
   city: "Barcelona",
@@ -672,7 +672,7 @@ Origin.create! (
   category: 2
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 193,
   name: "Lester B. Pearson International Airport",
   city: "Toronto",
@@ -683,7 +683,7 @@ Origin.create! (
   category: 2
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 346,
   name: "Munich Airport",
   city: "Munich",
@@ -694,7 +694,7 @@ Origin.create! (
   category: 2
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 3494,
   name: "Newark Liberty International Airport",
   city: "Newark",
@@ -705,7 +705,7 @@ Origin.create! (
   category: 2
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 2564,
   name: "Guarulhos - Governador André Franco Montoro International Airport",
   city: "Sao Paulo",
@@ -716,7 +716,7 @@ Origin.create! (
   category: 2
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 3146,
   name: "Vir Savarkar International Airport",
   city: "Port Blair",
@@ -727,7 +727,7 @@ Origin.create! (
   category: 2
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 3361,
   name: "Sydney Kingsford Smith International Airport",
   city: "Sydney",
@@ -738,7 +738,7 @@ Origin.create! (
   category: 2
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 3339,
   name: "Melbourne International Airport",
   city: "Melbourne",
@@ -750,7 +750,7 @@ Origin.create! (
    )
 
 
-Origin.create! (
+Origin.create!(
   airport_id: 2006,
   name: "Auckland International Airport",
   city: "Auckland",
@@ -761,7 +761,7 @@ Origin.create! (
   category: 2
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 1128,
   name: "Cairo International Airport",
   city: "Cairo",
@@ -772,7 +772,7 @@ Origin.create! (
   category: 2
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 2650,
   name: "Comodoro Arturo Merino Benítez International Airport",
   city: "Santiago",
@@ -784,7 +784,7 @@ Origin.create! (
    )
 
 
-Origin.create! (
+Origin.create!(
   airport_id: 3877,
   name: "McCarran International Airport",
   city: "Las Vegas",
@@ -798,7 +798,7 @@ Origin.create! (
 
 
 
-Origin.create! (
+Origin.create!(
   airport_id: 1885,
   name: "Juan Santamaria International Airport",
   city: "San Jose",
@@ -809,7 +809,7 @@ Origin.create! (
   category: 2
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 737,
   name: "Stockholm-Arlanda Airport",
   city: "Stockholm",
@@ -821,7 +821,7 @@ Origin.create! (
    )
 
 
-Origin.create! (
+Origin.create!(
   airport_id: 4105,
   name: "Hosea Kutako International Airport",
   city: "Windhoek",
@@ -832,7 +832,7 @@ Origin.create! (
   category: 2
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 1871,
   name: "Tocumen International Airport",
   city: "Panama City",
@@ -843,7 +843,7 @@ Origin.create! (
   category: 2
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 1587,
   name: "Václav Havel Airport Prague",
   city: "Prague",
@@ -854,7 +854,7 @@ Origin.create! (
   category: 2
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 1165,
   name: "Kigali International Airport",
   city: "Kigali",
@@ -865,7 +865,7 @@ Origin.create! (
   category: 2
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 535,
   name: "Edinburgh Airport",
   city: "Edinburgh",
@@ -876,7 +876,7 @@ Origin.create! (
   category: 2
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 609,
   name: "Copenhagen Kastrup Airport",
   city: "Copenhagen",
@@ -887,7 +887,7 @@ Origin.create! (
   category: 2
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 287,
   name: "Tunis Carthage International Airport",
   city: "Tunis",
@@ -898,7 +898,7 @@ Origin.create! (
   category: 2
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 287,
   name: "Tunis Carthage International Airport",
   city: "Tunis",
@@ -912,7 +912,7 @@ Origin.create! (
 
 puts "creatin nature origins(3)"
 
-Origin.create! (
+Origin.create!(
   airport_id: 2673,
   name: "José Joaquín de Olmedo International Airport",
   city: "Guayaquil",
@@ -923,7 +923,7 @@ Origin.create! (
   category: 3
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 2762,
   name: "El Alto International Airport",
   city: "La Paz",
@@ -934,7 +934,7 @@ Origin.create! (
   category: 3
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 421,
   name: "Helsinki Vantaa Airport",
   city: "Helsinki",
@@ -945,7 +945,7 @@ Origin.create! (
   category: 3
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 1767,
   name: "La Aurora Airport",
   city: "Guatemala City",
@@ -956,7 +956,7 @@ Origin.create! (
   category: 3
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 3034,
   name: "Phnom Penh International Airport",
   city: "Phnom-penh",
@@ -967,7 +967,7 @@ Origin.create! (
   category: 3
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 1863,
   name: "Augusto C. Sandino (Managua) International Airport",
   city: "Managua",
@@ -979,7 +979,7 @@ Origin.create! (
    )
 
 
-Origin.create! (
+Origin.create!(
   airport_id: 2789,
   name: "Jorge Chávez International Airport",
   city: "Lima",
@@ -990,18 +990,18 @@ Origin.create! (
   category: 3
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 1745,
   name: "M. R. Štefánik Airport",
   city: "Bratislava",
   country: "Slovakia",
   code: "BTS",
   latitude: 48.1702003479004,
-  ongitude: 17.2126998901367,
+  longitude: 17.2126998901367,
   category: 3
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 3959,
   name: "Vilnius International Airport",
   city: "Vilnius",
@@ -1012,7 +1012,7 @@ Origin.create! (
   category: 3
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 3953,
   name: "Riga International Airport",
   city: "Riga",
@@ -1023,7 +1023,7 @@ Origin.create! (
   category: 3
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 2877,
   name: "Douglas-Charles Airport",
   city: "Dominica",
@@ -1034,7 +1034,7 @@ Origin.create! (
   category: 3
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 189,
   name: "St. John's International Airport",
   city: "St. John's",
@@ -1045,7 +1045,7 @@ Origin.create! (
   category: 3
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 2903,
   name: "Terrance B. Lettsome International Airport",
   city: "Tortola",
@@ -1056,7 +1056,7 @@ Origin.create! (
   category: 3
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 1741,
   name: "Podgorica Airport",
   city: "Podgorica",
@@ -1067,7 +1067,7 @@ Origin.create! (
   category: 3
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 2256,
   name: "Babelthuap Airport",
   city: "Babelthuap",
@@ -1078,7 +1078,7 @@ Origin.create! (
    category: 3
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 16,
   name: "Keflavik International Airport",
   city: "Keflavik",
@@ -1089,7 +1089,7 @@ Origin.create! (
   category: 3
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 7,
   name: "Narsarsuaq Airport",
   city: "Narssarssuaq",
@@ -1100,7 +1100,7 @@ Origin.create! (
   category: 3
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 3774,
   name: "Ted Stevens Anchorage International Airport",
   city: "Anchorage",
@@ -1111,7 +1111,7 @@ Origin.create! (
   category: 3
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 1107,
   name: "Addis Ababa Bole International Airport",
   city: "Addis Ababa",
@@ -1124,7 +1124,7 @@ Origin.create! (
 
 
 
-Origin.create! (
+Origin.create!(
   airport_id: 4059,
   name: "Jomo Kenyatta International Airport",
   city: "Nairobi",
@@ -1137,7 +1137,7 @@ Origin.create! (
 
 puts "creatin ski origins(4)"
 
-Origin.create! (
+Origin.create!(
   airport_id: 1678,
   name: "Zürich Airport",
   city: "Zurich",
@@ -1148,7 +1148,7 @@ Origin.create! (
   category: 4
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 6479,
   name: "Courchevel Airport",
   city: "Courcheval",
@@ -1159,7 +1159,7 @@ Origin.create! (
   category: 4
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 3819,
   name: "City of Colorado Springs Municipal Airport",
   city: "Colorado Springs",
@@ -1170,7 +1170,7 @@ Origin.create! (
   category: 4
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 7001,
   name: "Aspen-Pitkin Co/Sardy Field",
   city: "Aspen",
@@ -1181,7 +1181,7 @@ Origin.create! (
   category: 4
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 1423,
   name: "EuroAirport Basel-Mulhouse-Freiburg Airport",
   city: "Mulhouse",
@@ -1192,7 +1192,7 @@ Origin.create! (
   category: 4
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 1536,
   name: "Bolzano Airport",
   city: "Bolzano",
@@ -1202,7 +1202,7 @@ Origin.create! (
   longitude: 11.3264,
   category: 4
    )
-Origin.create! (
+Origin.create!(
   airport_id: 5995,
   name: "Okadama Airport",
   city: "Sapporo",
@@ -1212,7 +1212,7 @@ Origin.create! (
   longitude: 141.38134,
   category: 4
    )
-Origin.create! (
+Origin.create!(
   airport_id: 8080,
   name: "Méribel Altiport",
   city: "Ajaccio",
@@ -1223,7 +1223,7 @@ Origin.create! (
   category: 4
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 1610,
   name: "Innsbruck Airport",
   city: "Innsbruck",
@@ -1234,7 +1234,7 @@ Origin.create! (
   category: 4
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 1665,
   name: "Geneva Cointrin International Airport",
   city: "Geneva",
@@ -1244,7 +1244,7 @@ Origin.create! (
   longitude: 6.10895013809204,
   category: 4
    )
-Origin.create! (
+Origin.create!(
   airport_id: 3536,
   name: "Salt Lake City International Airport",
   city: "Salt Lake City",
@@ -1255,7 +1255,7 @@ Origin.create! (
   category: 4
    )
 
-Origin.create! (
+Origin.create!(
   airport_id: 2513,
   name: "San Carlos De Bariloche Airport",
   city: "San Carlos De Bariloche",
