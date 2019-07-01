@@ -12,10 +12,11 @@
               <button id="add-origin">+</button>
             </div>
             <div class="dates">
-              <%= s.input :dep_date, as: :string, label: "Date from", required: false, input_html: {class: "datepicker"} %>
-              <%= s.input :ret_date, as: :string,  label: "Date to" required: false, input_html: {class: "datepicker"} %>
+              <%= s.input :dep_date, label: "Date from", as: :string, required: false, input_html: {id: "dep_date"} %>
+              <%= s.input :ret_date, label: "Date to", as: :string, required: false, input_html: {id: "ret_date"} %>
             </div>
-            <%= s.input :max_budget, label: "Your maximum budget" %>
+            <%= s.input :max_budget, label: "Your maximum budget", input_html: { class: "js-range-slider" } %>
+
           </div>
             <%= s.submit "Get results", class: "create-trip" %>
           <% end %>
