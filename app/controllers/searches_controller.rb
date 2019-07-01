@@ -66,9 +66,6 @@ class SearchesController < ApplicationController
 
     end
 
-    #if the airport is nearby any of the averages (300 km), we search for possible trips through the API
-  end
-
 
   private
 

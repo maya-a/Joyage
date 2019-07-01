@@ -17,6 +17,9 @@ gem 'uglifier'
 gem 'webpacker'
 
 gem 'devise'
+gem 'dotenv-rails', groups: [:development, :test]
+gem 'geocoder'
+
 
 gem 'oauth2', '~> 1.2'
 
