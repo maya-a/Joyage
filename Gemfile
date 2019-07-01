@@ -15,6 +15,9 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'devise'
+gem 'dotenv-rails', groups: [:development, :test]
+gem 'geocoder'
+
 
 
 group :development do
