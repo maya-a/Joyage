@@ -14,8 +14,16 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+
 gem 'devise'
+
 gem 'oauth2', '~> 1.2'
+
+gem 'geocoder'
+
+
+
+
 
 
 group :development do
