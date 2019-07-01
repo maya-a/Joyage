@@ -95,9 +95,67 @@ $blue: #467DCF;
   width: 82%;
   border: none;
   margin-top: 50px;
+  letter-spacing: 2px;
 }
 
 
 // calendar
 
+.flatpickr-current-month .flatpickr-monthDropdown-months{
+  background-color: white !important;
+}
 
+.flatpickr-weekdays {
+  background-color: white !important;
+}
+
+.flatpickr-day.today {
+  border-color: $blue !important;
+  &:hover {
+    background-color: $blue !important;
+  }
+}
+
+
+.flatpickr-day.selected.startRange, .flatpickr-day.startRange.startRange, {
+  background-color: $blue !important;
+  border-color: $blue !important;
+}
+
+.flatpickr-day.selected.endRange, .flatpickr-day.endRange.endRange {
+    background-color: $blue !important;
+  border-color: $blue !important;
+}
+
+//silder
+
+
+.irs--flat .irs-min {
+  background-color: transparent !important;
+  color: $white !important;
+  font-size: 12px !important;
+}
+
+.irs--flat .irs-max {
+  background-color: transparent !important;
+  color: $white !important;
+  font-size: 12px !important;
+}
+
+.irs--flat .irs-line {
+  background-color: white !important;
+}
+
+
+.irs--flat .irs-bar {
+  background-color: #EF682E !important;
+}
+
+.irs--flat .irs-handle>i:first-child {
+  background-color: #EF682E !important;
+}
+
+.irs--flat .irs-single {
+  background-color: #EF682E !important;
+  opacity: 0.9 !important;
+}
