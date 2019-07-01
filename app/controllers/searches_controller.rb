@@ -9,6 +9,7 @@ require 'rubygems'
 class SearchesController < ApplicationController
   def new
 
+
     client = OAuth2::Client.new("tEDDbA3LWoIm4FsWZ4QFFNkvGDjaJlOr", "AzXPuVGJkX4ap2Df", site: 'https://test.api.amadeus.com', token_url: 'https://test.api.amadeus.com/v1/security/oauth2/token')
     token = client.client_credentials.get_token
     response = token.get('https://test.api.amadeus.com/v1/shopping/flight-offers?origin=NYC&destination=MAD&departureDate=2019-08-01&returnDate=2019-09-01&max=2')
@@ -43,32 +44,36 @@ class SearchesController < ApplicationController
       # carrier_code = flight_offer["services"][0]["segments"][0]["flightSegment"]["carrierCode"]
       # airline: response_body["dictionaries"]["carriers"]["#{carrier_code}"]
 
-
     @search = Search.new()
 
   end
 
   def create
-    @search = Search.new (search_params)
+    @search = Search.new(search_params)
     @possible_trips = []
-    middle_points = find_middle(@search)
-    #if the airport is nearby any of the averages (300 km), we search for possible trips through the API
-    LIST.each do |airport| #LIST is defined in the trip model as all the airports
-     dot = Geokit::LatLng.new(airport[:latitude], airport[:longitude])
-      middle_points.each do |point|
-        if point.distance_to(dot) < 300 #km
-          trip = Trip.new
-          trip.destination = dot
-          @possible_trips << trip
+    @search.origins.each do |origin|
+      Trip.all.each do |trip|
+        if trip.category == @search.category
+          oap_code = origin.code
+          dap_code = trip.dap_code
+          dep_date = @search.dep_date.slice(0..9)
+          ret_date = @search.ret_date
+          possible_trips << [oap_code, dap_code, dep_date, ret_date]
         end
       end
+    end
+    #if the category matches, create trip (API) call
+
+    end
+
+    #if the airport is nearby any of the averages (300 km), we search for possible trips through the API
   end
 
 
   private
 
   def search_params(search)
-    params.require(:search).permit(:max_budget, :dep_date, :ret_date)
+    params.require(:search_).permit(:max_budget, :dep_date, :ret_date, :origins)
   end
 
   # def find_middle
@@ -89,10 +94,16 @@ class SearchesController < ApplicationController
   #   end
   #   return @mid
   # end
+    # LIST.each do |airport| #LIST is defined in the trip model as all the airports
+    #  dot = Geokit::LatLng.new(airport[:latitude], airport[:longitude])
+    #   middle_points.each do |point|
+    #     if point.distance_to(dot) < 300 #km
+    #       trip = Trip.new
+    #       trip.destination = dot
+    #       @possible_trips << trip
+    #     end
+    #   end
 end
-
-
-
 
 #INSIDE EACH FLIGHT OFFER
 
@@ -115,5 +126,6 @@ end
 # carrier_code = response_body["data"][0]["offerItems"][0]["services"][0]["segments"][0]["flightSegment"]["carrierCode"]
 # response_body["dictionaries"]["carriers"]["#{carrier_code}"]
 # will return the carrier of the airline
+
 
 
