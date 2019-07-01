@@ -34,7 +34,6 @@ ActiveRecord::Schema.define(version: 2019_07_01_084831) do
   end
 
   create_table "origins", force: :cascade do |t|
-<<<<<<< HEAD
     t.integer "airport_id"
     t.string "name"
     t.string "city"
@@ -54,13 +53,7 @@ ActiveRecord::Schema.define(version: 2019_07_01_084831) do
     t.datetime "updated_at", null: false
     t.index ["origin_id"], name: "index_search_origins_on_origin_id"
     t.index ["search_id"], name: "index_search_origins_on_search_id"
-=======
-    t.float "latitude"
-    t.float "longitude"
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
->>>>>>> b0bfff1ab122ec26a1c4067f3388ed2b0942d23f
+
   end
 
   create_table "searches", force: :cascade do |t|
