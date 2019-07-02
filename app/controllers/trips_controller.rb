@@ -5,6 +5,13 @@ class TripsController < ApplicationController
   def show
   end
 
+  def new
+
+  end
+
+  def create
+  end
+
   def update
   end
 
@@ -13,4 +20,7 @@ class TripsController < ApplicationController
 
   def destroy
   end
+
+
 end
+

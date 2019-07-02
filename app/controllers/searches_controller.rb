@@ -6,76 +6,49 @@ require 'oauth2'
 
 class SearchesController < ApplicationController
   def new
-
-
-    # client = OAuth2::Client.new("tEDDbA3LWoIm4FsWZ4QFFNkvGDjaJlOr", "AzXPuVGJkX4ap2Df", site: 'https://test.api.amadeus.com', token_url: 'https://test.api.amadeus.com/v1/security/oauth2/token')
-    # token = client.client_credentials.get_token
-    # response = token.get('https://test.api.amadeus.com/v1/shopping/flight-offers?origin=NYC&destination=MAD&departureDate=2019-08-01&returnDate=2019-09-01&max=2')
-    # itineraries = []
-    # response_body = JSON.parse(response.body)
-    # response_body["data"].each do |flight_offer|
-
-    #    flight_option = {
-    #     origin_city: flight_offer['offerItems'][0]["services"][0]["segments"][0]["flightSegment"]["departure"]["iataCode"],
-    #     arrival_city: flight_offer['offerItems'][0]["services"][0]["segments"][0]["flightSegment"]["arrival"]["iataCode"],
-    #     departure_date: flight_offer['offerItems'][0]["services"][0]["segments"][0]["flightSegment"]["departure"]["at"],
-    #     arrival_date: flight_offer['offerItems'][0]["services"][0]["segments"][0]["flightSegment"]["arrival"]["at"],
-    #     layovers: flight_offer['offerItems'][0]["services"][0]["segments"].length,
-    #     # if the layovers = 1 then its a direct flight! its its 2 then theres 1 layover!
-    #     price: flight_offer['offerItems'][0]["price"]["total"],
-    #     duration: flight_offer['offerItems'][0]["services"][0]["segments"][0]["flightSegment"]["duration"],
-    #     return_origin_city: flight_offer['offerItems'][0]["services"][1]["segments"][0]["flightSegment"]["departure"]["iataCode"],
-    #     return_arrival_city: flight_offer['offerItems'][0]["services"][1]["segments"][0]["flightSegment"]["arrival"]["iataCode"],
-    #     return_departure_date: flight_offer['offerItems'][0]["services"][1]["segments"][0]["flightSegment"]["departure"]["at"],
-    #     return_arrival_date: flight_offer['offerItems'][0]["services"][1]["segments"][0]["flightSegment"]["arrival"]["at"],
-    #     return_layovers: flight_offer['offerItems'][0]["services"][1]["segments"].length,
-    #     # if the layovers = 1 then its a direct flight! its its 2 then theres 1 layover!
-    #     return_price: flight_offer['offerItems'][0]["price"]["total"],
-    #     return_duration: flight_offer['offerItems'][0]["services"][1]["segments"][0]["flightSegment"]["duration"]
-    #     }
-
-
-
-    #   itineraries << flight_option
-    #   end
       # carrier_code = flight_offer["services"][0]["segments"][0]["flightSegment"]["carrierCode"]
       # airline: response_body["dictionaries"]["carriers"]["#{carrier_code}"]
-
-    @search = Search.new()
-
+    @search = Search.new
   end
 
   def create
+    #!!!MISSING!!! the format of the origins from the form after making the search work
+    # search from form
+    @search = Search.create!(max_budget:770, dep_date:"2019-7-17",ret_date:"2019-8-1", user: User.first, category: 2)
+    # @search = Search.create!(search_params,)
+    # origins from form
     @origins = params[:search][:origin]
-    @search = Search.new(search_params)
-    @origins = SearchOrigin.new()
-    @possible_trips = []
+    @origin_list = [] #will contain the search-origin relations
+    # creating an origin list with new instances
+    @origins.each do |origin|
+      origin_instance = Origin.find_by(city: origin.capitalize)
+      @origin_list << SearchOrigin.create(search: @search, origin: origin_instance)
+    end
+    # creating all possible destination-origin combinations for the API calls
+    possible_trips = []
     Destination.all.each do |destination|
-      @search.origin.each do |origin|
+      @origin_list.each do |origin|
         if destination.category == @search.category
+          # information needed for the API call:
           # oap_code = origin.code
           # dap_code = destination.dap_code
           # dep_date = @search.dep_date.slice(0..9)
           # ret_date = @search.ret_date
           possible_trips << {
-                             oap_code: origin.code,
+                             oap_code: origin.origin.code,
                              dap_code: destination.dap_code,
-                             dep_date: @search.dep_date.slice(0..9),
+                             dep_date: @search.dep_date, #.slice(0..9),
                              ret_date: @search.ret_date
                             }
         end
       end
-
-      possible_trips.each do |call|
-        get_itinerary(call)
-      end
     end
-    #if the category matches, create trip (API) call
-
+    possible_trips.each do |call|
+      make_trips(call, @search)
     end
-
-    #if the airport is nearby any of the averages (300 km), we search for possible trips through the API
+    redirect_to search_trips_path(@search)
   end
+
 
 
   private
@@ -84,64 +57,107 @@ class SearchesController < ApplicationController
     params.require(:search).permit(:max_budget, :dep_date, :ret_date, :origin)
   end
 
-  def get_itinerary(call) #call is a hash
+  # def get_itinerary(call) #call is a hash
+  #   client = OAuth2::Client.new("tEDDbA3LWoIm4FsWZ4QFFNkvGDjaJlOr", "AzXPuVGJkX4ap2Df", site: 'https://test.api.amadeus.com', token_url: 'https://test.api.amadeus.com/v1/security/oauth2/token')
+  #   token = client.client_credentials.get_token
+  #   #  response = token.get(`https://test.api.amadeus.com/v1/shopping/flight-offers?origin=#{call.oap_code}&destination=#{call.dap_code}&departureDate=#{call.dep_date}&returnDate=#{call.ret_date}&max=2`)
+  #   response = token.get(`https://test.api.amadeus.com/v1/shopping/flight-offers?origin=HAS&destination=ZRH&departureDate=2019-08-01&returnDate=2019-09-01&max=2`)
+  #   itineraries = []
+  #   response_body = JSON.parse(response.body)
+  #   response_body["data"].each do |flight_offer|
+
+  #      flight_option = {
+  #       origin_city: flight_offer['offerItems'][0]["services"][0]["segments"][0]["flightSegment"]["departure"]["iataCode"],
+  #       arrival_city: flight_offer['offerItems'][0]["services"][0]["segments"][0]["flightSegment"]["arrival"]["iataCode"],
+  #       departure_date: flight_offer['offerItems'][0]["services"][0]["segments"][0]["flightSegment"]["departure"]["at"],
+  #       arrival_date: flight_offer['offerItems'][0]["services"][0]["segments"][0]["flightSegment"]["arrival"]["at"],
+  #       layovers: flight_offer['offerItems'][0]["services"][0]["segments"].length,
+  #       # if the layovers = 1 then its a direct flight! its its 2 then theres 1 layover!
+  #       price: flight_offer['offerItems'][0]["price"]["total"],
+  #       duration: flight_offer['offerItems'][0]["services"][0]["segments"][0]["flightSegment"]["duration"],
+  #       return_origin_city: flight_offer['offerItems'][0]["services"][1]["segments"][0]["flightSegment"]["departure"]["iataCode"],
+  #       return_arrival_city: flight_offer['offerItems'][0]["services"][1]["segments"][0]["flightSegment"]["arrival"]["iataCode"],
+  #       return_departure_date: flight_offer['offerItems'][0]["services"][1]["segments"][0]["flightSegment"]["departure"]["at"],
+  #       return_arrival_date: flight_offer['offerItems'][0]["services"][1]["segments"][0]["flightSegment"]["arrival"]["at"],
+  #       return_layovers: flight_offer['offerItems'][0]["services"][1]["segments"].length,
+  #       # if the layovers = 1 then its a direct flight! its its 2 then theres 1 layover!
+  #       return_price: flight_offer['offerItems'][0]["price"]["total"],
+  #       return_duration: flight_offer['offerItems'][0]["services"][1]["segments"][0]["flightSegment"]["duration"]
+  #       }
+  #     itineraries << flight_option
+  #     end
+  #   end
+
+  def make_trips(call, seacrh)
     client = OAuth2::Client.new("tEDDbA3LWoIm4FsWZ4QFFNkvGDjaJlOr", "AzXPuVGJkX4ap2Df", site: 'https://test.api.amadeus.com', token_url: 'https://test.api.amadeus.com/v1/security/oauth2/token')
     token = client.client_credentials.get_token
-    #  response = token.get(`https://test.api.amadeus.com/v1/shopping/flight-offers?origin=#{call.oap_code}&destination=#{call.dap_code}&departureDate=#{call.dep_date}&returnDate=#{call.ret_date}&max=2`)
-    response = token.get(`https://test.api.amadeus.com/v1/shopping/flight-offers?origin=HAS&destination=ZRH&departureDate=2019-08-01&returnDate=2019-09-01&max=2`)
+    response = token.get('https://test.api.amadeus.com/v1/shopping/flight-offers?origin=IAD&destination=TLV&departureDate=2019-08-01&returnDate=2019-09-01&max=2')
     itineraries = []
     response_body = JSON.parse(response.body)
     response_body["data"].each do |flight_offer|
+          way_there = flight_offer['offerItems'][0]["services"][0]["segments"]
+          way_back = flight_offer['offerItems'][0]["services"][0]["segments"]
 
-       flight_option = {
-        origin_city: flight_offer['offerItems'][0]["services"][0]["segments"][0]["flightSegment"]["departure"]["iataCode"],
-        arrival_city: flight_offer['offerItems'][0]["services"][0]["segments"][0]["flightSegment"]["arrival"]["iataCode"],
-        departure_date: flight_offer['offerItems'][0]["services"][0]["segments"][0]["flightSegment"]["departure"]["at"],
-        arrival_date: flight_offer['offerItems'][0]["services"][0]["segments"][0]["flightSegment"]["arrival"]["at"],
-        layovers: flight_offer['offerItems'][0]["services"][0]["segments"].length,
-        # if the layovers = 1 then its a direct flight! its its 2 then theres 1 layover!
-        price: flight_offer['offerItems'][0]["price"]["total"],
-        duration: flight_offer['offerItems'][0]["services"][0]["segments"][0]["flightSegment"]["duration"],
-        return_origin_city: flight_offer['offerItems'][0]["services"][1]["segments"][0]["flightSegment"]["departure"]["iataCode"],
-        return_arrival_city: flight_offer['offerItems'][0]["services"][1]["segments"][0]["flightSegment"]["arrival"]["iataCode"],
-        return_departure_date: flight_offer['offerItems'][0]["services"][1]["segments"][0]["flightSegment"]["departure"]["at"],
-        return_arrival_date: flight_offer['offerItems'][0]["services"][1]["segments"][0]["flightSegment"]["arrival"]["at"],
-        return_layovers: flight_offer['offerItems'][0]["services"][1]["segments"].length,
-        # if the layovers = 1 then its a direct flight! its its 2 then theres 1 layover!
-        return_price: flight_offer['offerItems'][0]["price"]["total"],
-        return_duration: flight_offer['offerItems'][0]["services"][1]["segments"][0]["flightSegment"]["duration"]
+       flight_option = [{
+                          destination: flight_offer['offerItems'][0]["services"][0]["segments"][-1]["flightSegment"]["arrival"]["iataCode"],
+                          price: flight_offer['offerItems'][0]["price"]["total"],
+                          return_price: flight_offer['offerItems'][0]["price"]["total"]
+                        }]
+
+        way_there.each do |flight|
+          flight_option << {
+            origin_city: flight["flightSegment"]["departure"]["iataCode"],
+            arrival_city: flight["flightSegment"]["arrival"]["iataCode"],
+            departure_date: flight["flightSegment"]["departure"]["at"],
+            arrival_date: flight["flightSegment"]["arrival"]["at"],
+            layovers: flight.length,
+            # if the layovers = 1 then its a direct flight! its its 2 then theres 1 layover!
+            duration: flight["flightSegment"]["duration"]
+          # flight_option[:destination]
         }
+        end
+
+        way_back.each do |flight|
+          flight_option << {
+            return_origin_city: flight["flightSegment"]["departure"]["iataCode"],
+            return_arrival_city: flight["flightSegment"]["arrival"]["iataCode"],
+            return_departure_date: flight["flightSegment"]["departure"]["at"],
+            return_arrival_date: flight["flightSegment"]["arrival"]["at"],
+            return_layovers: flight.length,
+            # if the layovers = 1 then its a direct flight! its its 2 then theres 1 layover!
+            return_duration: flight["flightSegment"]["duration"]
+        }
+        end
+        # flight_option[:destination]
       itineraries << flight_option
-      end
     end
+    # returns a hash of hashes, the main key is the group and the value is a hash
+    grouped = itineraries.group_by { |d| d[:arrival_city] }
+    #average_price
+    avg= find_average(grouped)
 
-      def make_trips
-        itineraries = get_itinerary(call)
-        # retuens a hash of hashes, the main key is the group and the value is a hash
-        itineraries.group_by { |d| d[:arrival_city] }
-        raise
-
-        # itineraries.each do |key,value|
-        #   Trip.create(
-        #               destination: destination.find_by(key)
-        #               search_id: @search
-        #               )
-        #  end
-       end
-
-       def find_average
-          default = []
-          sum = 0
-          #getting the default flight which we'll show to the user
-          itineraries.each do |itinerary|
-            default << itinerary.first
-          end
-          default.each do |flight|
-            sum += flight[:price] + flight[:return_price]
-          end
-          average = sum.fdiv(default.size)
+    grouped.each do |key,value|
+      Trip.create(
+                  destination_id: Destination.find_by(dap_code: key).id,
+                  search_id: @search.id
+                  )
+    end
   end
 
+  def find_average(itineraries)
+    default = []
+    sum = 0
+    #getting the default flight which we'll show to the user
+    itineraries.each do |key,value|
+      default << value.first
+    end
+    #getting total price
+    default.each do |flight|
+      sum += flight[:price].to_f + flight[:return_price].to_f
+    end
+    average = sum.fdiv(default.size)
+  end
+end
 
 #INSIDE EACH FLIGHT OFFER
 
@@ -165,3 +181,20 @@ class SearchesController < ApplicationController
 # response_body["dictionaries"]["carriers"]["#{carrier_code}"]
 # will return the carrier of the airline
 
+      #     origin_city: flight_offer['offerItems'][0]["services"][0]["segments"][0]["flightSegment"]["departure"]["iataCode"],
+      #     arrival_city: flight_offer['offerItems'][0]["services"][0]["segments"][0]["flightSegment"]["arrival"]["iataCode"],
+      #     departure_date: flight_offer['offerItems'][0]["services"][0]["segments"][0]["flightSegment"]["departure"]["at"],
+      #     arrival_date: flight_offer['offerItems'][0]["services"][0]["segments"][0]["flightSegment"]["arrival"]["at"],
+      #     layovers: flight_offer['offerItems'][0]["services"][0]["segments"].length,
+      #     # if the layovers = 1 then its a direct flight! its its 2 then theres 1 layover!
+      #     price: flight_offer['offerItems'][0]["price"]["total"],
+      #     duration: flight_offer['offerItems'][0]["services"][0]["segments"][0]["flightSegment"]["duration"],
+      #     return_origin_city: flight_offer['offerItems'][0]["services"][1]["segments"][0]["flightSegment"]["departure"]["iataCode"],
+      #     return_arrival_city: flight_offer['offerItems'][0]["services"][1]["segments"][0]["flightSegment"]["arrival"]["iataCode"],
+      #     return_departure_date: flight_offer['offerItems'][0]["services"][1]["segments"][0]["flightSegment"]["departure"]["at"],
+      #     return_arrival_date: flight_offer['offerItems'][0]["services"][1]["segments"][0]["flightSegment"]["arrival"]["at"],
+      #     return_layovers: flight_offer['offerItems'][0]["services"][1]["segments"].length,
+      #     # if the layovers = 1 then its a direct flight! its its 2 then theres 1 layover!
+      #     return_price: flight_offer['offerItems'][0]["price"]["total"],
+      #     return_duration: flight_offer['offerItems'][0]["services"][1]["segments"][0]["flightSegment"]["duration"]
+      # }
