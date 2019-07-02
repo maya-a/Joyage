@@ -89,6 +89,7 @@ class SearchesController < ApplicationController
   #   end
 
   def make_trips(call, seacrh)
+    #translating the API
     client = OAuth2::Client.new("tEDDbA3LWoIm4FsWZ4QFFNkvGDjaJlOr", "AzXPuVGJkX4ap2Df", site: 'https://test.api.amadeus.com', token_url: 'https://test.api.amadeus.com/v1/security/oauth2/token')
     token = client.client_credentials.get_token
     response = token.get('https://test.api.amadeus.com/v1/shopping/flight-offers?origin=IAD&destination=TLV&departureDate=2019-08-01&returnDate=2019-09-01&max=2')
@@ -98,66 +99,62 @@ class SearchesController < ApplicationController
           way_there = flight_offer['offerItems'][0]["services"][0]["segments"]
           way_back = flight_offer['offerItems'][0]["services"][0]["segments"]
 
-       flight_option = [{
-                          destination: flight_offer['offerItems'][0]["services"][0]["segments"][-1]["flightSegment"]["arrival"]["iataCode"],
-                          price: flight_offer['offerItems'][0]["price"]["total"],
-                          return_price: flight_offer['offerItems'][0]["price"]["total"]
-                        }]
+      flight_option = [{
+                        destination: flight_offer['offerItems'][0]["services"][0]["segments"][-1]["flightSegment"]["arrival"]["iataCode"],
+                        price: flight_offer['offerItems'][0]["price"]["total"],
+                        return_price: flight_offer['offerItems'][0]["price"]["total"]
+                      }]
 
-        way_there.each do |flight|
-          flight_option << {
-            origin_city: flight["flightSegment"]["departure"]["iataCode"],
-            arrival_city: flight["flightSegment"]["arrival"]["iataCode"],
-            departure_date: flight["flightSegment"]["departure"]["at"],
-            arrival_date: flight["flightSegment"]["arrival"]["at"],
-            layovers: flight.length,
-            # if the layovers = 1 then its a direct flight! its its 2 then theres 1 layover!
-            duration: flight["flightSegment"]["duration"]
-          # flight_option[:destination]
-        }
-        end
+      way_there.each do |flight|
+        flight_option << {
+          origin_city: flight["flightSegment"]["departure"]["iataCode"],
+          arrival_city: flight["flightSegment"]["arrival"]["iataCode"],
+          departure_date: flight["flightSegment"]["departure"]["at"],
+          arrival_date: flight["flightSegment"]["arrival"]["at"],
+          layovers: flight.length,
+          # if the layovers = 1 then its a direct flight! its its 2 then theres 1 layover!
+          duration: flight["flightSegment"]["duration"]
+        # flight_option[:destination]
+      }
+      end
 
-        way_back.each do |flight|
-          flight_option << {
-            return_origin_city: flight["flightSegment"]["departure"]["iataCode"],
-            return_arrival_city: flight["flightSegment"]["arrival"]["iataCode"],
-            return_departure_date: flight["flightSegment"]["departure"]["at"],
-            return_arrival_date: flight["flightSegment"]["arrival"]["at"],
-            return_layovers: flight.length,
-            # if the layovers = 1 then its a direct flight! its its 2 then theres 1 layover!
-            return_duration: flight["flightSegment"]["duration"]
-        }
-        end
+      way_back.each do |flight|
+        flight_option << {
+          return_origin_city: flight["flightSegment"]["departure"]["iataCode"],
+          return_arrival_city: flight["flightSegment"]["arrival"]["iataCode"],
+          return_departure_date: flight["flightSegment"]["departure"]["at"],
+          return_arrival_date: flight["flightSegment"]["arrival"]["at"],
+          return_layovers: flight.length,
+          # if the layovers = 1 then its a direct flight! its its 2 then theres 1 layover!
+          return_duration: flight["flightSegment"]["duration"]
+      }
+      end
         # flight_option[:destination]
       itineraries << flight_option
     end
-    # returns a hash of hashes, the main key is the group and the value is a hash
-    grouped = itineraries.group_by { |d| d[:arrival_city] }
-    #average_price
-    avg= find_average(grouped)
 
-    grouped.each do |key,value|
+    # returns a hash of hashes, the main key is the group and the value is a hash
+    grouped = itineraries.group_by { |d| d[0][:destination] }
+    #creating a possible trip
+    #getting the average price
+    sum = 0
+    count = 0
+    grouped.each do |key, value|
       Trip.create(
                   destination_id: Destination.find_by(dap_code: key).id,
                   search_id: @search.id
                   )
+      sum += value[0][0][:price].to_f
+      count += 1
     end
-  end
-
-  def find_average(itineraries)
-    default = []
-    sum = 0
-    #getting the default flight which we'll show to the user
-    itineraries.each do |key,value|
-      default << value.first
-    end
-    #getting total price
-    default.each do |flight|
-      sum += flight[:price].to_f + flight[:return_price].to_f
-    end
-    average = sum.fdiv(default.size)
+    @average = sum.fdiv(count)
   end
 end
+
+#   def find_average(itineraries)
+
+#     #getting total price
+# end
 
 #INSIDE EACH FLIGHT OFFER
 
