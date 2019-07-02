@@ -15,19 +15,10 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
-
 gem 'devise'
-
 gem 'oauth2', '~> 1.2'
-
 gem 'geocoder'
 gem "rest-client"
-gem "algoliasearch-rails"
-
-
-
-
-
 
 group :development do
   gem 'web-console', '>= 3.3.0'

@@ -45,9 +45,13 @@ class SearchesController < ApplicationController
 
 
   def create
-    raise
-    @search = Search.new(search_params)
-    @origin = Origin.find(params[:origins]) # retrieve ids from origins via params
+    @search = Search.create(search_params)
+    # loop over origin ids retrieved from form and create SearchOrigin instances
+    # careful - search needs to be saved beforehand
+    params[:origins].each do |id|
+      origin = Origin.find(params[:origins])
+      SearchOrigins.create(search: @search, origin: origin)
+    end
     @possible_trips = []
     @search.origins.each do |origin|
       Destination.all.each do |destination|
@@ -138,7 +142,7 @@ class SearchesController < ApplicationController
     #   end
 end
 
-end
+
 #INSIDE EACH FLIGHT OFFER
 
 # response_body["data"][0]["offerItems"][0]["services"][0]["segments"][0]["flightSegment"]["departure"]["iataCode"]

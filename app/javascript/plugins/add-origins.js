@@ -1,4 +1,3 @@
-import { initSelect2 } from './init_select2'
 
 $(document).ready(function() {
   var maxFields      = 5; //maximum input boxes allowed
@@ -11,7 +10,6 @@ $(document).ready(function() {
       x++; //text box increment
       $(wrapper).append('<%= select_tag "origins", options_from_collection_for_select(Origin.all, "id", "name"), class: "form-control string optional select2"  %>');
        //add input box
-       initSelect2();
     }
     else if(x = maxFields){
       addButton.style.visibility = 'hidden';
