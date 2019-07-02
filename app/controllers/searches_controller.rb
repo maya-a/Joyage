@@ -45,7 +45,9 @@ class SearchesController < ApplicationController
 
 
   def create
+    raise
     @search = Search.new(search_params)
+    @origin = Origin.find(params[:origins]) # retrieve ids from origins via params
     @possible_trips = []
     @search.origins.each do |origin|
       Destination.all.each do |destination|
@@ -73,7 +75,7 @@ class SearchesController < ApplicationController
   private
 
   def search_params(search)
-    params.require(:search_).permit(:max_budget, :dep_date, :ret_date, :origins)
+    params.require(:search_).permit(:max_budget, :dep_date, :ret_date)
   end
 
   def get_itinerary(call)
