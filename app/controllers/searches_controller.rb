@@ -104,7 +104,7 @@ class SearchesController < ApplicationController
       itineraries << flight_option
       end
       itineraries.each do
-  end
+      end
 
   # def find_middle
   #   Geokit::default_units = :kms #where to define this
@@ -135,6 +135,7 @@ class SearchesController < ApplicationController
     #   end
 end
 
+end
 #INSIDE EACH FLIGHT OFFER
 
 # response_body["data"][0]["offerItems"][0]["services"][0]["segments"][0]["flightSegment"]["departure"]["iataCode"]
