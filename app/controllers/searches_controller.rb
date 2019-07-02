@@ -133,10 +133,10 @@ class SearchesController < ApplicationController
       itineraries << flight_option
     end
 
-    # returns a hash of hashes, the main key is the group and the value is a hash
-    grouped = itineraries.group_by { |d| d[0][:destination] }
-    #creating a possible trip
-    #getting the average price
+  #   # returns a hash of hashes, the main key is the group and the value is a hash
+  grouped = itineraries.group_by { |d| d[0][:destination] }
+  #   #creating a possible trip
+  #   #getting the average price
     sum = 0
     count = 0
     grouped.each do |key, value|
