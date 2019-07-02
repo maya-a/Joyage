@@ -6,6 +6,7 @@ class CreateSearches < ActiveRecord::Migration[5.2]
       t.date :dep_date
       t.date :ret_date
       t.references :user, foreign_key: true
+      t.integer :category
 
       t.timestamps
     end
