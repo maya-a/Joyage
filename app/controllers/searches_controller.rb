@@ -42,7 +42,7 @@ class SearchesController < ApplicationController
 
     @search = Search.new()
 
-  end
+
 
   def create
     @search = Search.new(search_params)
