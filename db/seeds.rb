@@ -27,9 +27,10 @@ puts "creating all origins"
 # row[7] longitude
 # row[8] elavation
 # row[9] UTC
-# row[10] DST
+# row[10] DST - continent
 # row[11] "airports"
 # row[12] "OurAirports"
+
 CSV.foreach(Rails.root.join('public', "airports.csv")) do |row|
   Origin.create!(
    airport_id: row[0],
@@ -41,6 +42,7 @@ CSV.foreach(Rails.root.join('public', "airports.csv")) do |row|
    longitude: row[7],
   )
 end
+
 puts "creating destinations:"
 puts "creating beach Destinations(1)"
 Destination.create!(
