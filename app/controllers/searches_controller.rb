@@ -40,7 +40,7 @@ class SearchesController < ApplicationController
       # airline: response_body["dictionaries"]["carriers"]["#{carrier_code}"]
 
     @search = Search.new()
-
+  end
 
 
   def create
@@ -56,14 +56,11 @@ class SearchesController < ApplicationController
           possible_trips << [oap_code, dap_code, dep_date, ret_date]
         end
       end
-
       possible_trips.each do |call|
         get_itinerary(call)
       end
     end
     #if the category matches, create trip (API) call
-
-    end
 
     #if the airport is nearby any of the averages (300 km), we search for possible trips through the API
   end
@@ -104,8 +101,8 @@ class SearchesController < ApplicationController
       itineraries << flight_option
       end
       itineraries.each do
-  end
-
+      end
+    end
   # def find_middle
   #   Geokit::default_units = :kms #where to define this
   #   i = 0
