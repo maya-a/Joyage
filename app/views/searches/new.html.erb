@@ -13,7 +13,12 @@
 
               <div class="add-origins">
                 <p>Add Hometowns</p>
-                <div class="origins-box"><input class="form-control string optional" placeholder="Enter starting point" type="text" name="search[origin][]" id="search_origin"></div>
+                <div class="origins-box"><input class="form-control string optional" placeholder="Enter starting point" type="text" name="search[origin][]" id="search_origin">
+                  <select class="select2" name="origin">
+                    <option value="origin1">testing1</option>
+                    <option value="origin2">testing2</option>
+                  </select>
+                </div>
               </div>
               <div id="add-origin">+</div>
 
@@ -72,14 +77,23 @@
 <script>
   document.addEventListener('DOMContentLoaded', () => {
   var client = algoliasearch('6WKL3F66N2', '66e80879e16a45e9f05ccf20c9bbc9ee');
-var index = client.initIndex('Origin');
-index.search('#search_origin1', { hitsPerPage: 10, page: 0 })
-  .then(function searchDone(content) {
-    console.log(content)
-    debugger
-  })
-  .catch(function searchFailure(err) {
-    console.error(err);
-  });
+  var index = client.initIndex('Origin');
+  index.search('#search_origin1', { hitsPerPage: 10, page: 0 })
+    .then(function searchDone(content) {
+      console.log(content)
+      debugger
     })
+    .catch(function searchFailure(err) {
+      console.error(err);
+    });
+      })
 </script>
+<script>
+  $(document).ready(function() {
+    $('.select2').select2();
+});
+</script>
+
+
+
+

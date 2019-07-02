@@ -157,4 +157,5 @@ end
 # carrier_code = response_body["data"][0]["offerItems"][0]["services"][0]["segments"][0]["flightSegment"]["carrierCode"]
 # response_body["dictionaries"]["carriers"]["#{carrier_code}"]
 # will return the carrier of the airline
+end
 

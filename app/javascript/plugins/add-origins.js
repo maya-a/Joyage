@@ -1,3 +1,5 @@
+
+
 $(document).ready(function() {
   var maxFields      = 5; //maximum input boxes allowed
   var wrapper       = $(".add-origins"); //Fields wrapper
@@ -17,3 +19,5 @@ $(document).ready(function() {
     e.preventDefault(); $(this).parent('div').remove(); x--;
   })
 });
+
+import { initSelect2 } from 'init_select2';
