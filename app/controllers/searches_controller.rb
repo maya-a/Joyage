@@ -38,13 +38,12 @@ class SearchesController < ApplicationController
 
       itineraries << flight_option
       end
-    raise
       # carrier_code = flight_offer["services"][0]["segments"][0]["flightSegment"]["carrierCode"]
       # airline: response_body["dictionaries"]["carriers"]["#{carrier_code}"]
 
     @search = Search.new()
 
-  end
+
 
   def create
     @search = Search.new(search_params)
