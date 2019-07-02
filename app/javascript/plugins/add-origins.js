@@ -20,4 +20,3 @@ $(document).ready(function() {
   })
 });
 
-import { initSelect2 } from 'init_select2';
