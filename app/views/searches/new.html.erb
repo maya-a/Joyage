@@ -10,22 +10,57 @@
           <%= simple_form_for @search do |s| %>
           <div class="input-form">
             <div class="origins">
-            <div class="add-origins">
-              <p>Add Hometowns</p>
-              <input class="form-control string optional" placeholder="Enter starting point" type="text" name="search[origin][]" id="search_origin">
+              <div class="add-origins">
+                <p>Add Hometowns</p>
+                <div class="origins-box"><input class="form-control string optional" placeholder="Enter starting point" type="text" name="search[origin][]" id="search_origin"></div>
+              </div>
+              <div id="add-origin">+</div>
+            </div>
+            <div class="date-categories">
 
+              <div class="dates">
+                <%= s.input :dep_date, label: "Date from", as: :string, required: false, input_html: {id: "dep_date"}  %>
+                <%= s.input :ret_date, label: "Date to", as: :string, required: false, input_html: {id: "ret_date"} %>
+              </div>
+              <div class="add-categories">
+                <p>Choose your category</p>
+                <div class="categories">
+                  <div class="category">
+                    <input id="beach" name="search[category]" type="radio" value="beach/island" checked="checked" />
+                    <label for="beach">
+                      <i class="fas fa-umbrella-beach"></i>
+                      <p>Beach</p>
+                    </label>
+                  </div>
+                  <div class="category">
+                    <input id="city" name="search[category]" type="radio" value="2" />
+                    <label for="city">
+                      <i class="fas fa-university"></i>
+                      <p>City</p>
+                    </label>
+                  </div>
+                  <div class="category">
+                    <input id="winter" name="search[category]" type="radio" value="3" />
+                    <label for="winter">
+                      <i class="fas fa-skiing"></i>
+                      <p>Winter</p>
+                    </label>
+                  </div>
+                  <div class="category">
+                    <input id="nature" name="search[category]" type="radio" value="3" />
+                    <label for="nature">
+                      <i class="fas fa-bicycle"></i>
+                      <p>Nature</p>
+                    </label>
+                  </div>
+                </div>
+              </div>
             </div>
-              <button id="add-origin">+</button>
 
-            </div>
-            <div class="dates">
-              <%= s.input :dep_date, label: "Date from", as: :string, required: false, input_html: {id: "dep_date"}  %>
-              <%= s.input :ret_date, label: "Date to", as: :string, required: false, input_html: {id: "ret_date"} %>
-            </div>
             <%= s.input :max_budget, label: "Your maximum budget", input_html: { class: "js-range-slider" } %>
 
           </div>
-            <%= s.submit "Get results", class: "create-trip" %>
+          <%= s.submit "Get results", class: "create-trip" %>
           <% end %>
         </div>
       </div>
