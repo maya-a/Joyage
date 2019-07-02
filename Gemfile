@@ -22,7 +22,7 @@ gem 'oauth2', '~> 1.2'
 
 gem 'geocoder'
 gem "rest-client"
-
+gem "algoliasearch-rails"
 
 
 

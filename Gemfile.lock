@@ -51,6 +51,12 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     addressable (2.3.8)
+    algoliasearch (1.26.0)
+      httpclient (~> 2.8, >= 2.8.3)
+      json (>= 1.5.1)
+    algoliasearch-rails (1.23.2)
+      algoliasearch (>= 1.26.0, < 2.0.0)
+      json (>= 1.5.1)
     arel (9.0.0)
     autoprefixer-rails (9.6.0)
       execjs
@@ -90,6 +96,7 @@ GEM
     geocoder (1.5.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    httpclient (2.8.3)
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
     jbuilder (2.9.1)
@@ -229,6 +236,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  algoliasearch-rails
   autoprefixer-rails
   bootsnap
   coffee-rails
