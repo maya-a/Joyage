@@ -6,7 +6,7 @@ require 'oauth2'
 
 class SearchesController < ApplicationController
   def new
-    client = OAuth2::Client.new("tEDDbA3LWoIm4FsWZ4QFFNkvGDjaJlOr", "AzXPuVGJkX4ap2Df", site: 'https://test.api.amadeus.com', token_url: 'https://test.api.amadeus.com/v1/security/oauth2/token')
+    client = OAuth2::Client.new(ENV["API_KEY"], ENV["API_SECRET"], site: 'https://test.api.amadeus.com', token_url: 'https://test.api.amadeus.com/v1/security/oauth2/token')
     token = client.client_credentials.get_token
     response = token.get('https://test.api.amadeus.com/v1/shopping/flight-offers?origin=NYC&destination=MAD&departureDate=2019-08-01&returnDate=2019-09-01&max=2')
     itineraries = []
@@ -83,7 +83,7 @@ class SearchesController < ApplicationController
   end
 
   def get_itinerary(call)
-    client = OAuth2::Client.new("tEDDbA3LWoIm4FsWZ4QFFNkvGDjaJlOr", "AzXPuVGJkX4ap2Df", site: 'https://test.api.amadeus.com', token_url: 'https://test.api.amadeus.com/v1/security/oauth2/token')
+    client = OAuth2::Client.new(ENV["API_KEY"], ENV["API_SECRET"], site: 'https://test.api.amadeus.com', token_url: 'https://test.api.amadeus.com/v1/security/oauth2/token')
     token = client.client_credentials.get_token
     response = token.get(`https://test.api.amadeus.com/v1/shopping/flight-offers?origin=#{call[0]}&destination=#{call[1]}&departureDate=#{call[2]}&returnDate=#{call[3]}&max=2`)
     itineraries = []
