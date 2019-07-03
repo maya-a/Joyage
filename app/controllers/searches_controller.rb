@@ -44,6 +44,7 @@ class SearchesController < ApplicationController
   end
 
 
+
   def create
     @search = Search.create(search_params)
     # loop over origin ids retrieved from form and create SearchOrigin instances
@@ -111,6 +112,9 @@ class SearchesController < ApplicationController
       itineraries.each do
       end
     end
+end
+
+
 
   # def find_middle
   #   Geokit::default_units = :kms #where to define this
@@ -139,7 +143,7 @@ class SearchesController < ApplicationController
     #       @possible_trips << trip
     #     end
     #   end
-end
+
 
 
 #INSIDE EACH FLIGHT OFFER
@@ -163,6 +167,5 @@ end
 # carrier_code = response_body["data"][0]["offerItems"][0]["services"][0]["segments"][0]["flightSegment"]["carrierCode"]
 # response_body["dictionaries"]["carriers"]["#{carrier_code}"]
 # will return the carrier of the airline
-end
 
 
