@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300');
+@import url('http://weloveiconfonts.com/api/?family=entypo');
+
+$blue: #467DCF;
+$white: #E3E3E3;
+$dark: #696969;
+$sky: #7ea5ba;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.footer {
+  padding: 20px 0;
+  text-align: center;
+  width: 100%;
+  left: 0;
+  background: white;
+}
+
+.content {
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  h2 {
+    text-align: center;
+    font-family: Lato, sans-serif;
+    font-size: 20px;
+    letter-spacing: 7px;
+    font-weight: lighter;
+    color: $blue;
+    opacity: 0.8;
+    margin-bottom: 0px;
+    margin-left: 20px;
+  }
+  img {
+    height: 65px;
+  }
+}
+
+.social-box {
+  height: 23px;
+  padding-bottom: 39px;
+  display: flex;
+  justify-content: center;
+}
+
+.social {
+  display: inline-block;
+  width: 31px;
+  height: 30px;
+  margin: -4px 5px;
+  line-height: 31px;
+  font-size: 20px;
+  text-align: center;
+  overflow: hidden;
+  transition: color .3s;
+  margin-top: 10px;
+
+  i {
+    font-size: 18px;
+    color: #6a6ed4;
+    display: block;
+    background: -webkit-linear-gradient(#6a6ed4, #a03cb0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0.6;
+  }
+}
+
+  i:hover {
+    cursor: pointer;
+    background: -webkit-linear-gradient(#6a6ed4, #a03cb0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 1;
+
+  }
