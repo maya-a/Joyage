@@ -1,6 +1,6 @@
 class TripsController < ApplicationController
   def index
-    @trips = Trip.all
+    @trips = Trip.where(search: params[:search_id])
 
     # @trips = Trip.where.not(latitude: nil, longitude: nil)
     # @markers = []
