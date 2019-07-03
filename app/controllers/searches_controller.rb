@@ -21,7 +21,9 @@ class SearchesController < ApplicationController
 
       # creating all possible destination-origin combinations for the API calls
     possible_trips = []
+    @list_destinations = []
     Destination.where(category: @search.category).each do |destination|
+      @list_destinations << destination.id
       @search.search_origins.each do |origin|
         if origin.origin.code != destination.dap_code
           possible_trips << {
@@ -41,7 +43,7 @@ class SearchesController < ApplicationController
     possible_trips.each do |call|
       make_trips(call, @search)
     end
-    redirect_to search_trips_path(@search)
+    redirect_to search_trips_path(@search, list_destinations: @list_destinations)
   end
 
 
@@ -100,8 +102,8 @@ class SearchesController < ApplicationController
     grouped = itineraries.group_by { |d| d[0][:destination] }
     # creating a possible trip
     # getting the average price
-    sum = 0
-    count = 0
+    # sum = 0
+    # count = 0
     grouped.keys.each do |code|
       trip = Trip.create(
                   destination: Destination.find_by(dap_code: code),
@@ -109,7 +111,9 @@ class SearchesController < ApplicationController
                   )
       itinerary = Itinerary.create(
                   trip: trip,
-                  user: User.first)
+                  user: User.first,
+                  info: grouped[code]
+                  )
       Flight.create(
                   itinerary: itinerary
         )
@@ -117,6 +121,7 @@ class SearchesController < ApplicationController
       # count += 1
     end
     # avg_price = sum.fdiv(count)
+  # return grouped
   end
 end
 
