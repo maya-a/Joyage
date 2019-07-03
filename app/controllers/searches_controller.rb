@@ -110,11 +110,8 @@ class SearchesController < ApplicationController
       end
       itineraries.each do
       end
-<<<<<<< HEAD
     end
-=======
 
->>>>>>> master
   # def find_middle
   #   Geokit::default_units = :kms #where to define this
   #   i = 0
