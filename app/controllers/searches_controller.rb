@@ -51,7 +51,7 @@ class SearchesController < ApplicationController
     params[:origins].each do |id|
       origin = Origin.find(params[:origins])
       SearchOrigins.create(search: @search, origin: origin)
-    end
+      end
     @possible_trips = []
     @search.origins.each do |origin|
       Destination.all.each do |destination|
@@ -63,7 +63,7 @@ class SearchesController < ApplicationController
           possible_trips << [oap_code, dap_code, dep_date, ret_date]
         end
       end
-
+      raise
       possible_trips.each do |call|
         get_itinerary(call)
       end
