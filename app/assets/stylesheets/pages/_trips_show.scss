@@ -16,6 +16,8 @@ body {
   font-weight: lighter;
   letter-spacing: 2px;
   margin-bottom: 15px;
+  margin-left: 12px;
+  margin-top: 12px;
   text-align: left;
   color: $blue;
   }
@@ -28,7 +30,7 @@ body {
 .information {
   display: flex;
   justify-content: flex-start;
-  margin-left: 10px;
+  margin-left: 30px;
   p {
     text-align: left;
     margin-bottom: 0px;
@@ -39,49 +41,177 @@ body {
   }
 }
 
-.itnineary .card {
-  display: flex;
-  justify-content: space-between;
+.itnineary-card {
   border-radius: 4px;
   background-color: white;
   opacity: 0.8;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 4px;
+  margin-bottom: 10px;
 }
 
-//buttons
+//share modal
 
-.share {
-  border: 1px solid $orange;
-  background-color: $orange;
-  color: $white;
-  font-family: "Lato", "sans-serif";
-  letter-spacing: 2px;
-  font-weight: lighter;
+.modal-content {
+  width: 80%;
   border-radius: 5px;
-  padding: 5px 10px;
-  margin-left: 10px;
+  font-family: "Lato", "sans-serif";
+  font-weight: lighter;
+  letter-spacing: 2px;
+  color: $blue;
+  background-color: white;
+}
+
+.modal-header {
+  border-bottom: none;
+  padding: 20px 40px;
+}
+
+.modal-headline {
+  margin-bottom: 0px;
+  margin-top: 0px;
+  display: flex;
+  align-items: center;
+  h5 {
+    margin-left: 20px;
+  }
+}
+
+.fa-arrow-alt-circle-down {
+  font-size: 40px;
+  color: #6a6ed4;
+  display: block;
+  background: -webkit-linear-gradient(#6a6ed4, #a03cb0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#link {
+  border: 1px solid rgba(210,210,210,0.9);
+  border-radius: 2px;
+  padding: 3px;
+  letter-spacing: 0px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+.share-input p {
+  margin-bottom: 3px !important;
+}
+
+//change modal
+
+.change-modal-content {
+  width: 100%;
+  border-radius: 5px;
+  font-family: "Lato", "sans-serif";
+  font-weight: lighter;
+  letter-spacing: 2px;
+  color: $blue;
+  background-color: white;
+}
+
+.modal-headline {
+  border-bottom: none;
+  padding: 20px 15px 0px 10px;
+  justify-content: space-between;
+}
+
+.options {
+  margin-top: 20px;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(210,210,210,0.8);
+  padding: 20px 15px;
+  img {
+    width: 50px;
+    height: 50px;
+  }
+  input {
+    visibility: hidden;
+  }
+  label {
+    border: $blue;
+    color: $blue;
+    background: white;
+    cursor: pointer;
+  }
+  input:checked + label {
+    color: $orange;
+  }
+}
+
+.option-flight {
+  display: flex;
+  align-items: center;
+  p {
+    margin-bottom: 0px;
+  }
 }
 
 .buttons {
   position: relative;
-  right: -270px;
-  top: -40px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  right: 100px;
+  top: -60px;
+  p {
+    font-family: "Lato", "sans-serif";
+    font-weight: lighter;
+    letter-spacing: 2px;
+    color: $blue;
+  }
 }
 
 .change {
-  border: 1px solid $blue;
-  background-color: $blue;
-  color: $white;
-  font-family: "Lato", "sans-serif";
-  letter-spacing: 2px;
-  font-weight: lighter;
-  border-radius: 5px;
-  padding: 5px 10px;
-  margin-left: 10px;
+  margin-right: 25px;
 }
 
-.book {
-  border: 1px solid $blue;
-  background-color: $blue;
+//buttons
+
+#copy {
+  width: 100%;
+  border-radius: 50px;
+  background: linear-gradient(160deg, #6a6ed4 0%, #a03cb0 159%);
+  color: $white;
+  font-family: "Lato", "sans-serif";
+  font-weight: lighter;
+  letter-spacing: 2px;
+  cursor: pointer;
+  padding: 6px 10px;
+  outline: 0;
+  // box-shadow: none!important;
+  &:hover {
+    color: $orange;
+    font-weight: bolder;
+  }
+}
+
+.close {
+  color: $orange;
+  opacity: 1;
+  outline: 0;
+  &:hover {
+    color: $orange;
+    opacity: 0.8;
+    cursor: pointer;
+  }
+}
+
+#share {
+  border: 1px solid $orange;
+  background: linear-gradient(160deg, #F5831A 0%, $orange 80%);
   color: $white;
   font-family: "Lato", "sans-serif";
   letter-spacing: 2px;
@@ -89,5 +219,45 @@ body {
   border-radius: 5px;
   padding: 5px 10px;
   margin-left: 10px;
+  outline: 0;
+}
+
+
+#change {
+  color: $blue;
+  background-color: white;
+  border: 1px solid $blue;
+  font-family: "Lato", "sans-serif";
+  letter-spacing: 2px;
+  font-weight: lighter;
+  border-radius: 25px;
+  padding: 5px 10px;
+  margin-left: 10px;
+  outline: 0;
+  &:hover {
+    color: $white;
+    background-color: $blue;
+    border: 1px solid $blue;
+  }
+}
+
+#book {
+  color: $orange;
+  background-color: white;
+  border: 1px solid $orange;
+  font-family: "Lato", "sans-serif";
+  letter-spacing: 2px;
+  font-weight: lighter;
+  border-radius: 25px;
+  padding: 5px 10px;
+  margin-left: 10px;
+  cursor: pointer;
+  outline: 0;
+  // box-shadow: none!important;
+  &:hover {
+    color: $white;
+    background-color: $orange;
+    border: 1px solid $orange;
+  }
 }
 
