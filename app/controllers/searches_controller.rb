@@ -33,9 +33,11 @@ class SearchesController < ApplicationController
         end
       end
     end
+
     # static
     # make_trips(possible_trips.first, @search)
     # dynamic
+
     possible_trips.each do |call|
       make_trips(call, @search)
     end
@@ -48,6 +50,7 @@ class SearchesController < ApplicationController
   def search_params
     params.require(:search).permit(:max_budget, :dep_date, :ret_date, :origin, :category)
   end
+
 
   def make_trips(call, search)
     #translating the API
