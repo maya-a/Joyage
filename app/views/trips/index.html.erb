@@ -1,4 +1,9 @@
 
+<br>
+<br>
+<br>
+
+
 <div class="wrapper">
   <div class="polygon">
   <div class="container">
@@ -17,21 +22,39 @@
            <%# end %>
            <%= @destinations %>
           <%# end %>
-          <div class="results">
-            <% 3.times do %>
+
+        <div class="results">
+          <% 3.times do %>
             <div class="card-trip">
-              <div class="card-photo" style="background-image: linear-gradient(-225deg, rgba(200,101,80,0.6) 0%, rgba(13, 9, 16, 0.72) 50%), url(<%= image_path "Amsterdam.jpg" %>)">
+              <div class="card-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/1600x900/?amsterdam)">
                 <h2>Amsterdam</h2>
               </div>
               <div class="card-trip-infos">
                 <h2>199€ pp</h2>
               </div>
             </div>
-            <% end %>
-          </div>
+          <% end %>
+        </div>
 
-          <div id="map" style="width: 100%; height: 300px; "data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY']%>"></div>
+        <div class="results">
+          <% 3.times do %>
+            <div class="card-photo full" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/1600x900/?Berlin)">New York <br> 599€ pp</div>
+          <% end %>
+        </div>
 
+<br>
+<br>
+
+<div id="map" style="width: 100%; height: 300px; "data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY']%>"></div>
+  <br>
+  <br>
+
+  </div>
+
+
+
+
+      </div>
     </div>
   </div>
 </div>

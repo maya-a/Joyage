@@ -1,38 +1,35 @@
 .card-trip {
   overflow: hidden;
-  height: 150px;
+  height: 180px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
-  margin-bottom: 15px;
-   h2 {
-    font-size: 28px;
-    margin: 0;
-    height: 10%;
-    font-family: "Lato", "sans-serif";
-    font-weight: lighter;
-    letter-spacing: 7px;
-    color: $white;
-  }
+  margin-top: 15px;
+}
+
+.card-trip h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+  height: 10%;
 }
 
 .card-trip .card-trip-infos {
   padding: 16px;
 }
 
-.card-trip-infos h2 {
-  color: $orange;
-}
-
 .card-photo {
   background-size: cover;
   background-position: center;
-  height: 150px;
-  width: 85%;
+  height: 180px;
+  width: 80%;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
