@@ -5,14 +5,15 @@ class SearchesController < ApplicationController
   def new
     @search = Search.new
   end
-  
+
   def create
     #!!!MISSING!!! the format of the origins from the form after making the search work
-    # search from form
+    # static
+    # @search = Search.create!(max_budget:770, dep_date:"2019-7-17", ret_date:"2019-8-1", user: User.first, category: 2)
+    # dynamic
     @search = Search.new(search_params)
     @search.user = User.first
     @search.save
-    # @search = Search.create!(max_budget:770, dep_date:"2019-7-17", ret_date:"2019-8-1", user: User.first, category: 2)
     params[:origins].each do |id|
       origin = Origin.find(id)
       SearchOrigin.create(search: @search, origin: origin)
@@ -32,10 +33,14 @@ class SearchesController < ApplicationController
         end
       end
     end
+
+    # static
+    # make_trips(possible_trips.first, @search)
+    # dynamic
+
     possible_trips.each do |call|
       make_trips(call, @search)
     end
-    # make_trips(possible_trips.first, @search)
     redirect_to search_trips_path(@search)
   end
 
@@ -91,16 +96,23 @@ class SearchesController < ApplicationController
       itineraries << flight_option
     end
     # returns a hash of hashes, the main key is the group and the value is a hash
+
     grouped = itineraries.group_by { |d| d[0][:destination] }
     # creating a possible trip
     # getting the average price
     sum = 0
     count = 0
     grouped.keys.each do |code|
-      Trip.create(
+      trip = Trip.create(
                   destination: Destination.find_by(dap_code: code),
                   search: search
                   )
+      itinerary = Itinerary.create(
+                  trip: trip,
+                  user: User.first)
+      Flight.create(
+                  itinerary: itinerary
+        )
       # sum += value[0][0][:price].to_f
       # count += 1
     end
