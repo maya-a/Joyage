@@ -12,7 +12,11 @@
 
   <!-- User -->
   <div class="navbar-right" hidden-md hidden-lg>
-    <p class="user">Log In</p>
-    <p class="user">Sign Up</p>
+    <% if current_user %>
+      <p>My Trips</p>
+    <% else %>
+      <p class="user">Log In</p>
+      <p class="user">Sign Up</p>
+    <% end %>
   </div>
 </div>
