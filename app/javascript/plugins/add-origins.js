@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
   var maxFields      = 5; //maximum input boxes allowed
   var wrapper       = $(".add-origins"); //Fields wrapper
@@ -7,7 +8,8 @@ $(document).ready(function() {
     console.log('here!');
     if(x < maxFields){ //max input box allowed
       x++; //text box increment
-      $(wrapper).append('<div class="origins-box"><input class="form-control string optional" placeholder="Enter starting point" type="text" name="search[origin][]" id="search_origin"/> <div class="remove-field">X</div></div>'); //add input box
+      $(wrapper).append('<%= select_tag "origins", options_from_collection_for_select(Origin.all, "id", "name"), class: "form-control string optional select2"  %>');
+       //add input box
     }
     else if(x = maxFields){
       addButton.style.visibility = 'hidden';
@@ -17,3 +19,4 @@ $(document).ready(function() {
     e.preventDefault(); $(this).parent('div').remove(); x--;
   })
 });
+

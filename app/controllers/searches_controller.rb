@@ -36,6 +36,7 @@ class SearchesController < ApplicationController
       itineraries << flight_option
 
       end
+
       # carrier_code = flight_offer["services"][0]["segments"][0]["flightSegment"]["carrierCode"]
       # airline: response_body["dictionaries"]["carriers"]["#{carrier_code}"]
 
@@ -44,7 +45,13 @@ class SearchesController < ApplicationController
 
 
   def create
-    @search = Search.new(search_params)
+    @search = Search.create(search_params)
+    # loop over origin ids retrieved from form and create SearchOrigin instances
+    # careful - search needs to be saved beforehand
+    params[:origins].each do |id|
+      origin = Origin.find(params[:origins])
+      SearchOrigins.create(search: @search, origin: origin)
+      end
     @possible_trips = []
     @search.origins.each do |origin|
       Destination.all.each do |destination|
@@ -56,7 +63,7 @@ class SearchesController < ApplicationController
           possible_trips << [oap_code, dap_code, dep_date, ret_date]
         end
       end
-
+      raise
       possible_trips.each do |call|
         get_itinerary(call)
       end
@@ -72,7 +79,7 @@ class SearchesController < ApplicationController
   private
 
   def search_params(search)
-    params.require(:search_).permit(:max_budget, :dep_date, :ret_date, :origins)
+    params.require(:search_).permit(:max_budget, :dep_date, :ret_date)
   end
 
   def get_itinerary(call)
@@ -135,7 +142,7 @@ class SearchesController < ApplicationController
     #   end
 end
 
-end
+
 #INSIDE EACH FLIGHT OFFER
 
 # response_body["data"][0]["offerItems"][0]["services"][0]["segments"][0]["flightSegment"]["departure"]["iataCode"]
@@ -157,5 +164,6 @@ end
 # carrier_code = response_body["data"][0]["offerItems"][0]["services"][0]["segments"][0]["flightSegment"]["carrierCode"]
 # response_body["dictionaries"]["carriers"]["#{carrier_code}"]
 # will return the carrier of the airline
+end
 
 
