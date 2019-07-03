@@ -151,7 +151,7 @@ Destination.create!(
 #   d_latitude: 45.7429008484,
 #   d_longitude: 16.0687999725,
 #   category: 1
-   )
+   #)
 
 # Destination.create!(
 #   dap_id: 1638,

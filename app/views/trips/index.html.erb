@@ -1,6 +1,8 @@
+
 <br>
 <br>
 <br>
+
 
 <div class="wrapper">
   <div class="polygon">
@@ -11,14 +13,15 @@
           <h1>Here is what we have found for you!</h1>
         </div>
 
-          <h1>all trips</h1>
-
-          <% @trips.each do |trip| %>
-          <p>
-            <%= trip.destination.d_city %>
-            <%= trip.itinerarys %>
-          </p>
-          <% end %>
+         <%#@trips.each_with_index do |trip, index| %>
+           <%#= trip.destination.d_city %>
+           <!-- (<%#= trip.destination.dap_code %>) -->
+           <%# trip.itineraries.each do |i| %>
+             <%#= eval(i.info)[0][0][:price].to_f%>
+             <br>
+           <%# end %>
+           <%= @destinations %>
+          <%# end %>
 
         <div class="results">
           <% 3.times do %>
