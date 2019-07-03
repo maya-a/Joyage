@@ -1,18 +1,11 @@
-<br>
-<br>
-<br>
-
 <div class="wrapper">
   <div class="polygon">
-  <div class="container">
-    <div class="row">
-      <div class="new-search col-md-12 col-md-offset-2">
-        <div class="headline">
-          <h1>Here is what we have found for you!</h1>
-        </div>
-
-          <h1>all trips</h1>
-
+    <div class="container">
+      <div class="row">
+        <div class="new-search col-md-12 col-md-offset-2">
+          <div class="headline">
+            <h1>Here is what we have found for <span id="you">you</span>!</h1>
+          </div>
           <% @trips.each do |trip| %>
           <p>
             <%= trip.destination.d_city %>
@@ -20,38 +13,21 @@
           </p>
           <% end %>
 
-        <div class="results">
-          <% 3.times do %>
+          <div class="results">
+            <% 3.times do %>
             <div class="card-trip">
-              <div class="card-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/1600x900/?amsterdam)">
+              <div class="card-photo" style="background-image: linear-gradient(-225deg, rgba(200,101,80,0.6) 0%, rgba(13, 9, 16, 0.72) 50%), url(<%= image_path "Amsterdam.jpg" %>)">
                 <h2>Amsterdam</h2>
               </div>
               <div class="card-trip-infos">
                 <h2>199€ pp</h2>
               </div>
             </div>
-          <% end %>
-        </div>
+            <% end %>
+          </div>
 
-        <div class="results">
-          <% 3.times do %>
-            <div class="card-photo full" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/1600x900/?Berlin)">New York <br> 599€ pp</div>
-          <% end %>
-        </div>
+          <div id="map" style="width: 100%; height: 300px; "data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY']%>"></div>
 
-<br>
-<br>
-
-<div id="map" style="width: 100%; height: 300px; "data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY']%>"></div>
-  <br>
-  <br>
-
-  </div>
-
-
-
-
-      </div>
     </div>
   </div>
 </div>
