@@ -1,19 +1,21 @@
-$(document).ready(function() {
-  var max_fields      = 5; //maximum input boxes allowed
-  var wrapper       = $(".add-origins"); //Fields wrapper
-  var add_button      = $("#add-origin"); //Add button ID
 
+$(document).ready(function() {
+  var maxFields      = 5; //maximum input boxes allowed
+  var wrapper       = $(".add-origins"); //Fields wrapper
+  addButton = document.getElementById("add-origin");
   var x = 1; //initlal text box count
-  $(add_button).click(function(e){ //on add input button click
-    e.preventDefault();
+  addButton.addEventListener('click', (event) => {
     console.log('here!');
-    if(x < max_fields){ //max input box allowed
+    if(x < maxFields){ //max input box allowed
       x++; //text box increment
-      $(wrapper).append('<input class="form-control string optional" placeholder="Enter starting point" type="text" name="search[origin][]" id="search_origin">'); //add input box
+      $(wrapper).append('<%= select_tag "origins", options_from_collection_for_select(Origin.all, "id", "name"), class: "form-control string optional select2"  %>');
+       //add input box
+    }
+    else if(x = maxFields){
+      addButton.style.visibility = 'hidden';
     }
   });
-
-  $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
+  $(wrapper).on("click",".remove-field", function(e){ //user click on remove text
     e.preventDefault(); $(this).parent('div').remove(); x--;
   })
 });

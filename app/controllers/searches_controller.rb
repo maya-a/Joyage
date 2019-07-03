@@ -6,28 +6,25 @@ require 'oauth2'
 
 class SearchesController < ApplicationController
   def new
-      # carrier_code = flight_offer["services"][0]["segments"][0]["flightSegment"]["carrierCode"]
-      # airline: response_body["dictionaries"]["carriers"]["#{carrier_code}"]
     @search = Search.new
   end
+
+
 
   def create
     #!!!MISSING!!! the format of the origins from the form after making the search work
     # search from form
+    # @search = Search.create(search_params)
     @search = Search.create!(max_budget:770, dep_date:"2019-7-17", ret_date:"2019-8-1", user: User.first, category: 2)
-    # @search = Search.create!(search_params,)
-    # origins from form
-    @origins = params[:search][:origin]
-    @origin_list = [] #will contain the search-origin relations
-    # creating an origin list with new instances
-    @origins.each do |origin|
-      origin_instance = Origin.find_by(city: origin.capitalize)
-      @origin_list << SearchOrigin.create(search: @search, origin: origin_instance)
+    params[:origins].each do |id|
+      origin = Origin.find(params[:origins])
+      SearchOrigins.create(search: @search, origin: origin)
     end
-    # creating all possible destination-origin combinations for the API calls
+
+      # creating all possible destination-origin combinations for the API calls
     possible_trips = []
     Destination.where(category: @search.category).each do |destination|
-      @origin_list.each do |origin|
+      @search.search_origins.each do |origin|
           # information needed for the API call:
           # oap_code = origin.code
           # dap_code = destination.dap_code
@@ -41,19 +38,19 @@ class SearchesController < ApplicationController
                             }
       end
     end
-    # possible_trips.each do |trip|
-    #   make_trips(trip, @search)
+
+    # possible_trips.each do |call|
+    #   make_trips(call, @search)
     # end
     make_trips(possible_trips.first, @search)
     redirect_to search_trips_path(@search)
   end
 
 
-
   private
 
   def search_params
-    params.require(:search).permit(:max_budget, :dep_date, :ret_date, :origin)
+    params.require(:search).permit(:max_budget, :dep_date, :ret_date, :origin, :category)
   end
 
   # def get_itinerary(call) #call is a hash
@@ -89,7 +86,8 @@ class SearchesController < ApplicationController
 
   def make_trips(call, search)
     #translating the API
-    client = OAuth2::Client.new("tEDDbA3LWoIm4FsWZ4QFFNkvGDjaJlOr", "AzXPuVGJkX4ap2Df", site: 'https://test.api.amadeus.com', token_url: 'https://test.api.amadeus.com/v1/security/oauth2/token')
+    client = OAuth2::Client.new(ENV["API_KEY"], ENV["API_SECRET"], site: 'https://test.api.amadeus.com', token_url: 'https://test.api.amadeus.com/v1/security/oauth2/token')
+
     token = client.client_credentials.get_token
     response = token.get('https://test.api.amadeus.com/v1/shopping/flight-offers?origin=IAD&destination=TLV&departureDate=2019-08-01&returnDate=2019-09-01&max=2')
     itineraries = []
@@ -148,6 +146,39 @@ class SearchesController < ApplicationController
   end
 end
 
+
+
+  # def find_middle
+  #   Geokit::default_units = :kms #where to define this
+  #   i = 0
+  #   j = 0
+  #   geo_points = []
+  #   @mid = []
+  #   # get origin to geocode
+  #   search.origins.size.times do
+  #     geo_points << Geokit::LatLng.new(search.origins[i].latitude,search.origins[i].longitude)
+  #      i += 1
+  #   end
+  #   # get all midpoints
+  #   search.geo_points.size.times do
+  #      @mid << geo_points[j].midpoint_to(geo_points[j-1])
+  #      j += 1
+  #   end
+  #   return @mid
+  # end
+    # LIST.each do |airport| #LIST is defined in the trip model as all the airports
+    #  dot = Geokit::LatLng.new(airport[:latitude], airport[:longitude])
+    #   middle_points.each do |point|
+    #     if point.distance_to(dot) < 300 #km
+    #       trip = Trip.new
+    #       trip.destination = dot
+    #       @possible_trips << trip
+    #     end
+    #   end
+
+
+>>>>>>> master
+
 #   def find_average(itineraries)
 
 #     #getting total price
@@ -175,6 +206,7 @@ end
 # response_body["dictionaries"]["carriers"]["#{carrier_code}"]
 # will return the carrier of the airline
 
+<<<<<<< HEAD
       #     origin_city: flight_offer['offerItems'][0]["services"][0]["segments"][0]["flightSegment"]["departure"]["iataCode"],
       #     arrival_city: flight_offer['offerItems'][0]["services"][0]["segments"][0]["flightSegment"]["arrival"]["iataCode"],
       #     departure_date: flight_offer['offerItems'][0]["services"][0]["segments"][0]["flightSegment"]["departure"]["at"],
@@ -192,3 +224,6 @@ end
       #     return_price: flight_offer['offerItems'][0]["price"]["total"],
       #     return_duration: flight_offer['offerItems'][0]["services"][1]["segments"][0]["flightSegment"]["duration"]
       # }
+=======
+
+>>>>>>> master
