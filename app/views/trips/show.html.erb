@@ -3,7 +3,7 @@
     <div class="overview col-md-12 col-md-offset-2">
       <div class="headline">
         <h1> Your amsterdam trip</h1>
-        <button class="share">Share Trip</button>
+        <button id="share" data-toggle="modal" data-target="#shareModal">Share Trip</button>
       </div>
       <div class="itinearies">
         <div class="itnineary card">
@@ -29,6 +29,32 @@
             <button class="book">Book Flight</button>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Modal -->
+<div class="modal fade" id="shareModal" tabindex="-1" role="dialog" aria-labelledby="shareeModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-headline">
+          <i class="fas fa-arrow-alt-circle-down"></i>
+        <h5 class="modal-title" id="shareModalLabel">Share the trip with your friends</h5>
+        </div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Here's the link.</p>
+        <p>Click on copy to share.</p>
+        <div class="link-field">
+          <% link = request.original_url   %>
+          <%= link %>
+        </div>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Copy</button>
       </div>
     </div>
   </div>

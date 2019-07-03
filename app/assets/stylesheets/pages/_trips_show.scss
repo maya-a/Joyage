@@ -47,9 +47,31 @@ body {
   opacity: 0.8;
 }
 
+
+//modal
+
+.modal-content {
+  width: 80%;
+  height:270px;
+  border-radius: 5px;
+  font-family: "Lato", "sans-serif";
+  font-weight: lighter;
+  letter-spacing: 2px;
+  color: $blue;
+}
+
+.modal-header {
+  border-bottom: none;
+}
+
+.modal-headline {
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
 //buttons
 
-.share {
+#share {
   border: 1px solid $orange;
   background-color: $orange;
   color: $white;
