@@ -5,13 +5,20 @@ class SearchesController < ApplicationController
   def new
     @search = Search.new
   end
-  
+
+
+  # 1. append this controller (searches_path , method: post) to the html
+  # 2. respond to the http request with JSON
+  # 3, in frontend (JS), "fetch" this api .. set a loading to true
+  # 4.  wait for response OK(respond_to) from create action
+  # 5. set loading boolean to false
+  # 5. link over to next page
   def create
     #!!!MISSING!!! the format of the origins from the form after making the search work
     # search from form
     @search = Search.new(search_params)
     @search.user = User.first
-    @search.save
+    @search.save!
     # @search = Search.create!(max_budget:770, dep_date:"2019-7-17", ret_date:"2019-8-1", user: User.first, category: 2)
     params[:origins].each do |id|
       origin = Origin.find(id)
@@ -32,11 +39,24 @@ class SearchesController < ApplicationController
         end
       end
     end
-    possible_trips.each do |call|
-      make_trips(call, @search)
+
+    begin
+      possible_trips.each do |call|
+        make_trips(call, @search)
+      end
+    rescue
+      respond_to do |format|
+        format.js { render status: :internal_server_error}
+        format.hmtl { redirect_to new_search_path }
+        return
+      end
+      # make_trips(possible_trips.first, @search)
     end
-    # make_trips(possible_trips.first, @search)
-    redirect_to search_trips_path(@search)
+
+    respond_to do |format|
+      binding.pry
+        format.js { render json: { search_id: @search.id }, status: :created }
+    end
   end
 
 
