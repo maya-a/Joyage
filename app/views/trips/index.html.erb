@@ -1,11 +1,6 @@
-<h1>all trips</h1>
-
-<% @trips.each do |trip| %>
-<p>
-  <%= trip.destination.d_city %>
-  <%= trip.itinerarys %>
-</p>
-<% end %>
+<br>
+<br>
+<br>
 
 <div class="wrapper">
   <div class="polygon">
@@ -15,6 +10,15 @@
         <div class="headline">
           <h1>Here is what we have found for you!</h1>
         </div>
+
+          <h1>all trips</h1>
+
+          <% @trips.each do |trip| %>
+          <p>
+            <%= trip.destination.d_city %>
+            <%= trip.itinerarys %>
+          </p>
+          <% end %>
 
         <div class="results">
           <% 3.times do %>
