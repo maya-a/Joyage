@@ -14,7 +14,7 @@ class SearchesController < ApplicationController
   def create
     #!!!MISSING!!! the format of the origins from the form after making the search work
     # search from form
-    @search = Search.create!(max_budget:770, dep_date:"2019-7-17",ret_date:"2019-8-1", user: User.first, category: 2)
+    @search = Search.create!(max_budget:770, dep_date:"2019-7-17", ret_date:"2019-8-1", user: User.first, category: 2)
     # @search = Search.create!(search_params,)
     # origins from form
     @origins = params[:search][:origin]
@@ -26,9 +26,8 @@ class SearchesController < ApplicationController
     end
     # creating all possible destination-origin combinations for the API calls
     possible_trips = []
-    Destination.all.each do |destination|
+    Destination.where(category: @search.category).each do |destination|
       @origin_list.each do |origin|
-        if destination.category == @search.category
           # information needed for the API call:
           # oap_code = origin.code
           # dap_code = destination.dap_code
@@ -40,12 +39,12 @@ class SearchesController < ApplicationController
                              dep_date: @search.dep_date, #.slice(0..9),
                              ret_date: @search.ret_date
                             }
-        end
       end
     end
-    possible_trips.each do |call|
-      make_trips(call, @search)
-    end
+    # possible_trips.each do |trip|
+    #   make_trips(trip, @search)
+    # end
+    make_trips(possible_trips.first, @search)
     redirect_to search_trips_path(@search)
   end
 
@@ -88,7 +87,7 @@ class SearchesController < ApplicationController
   #     end
   #   end
 
-  def make_trips(call, seacrh)
+  def make_trips(call, search)
     #translating the API
     client = OAuth2::Client.new("tEDDbA3LWoIm4FsWZ4QFFNkvGDjaJlOr", "AzXPuVGJkX4ap2Df", site: 'https://test.api.amadeus.com', token_url: 'https://test.api.amadeus.com/v1/security/oauth2/token')
     token = client.client_credentials.get_token
@@ -129,25 +128,23 @@ class SearchesController < ApplicationController
           return_duration: flight["flightSegment"]["duration"]
       }
       end
-        # flight_option[:destination]
       itineraries << flight_option
     end
-
-  #   # returns a hash of hashes, the main key is the group and the value is a hash
-  grouped = itineraries.group_by { |d| d[0][:destination] }
-  #   #creating a possible trip
-  #   #getting the average price
+    # returns a hash of hashes, the main key is the group and the value is a hash
+    grouped = itineraries.group_by { |d| d[0][:destination] }
+    # creating a possible trip
+    # getting the average price
     sum = 0
     count = 0
-    grouped.each do |key, value|
+    grouped.keys.each do |code|
       Trip.create(
-                  destination_id: Destination.find_by(dap_code: key).id,
-                  search_id: @search.id
+                  destination: Destination.find_by(dap_code: code),
+                  search: search
                   )
-      sum += value[0][0][:price].to_f
-      count += 1
+      # sum += value[0][0][:price].to_f
+      # count += 1
     end
-    @average = sum.fdiv(count)
+    # avg_price = sum.fdiv(count)
   end
 end
 
