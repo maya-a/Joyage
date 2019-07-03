@@ -98,14 +98,13 @@ class TripsController < ApplicationController
     avgs = []
     trips.each do |trip|
     sum = 0
-      trip.itineraries.each do |i|
+      trip.itinerarys.each do |i|
         sum += eval(i.info)[0][0][:price].to_f
       end
-      avgs << sum.fdiv(trip.itineraries.length)
+      avgs << sum.fdiv(trip.itinerarys.length)
     end
     return avgs
   end
-
 
 # eval(@trips[0].itineraries.first.info)[0][0][:price]
 # eval(@trips[0].itineraries.first.info)[0][0][:destination]
