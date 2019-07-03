@@ -30,20 +30,199 @@ puts "creating all origins"
 # row[10] DST - continent
 # row[11] "airports"
 # row[12] "OurAirports"
-
-CSV.foreach(Rails.root.join('public', "airports.csv")) do |row|
-  Origin.create!(
-   airport_id: row[0],
-   name: row[1],
-   city: row[2],
-   country: row[3],
-   code: row[4],
-   latitude: row[6],
-   longitude: row[7],
+Origin.create!(
+  airport_id: 1382,
+  name: "Charles de Gaulle International Airport",
+  city: "Paris",
+  country: "France",
+  code: "CDG",
+  latitude: 49.012798,
+  longitude: 2.55
   )
-end
 
-# puts "creating destinations:"
+Origin.create!(
+ airport_id: 1590,
+ name: "Ben Gurion International Airport",
+ city: "Tel-aviv",
+ country: "Israel",
+ code: "TLV",
+ latitude: 32.0113983154297,
+ longitude: 34.8866996765137
+  )
+
+Origin.create!(
+ airport_id: 3797,
+ name: "John F Kennedy International Airport",
+ city: "New York",
+ country: "United States",
+ code: "JFK",
+ latitude: 40.63980103,
+ longitude: -73.77890015
+  )
+
+Origin.create!(
+ airport_id: 3714,
+ name: "Washington Dulles International Airport",
+ city: "Washington",
+ country: "United States",
+ code: "IAD",
+ latitude: 38.94449997,
+ longitude: -77.45580292
+  )
+
+Origin.create!(
+  airport_id: 340,
+  name: "Frankfurt am Main Airport",
+  city: "Frankfurt",
+  country: "Germany",
+  code: "FRA",
+  latitude: 50.033333,
+  longitude: 8.570556
+  )
+
+Origin.create!(
+  airport_id: 3682,
+  name: "Hartsfield Jackson Atlanta International Airport",
+  city: "Atlanta",
+  country: "United States",
+  code: "ATL",
+  latitude: 33.6367,
+  longitude: -84.428101
+  )
+
+Origin.create!(
+  airport_id: 3364,
+  name: "Beijing Capital International Airport",
+  city: "Beijing",
+  country: "China",
+  code: "PEK",
+  latitude: 40.0801010131836,
+  longitude: 116.584999084473
+  )
+
+Origin.create!(
+  airport_id: 3484,
+  name: "Los Angeles International Airport",
+  city: "Los Angeles",
+  country: "United States",
+  code: "LAX",
+  latitude: 33.94250107,
+  longitude: -118.4079971
+  )
+
+Origin.create!(
+  airport_id: 2359,
+  name: "Tokyo Haneda International Airport",
+  city: "Tokyo",
+  country: "Japan",
+  code: "HND",
+  latitude: 35.552299,
+  longitude: 139.779999
+  )
+
+Origin.create!(
+  airport_id: 507,
+  name: "London Heathrow Airport",
+  city: "London",
+  country: "United Kingdom",
+  code: "LHR",
+  latitude: 51.4706,
+  longitude: -0.461941
+  )
+
+Origin.create!(
+  airport_id: 2188,
+  name: "Dubai International Airport",
+  city: "Dubai",
+  country: "United Arab Emirates",
+  code: "DXB",
+  latitude: 25.2527999878,
+  longitude: 55.3643989563
+  )
+Origin.create!(
+  airport_id: 580,
+  name: "Amsterdam Airport Schiphol",
+  city: "Amsterdam",
+  country: "Netherlands",
+  code: "AMS",
+  latitude: 52.308601,
+  longitude: 4.76389
+  )
+
+Origin.create!(
+  airport_id: 3093,
+  name: "Indira Gandhi International Airport",
+  city: "Delhi",
+  country: "India",
+  code: "DEL",
+  latitude: 28.5665,
+  longitude: 77.103104
+  )
+
+Origin.create!(
+  airport_id: 3930,
+  name: "Incheon International Airport",
+  city: "Seoul",
+  country: "South Korea",
+  code: "ICN",
+  latitude: 37.4691009521484,
+  longitude: 126.450996398926
+  )
+
+Origin.create!(
+  airport_id: 1229,
+  name: "Adolfo Suárez Madrid–Barajas Airport",
+  city: "Madrid",
+  country: "Spain",
+  code: "MAD",
+  latitude: 40.471926,
+  longitude: -3.56264
+  )
+
+Origin.create!(
+  airport_id: 193,
+  name: "Lester B. Pearson International Airport",
+  city: "Toronto",
+  country: "Canada",
+  code: "YYZ",
+  latitude: 43.6772003174,
+  longitude: -79.6305999756
+  )
+
+Origin.create!(
+  airport_id: 1824,
+  name: "Licenciado Benito Juarez International Airport",
+  city: "Mexico City",
+  country: "Mexico",
+  code: "MEX",
+  latitude: 19.4363,
+  longitude: -99.072098,
+  )
+
+Origin.create!(
+  airport_id: 1555,
+  name: "Leonardo da Vinci–Fiumicino Airport",
+  city: "Rome",
+  country: "Italy",
+  code: "FCO",
+  latitude: 41.8002778,
+  longitude: 12.2388889
+  )
+
+
+# CSV.foreach(Rails.root.join('public', "airports.csv")) do |row|
+#   Origin.create!(
+#    airport_id: row[0],
+#    name: row[1],
+#    city: row[2],
+#    country: row[3],
+#    code: row[4],
+#    latitude: row[6],
+#    longitude: row[7],
+#   )
+# end
+
+puts "creating destinations:"
 # puts "creating beach Destinations(1)"
 # Destination.create!(
 #   dap_id: 994,
