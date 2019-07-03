@@ -5,7 +5,7 @@ class SearchesController < ApplicationController
   def new
     @search = Search.new
   end
-
+  
   def create
     #!!!MISSING!!! the format of the origins from the form after making the search work
     # search from form
@@ -32,7 +32,6 @@ class SearchesController < ApplicationController
         end
       end
     end
-
     possible_trips.each do |call|
       make_trips(call, @search)
     end
@@ -46,6 +45,7 @@ class SearchesController < ApplicationController
   def search_params
     params.require(:search).permit(:max_budget, :dep_date, :ret_date, :origin, :category)
   end
+
 
   def make_trips(call, search)
     #translating the API
