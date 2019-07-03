@@ -27,9 +27,10 @@ puts "creating all origins"
 # row[7] longitude
 # row[8] elavation
 # row[9] UTC
-# row[10] DST
+# row[10] DST - continent
 # row[11] "airports"
 # row[12] "OurAirports"
+
 CSV.foreach(Rails.root.join('public', "airports.csv")) do |row|
   Origin.create!(
    airport_id: row[0],
@@ -41,6 +42,7 @@ CSV.foreach(Rails.root.join('public', "airports.csv")) do |row|
    longitude: row[7],
   )
 end
+
 puts "creating destinations:"
 puts "creating beach Destinations(1)"
 Destination.create!(
@@ -318,615 +320,597 @@ Destination.create!(
   category: 2
    )
 
-Destination.create!(
-  dap_id: 3988,
-  dap_name: "Ministro Pistarini International Airport",
-  d_city: "Buenos Aires",
-  d_country: "Argentina",
-  dap_code: "EZE",
-  d_latitude: -34.8222,
-  d_longitude: -58.5358,
-  category: 2
-   )
-
-Destination.create!(
-  dap_id: 1590,
-  dap_name: "Ben Gurion International Airport",
-  d_city: "Tel-aviv",
-  d_country: "Israel",
-  dap_code: "TLV",
-  d_latitude: 32.0113983154297,
-  d_longitude: 34.8866996765137,
-  category: 2
-   )
-
-Destination.create!(
-  dap_id: 3380,
-  dap_name: "Chinggis Khaan International Airport",
-  d_city: "Ulan Bator",
-  d_country: "Mongolia",
-  dap_code: "ULN",
-  d_latitude: 47.843102,
-  d_longitude: 106.766998,
-  category: 2
-   )
-
-Destination.create!(
-  dap_id: 813,
-  dap_name: "OR Tambo International Airport",
-  d_city: "Johannesburg",
-  d_country: "South Africa",
-  dap_code: "JNB",
-  d_latitude: -26.1392,
-  d_longitude: 28.246,
-  category: 2
-   )
-
-Destination.create!(
-  dap_id: 797,
-  dap_name: "Cape Town International Airport",
-  d_city: "Cape Town",
-  d_country: "South Africa",
-  dap_code: "CPT",
-  d_latitude: -33.9648017883,
-  d_longitude: 18.6016998291,
-  category: 2
-   )
-
-Destination.create!(
-  dap_id: 1186,
-  dap_name: "Abeid Amani Karume International Airport",
-  d_city: "Zanzibar",
-  d_country: "Tanzania",
-  dap_code: "ZNZ",
-  d_latitude: -6.22202,
-  d_longitude: 39.224899,
-  category: 2
-   )
-
-Destination.create!(
-  dap_id: 3964,
-  dap_name: "Zvartnots International Airport",
-  d_city: "Yerevan",
-  d_country: "Armenia",
-  dap_code: "EVN",
-  d_latitude: 40.1473007202,
-  d_longitude: 44.3959007263,
-  category: 2
-   )
-
-Destination.create!(
-  dap_id: 1739,
-  dap_name: "Belgrade Nikola Tesla Airport",
-  d_city: "Belgrade",
-  d_country: "Serbia",
-  dap_code: "BEG",
-  d_latitude: 44.8184013367,
-  d_longitude: 20.3090991974,
-  category: 2
-   )
-
-Destination.create!(
-  dap_id: 1662,
-  dap_name: "Transilvania Târgu Mureş International Airport",
-  d_city: "Tirgu Mures",
-  d_country: "Romania",
-  dap_code: "TGM",
-  d_latitude: 46.467700958252,
-  d_longitude: 24.4125003814697,
-  category: 2
-   )
-
-Destination.create!(
-  dap_id: 3304,
-  dap_name: "Kuala Lumpur International Airport",
-  d_city: "Kuala Lumpur",
-  d_country: "Malaysia",
-  dap_code: "KUL",
-  d_latitude: 2.745579957962,
-  d_longitude: 101.70999908447,
-  category: 2
-   )
-
-Destination.create!(
-  dap_id: 2985,
-  dap_name: "Sheremetyevo International Airport",
-  d_city: "Moscow",
-  d_country: "Russia",
-  dap_code: "SVO",
-  d_latitude: 55.972599,
-  d_longitude: 37.4146,
-  category: 2
-   )
-
-Destination.create!(
-  dap_id: 4029,
-  dap_name: "Domodedovo International Airport",
-  d_city: "Moscow",
-  d_country: "Russia",
-  dap_code: "DME",
-  d_latitude: 55.4087982177734,
-  d_longitude: 37.9062995910645,
-  category: 2
-   )
-
-Destination.create!(
-  dap_id: 580,
-  dap_name: "Amsterdam Airport Schiphol",
-  d_city: "Amsterdam",
-  d_country: "Netherlands",
-  dap_code: "AMS",
-  d_latitude: 52.308601,
-  d_longitude: 4.76389,
-  category: 2
-   )
-
-Destination.create!(
-  dap_id: 1382,
-  dap_name: "Charles de Gaulle International Airport",
-  d_city: "Paris",
-  d_country: "France",
-  dap_code: "CDG",
-  d_latitude: 49.012798,
-  d_longitude: 2.55,
-  category: 2
-   )
-
-Destination.create!(
-  dap_id: 1354,
-  dap_name: "Nice-Côte d'Azur Airport",
-  d_city: "Nice",
-  d_country: "France",
-  dap_code: "NCE",
-  d_latitude: 43.6584014893,
-  d_longitude: 7.21586990356,
-  category: 2
-   )
-
-Destination.create!(
-  dap_id: 1555,
-  dap_name: "Leonardo da Vinci–Fiumicino Airport",
-  d_city: "Rome",
-  d_country: "Italy",
-  dap_code: "FCO",
-  d_latitude: 41.8002778,
-  d_longitude: 12.2388889,
-  category: 2
-   )
-
-Destination.create!(
-  dap_id: 1561,
-  dap_name: "Naples International Airport",
-  d_city: "Naples",
-  d_country: "Italy",
-  dap_code: "NAP",
-  d_latitude: 40.886002,
-  d_longitude: 14.2908,
-  category: 2
-   )
-
-Destination.create!(
-  dap_id: 302,
-  dap_name: "Brussels Airport",
-  d_city: "Brussels",
-  d_country: "Belgium",
-  dap_code: "BRU",
-  d_latitude: 50.9014015198,
-  d_longitude: 4.48443984985,
-  category: 2
-   )
-Destination.create!(
-  dap_id: 507,
-  dap_name: "London Heathrow Airport",
-  d_city: "London",
-  d_country: "United Kingdom",
-  dap_code: "LHR",
-  d_latitude: 51.4706,
-  d_longitude: -0.461941,
-  category: 2
-   )
-
-
-Destination.create!(
-  dap_id: 340,
-  dap_name: "Frankfurt am Main Airport",
-  d_city: "Frankfurt",
-  d_country: "Germany",
-  dap_code: "FRA",
-  d_latitude: 50.033333,
-  d_longitude: 8.570556,
-  category: 2
-   )
-
-Destination.create!(
-  dap_id: 3682,
-  dap_name: "Hartsfield Jackson Atlanta International Airport",
-  d_city: "Atlanta",
-  d_country: "United States",
-  dap_code: "ATL",
-  d_latitude: 33.6367,
-  d_longitude: -84.428101,
-  category: 2
-   )
-
-Destination.create!(
-  dap_id: 3364,
-  dap_name: "Beijing Capital International Airport",
-  d_city: "Beijing",
-  d_country: "China",
-  dap_code: "PEK",
-  d_latitude: 40.0801010131836,
-  d_longitude: 116.584999084473,
-  category: 2
-   )
-
-Destination.create!(
-  dap_id: 2188,
-  dap_name: "Dubai International Airport",
-  d_city: "Dubai",
-  d_country: "United Arab Emirates",
-  dap_code: "DXB",
-  d_latitude: 25.2527999878,
-  d_longitude: 55.3643989563,
-  category: 2
-   )
-
-Destination.create!(
-  dap_id: 3484,
-  dap_name: "Los Angeles International Airport",
-  d_city: "Los Angeles",
-  d_country: "United States",
-  dap_code: "LAX",
-  d_latitude: 33.94250107,
-  d_longitude: -118.4079971,
-  category: 2
-   )
-
-Destination.create!(
-  dap_id: 3830,
-  dap_name: "Chicago O'Hare International Airport",
-  d_city: "Chicago",
-  d_country: "United States",
-  dap_code: "ORD",
-  d_latitude: 41.9786,
-  d_longitude: -87.9048,
-  category: 2
-   )
-
-
-Destination.create!(
-  dap_id: 3077,
-  dap_name: "Hong Kong International Airport",
-  d_city: "Hong Kong",
-  d_country: "Hong Kong",
-  dap_code: "HKG",
-  d_latitude: 22.308901,
-  d_longitude: 113.915001,
-  category: 2
-   )
-
-
-Destination.create!(
-  dap_id: 3406,
-  dap_name: "Shanghai Pudong International Airport",
-  d_city: "Shanghai",
-  d_country: "China",
-  dap_code: "PVG",
-  d_latitude: 31.1434001922607,
-  d_longitude: 121.805000305176,
-  category: 2
-   )
-
-
-Destination.create!(
- dap_id: 3930,
-  dap_name: "Incheon International Airport",
-  d_city: "Seoul",
-  d_country: "South Korea",
-  dap_code: "ICN",
-  d_latitude: 37.4691009521484,
-  d_longitude: 126.450996398926,
-  category: 2
-   )
-
-
-Destination.create!(
-  dap_id: 13696,
-  dap_name: "Istanbul Airport",
-  d_city: "Istanbul",
-  d_country: "Turkey",
-  dap_code: "IST",
-  d_latitude: 41.275278,
-  d_longitude: 28.751944,
-  category: 2
-   )
-
-
-
-Destination.create!(
-  dap_id: 3316,
-  dap_name: "Singapore Changi Airport",
-  d_city: "Singapore",
-  d_country: "Singapore",
-  dap_code: "SIN",
-  d_latitude: 1.35019,
-  d_longitude: 103.994003,
-  category: 2
-   )
-
-
-
-Destination.create!(
-  dap_id: 3797,
-  dap_name: "John F Kennedy International Airport",
-  d_city: "New York",
-  d_country: "United States",
-  dap_code: "JFK",
-  d_latitude: 40.63980103,
-  d_longitude: -73.77890015,
-  category: 2
-   )
-
-
-
-Destination.create!(
-  dap_id: 1229,
-  dap_name: "Adolfo Suárez Madrid–Barajas Airport",
-  d_city: "Madrid",
-  d_country: "Spain",
-  dap_code: "MAD",
-  d_latitude: 40.471926,
-  d_longitude: -3.56264,
-  category: 2
-   )
-
-Destination.create!(
-  dap_id: 1218,
-  dap_name: "Barcelona International Airport",
-  d_city: "Barcelona",
-  d_country: "Spain",
-  dap_code: "BCN",
-  d_latitude: 41.2971,
-  d_longitude: 2.07846,
-  category: 2
-   )
-
-Destination.create!(
-  dap_id: 193,
-  dap_name: "Lester B. Pearson International Airport",
-  d_city: "Toronto",
-  d_country: "Canada",
-  dap_code: "YYZ",
-  d_latitude: 43.6772003174,
-  d_longitude: -79.6305999756,
-  category: 2
-   )
-
-Destination.create!(
-  dap_id: 346,
-  dap_name: "Munich Airport",
-  d_city: "Munich",
-  d_country: "Germany",
-  dap_code: "MUC",
-  d_latitude: 48.353802,
-  d_longitude: 11.7861,
-  category: 2
-   )
-
-Destination.create!(
-  dap_id: 3494,
-  dap_name: "Newark Liberty International Airport",
-  d_city: "Newark",
-  d_country: "United States",
-  dap_code: "EWR",
-  d_latitude: 40.6925010681152,
-  d_longitude: -74.168701171875,
-  category: 2
-   )
-
-Destination.create!(
-  dap_id: 2564,
-  dap_name: "Guarulhos - Governador André Franco Montoro International Airport",
-  d_city: "Sao Paulo",
-  d_country: "Brazil",
-  dap_code: "GRU",
-  d_latitude: -23.4355564117432,
-  d_longitude: -46.4730567932129,
-  category: 2
-   )
-
-Destination.create!(
-  dap_id: 3146,
-  dap_name: "Vir Savarkar International Airport",
-  d_city: "Port Blair",
-  d_country: "India",
-  dap_code: "IXZ",
-  d_latitude: 11.6412000656128,
-  d_longitude: 92.7296981811523,
-  category: 2
-   )
-
-Destination.create!(
-  dap_id: 3361,
-  dap_name: "Sydney Kingsford Smith International Airport",
-  d_city: "Sydney",
-  d_country: "Australia",
-  dap_code: "SYD",
-  d_latitude: -33.9460983276367,
-  d_longitude: 151.177001953125,
-  category: 2
-   )
-
-Destination.create!(
-  dap_id: 3339,
-  dap_name: "Melbourne International Airport",
-  d_city: "Melbourne",
-  d_country: "Australia",
-  dap_code: "MEL",
-  d_latitude: -37.673302,
-  d_longitude: 144.843002,
-  category: 2
-   )
-
-
-Destination.create!(
-  dap_id: 2006,
-  dap_name: "Auckland International Airport",
-  d_city: "Auckland",
-  d_country: "New Zealand",
-  dap_code: "AKL",
-  d_latitude: -37.0080986023,
-  d_longitude: 174.792007446,
-  category: 2
-   )
-
-Destination.create!(
-  dap_id: 1128,
-  dap_name: "Cairo International Airport",
-  d_city: "Cairo",
-  d_country: "Egypt",
-  dap_code: "CAI",
-  d_latitude: 30.1219005584717,
-  d_longitude: 31.4055995941162,
-  category: 2
-   )
-
-Destination.create!(
-  dap_id: 2650,
-  dap_name: "Comodoro Arturo Merino Benítez International Airport",
-  d_city: "Santiago",
-  d_country: "Chile",
-  dap_code: "SCL",
-  d_latitude: -33.3930015563965,
-  d_longitude: -70.7857971191406,
-  category: 2
-   )
-
-
-Destination.create!(
-  dap_id: 3877,
-  dap_name: "McCarran International Airport",
-  d_city: "Las Vegas",
-  d_country: "United States",
-  dap_code: "LAS",
-  d_latitude: 36.08010101,
-  d_longitude: -115.1520004,
-  category: 2
-   )
-
-
-
-
-Destination.create!(
-  dap_id: 1885,
-  dap_name: "Juan Santamaria International Airport",
-  d_city: "San Jose",
-  d_country: "Costa Rica",
-  dap_code: "SJO",
-  d_latitude: 9.99386024475098,
-  d_longitude: -84.2088012695312,
-  category: 2
-   )
-
-Destination.create!(
-  dap_id: 737,
-  dap_name: "Stockholm-Arlanda Airport",
-  d_city: "Stockholm",
-  d_country: "Sweden",
-  dap_code: "ARN",
-  d_latitude: 59.651901245117,
-  d_longitude: 17.918600082397,
-  category: 2
-   )
-
-
-Destination.create!(
-  dap_id: 4105,
-  dap_name: "Hosea Kutako International Airport",
-  d_city: "Windhoek",
-  d_country: "Namibia",
-  dap_code: "WDH",
-  d_latitude: -22.4799,
-  d_longitude: 17.4709,
-  category: 2
-   )
-
-Destination.create!(
-  dap_id: 1871,
-  dap_name: "Tocumen International Airport",
-  d_city: "Panama City",
-  d_country: "Panama",
-  dap_code: "PTY",
-  d_latitude: 9.0713596344,
-  d_longitude: -79.3834991455,
-  category: 2
-   )
-
-Destination.create!(
-  dap_id: 1587,
-  dap_name: "Václav Havel Airport Prague",
-  d_city: "Prague",
-  d_country: "Czech Republic",
-  dap_code: "PRG",
-  d_latitude: 50.1008,
-  d_longitude: 14.26,
-  category: 2
-   )
-
-Destination.create!(
-  dap_id: 1165,
-  dap_name: "Kigali International Airport",
-  d_city: "Kigali",
-  d_country: "Rwanda",
-  dap_code: "KGL",
-  d_latitude: -1.96863,
-  d_longitude: 30.1395,
-  category: 2
-   )
-
-Destination.create!(
-  dap_id: 535,
-  dap_name: "Edinburgh Airport",
-  d_city: "Edinburgh",
-  d_country: "United Kingdom",
-  dap_code: "EDI",
-  d_latitude: 55.9500007629395,
-  d_longitude: -3.37249994277954,
-  category: 2
-   )
-
-Destination.create!(
-  dap_id: 609,
-  dap_name: "Copenhagen Kastrup Airport",
-  d_city: "Copenhagen",
-  d_country: "Denmark",
-  dap_code: "CPH",
-  d_latitude: 55.617900848389,
-  d_longitude: 12.656000137329,
-  category: 2
-   )
-
-Destination.create!(
-  dap_id: 287,
-  dap_name: "Tunis Carthage International Airport",
-  d_city: "Tunis",
-  d_country: "Tunisia",
-  dap_code: "TUN",
-  d_latitude: 36.851001739502,
-  d_longitude: 10.2271995544434,
-  category: 2
-   )
-
-Destination.create!(
-  dap_id: 287,
-  dap_name: "Tunis Carthage International Airport",
-  d_city: "Tunis",
-  d_country: "Tunisia",
-  dap_code: "TUN",
-  d_latitude: 36.851001739502,
-  d_longitude: 10.2271995544434,
-  category: 2
-   )
+# Destination.create!(
+#   dap_id: 3988,
+#   dap_name: "Ministro Pistarini International Airport",
+#   d_city: "Buenos Aires",
+#   d_country: "Argentina",
+#   dap_code: "EZE",
+#   d_latitude: -34.8222,
+#   d_longitude: -58.5358,
+#   category: 2
+#    )
+
+# Destination.create!(
+#   dap_id: 1590,
+#   dap_name: "Ben Gurion International Airport",
+#   d_city: "Tel-aviv",
+#   d_country: "Israel",
+#   dap_code: "TLV",
+#   d_latitude: 32.0113983154297,
+#   d_longitude: 34.8866996765137,
+#   category: 2
+#    )
+
+# Destination.create!(
+#   dap_id: 3380,
+#   dap_name: "Chinggis Khaan International Airport",
+#   d_city: "Ulan Bator",
+#   d_country: "Mongolia",
+#   dap_code: "ULN",
+#   d_latitude: 47.843102,
+#   d_longitude: 106.766998,
+#   category: 2
+#    )
+
+# Destination.create!(
+#   dap_id: 813,
+#   dap_name: "OR Tambo International Airport",
+#   d_city: "Johannesburg",
+#   d_country: "South Africa",
+#   dap_code: "JNB",
+#   d_latitude: -26.1392,
+#   d_longitude: 28.246,
+#   category: 2
+#    )
+
+# Destination.create!(
+#   dap_id: 797,
+#   dap_name: "Cape Town International Airport",
+#   d_city: "Cape Town",
+#   d_country: "South Africa",
+#   dap_code: "CPT",
+#   d_latitude: -33.9648017883,
+#   d_longitude: 18.6016998291,
+#   category: 2
+#    )
+
+# Destination.create!(
+#   dap_id: 1186,
+#   dap_name: "Abeid Amani Karume International Airport",
+#   d_city: "Zanzibar",
+#   d_country: "Tanzania",
+#   dap_code: "ZNZ",
+#   d_latitude: -6.22202,
+#   d_longitude: 39.224899,
+#   category: 2
+#    )
+
+# Destination.create!(
+#   dap_id: 3964,
+#   dap_name: "Zvartnots International Airport",
+#   d_city: "Yerevan",
+#   d_country: "Armenia",
+#   dap_code: "EVN",
+#   d_latitude: 40.1473007202,
+#   d_longitude: 44.3959007263,
+#   category: 2
+#    )
+
+# Destination.create!(
+#   dap_id: 1739,
+#   dap_name: "Belgrade Nikola Tesla Airport",
+#   d_city: "Belgrade",
+#   d_country: "Serbia",
+#   dap_code: "BEG",
+#   d_latitude: 44.8184013367,
+#   d_longitude: 20.3090991974,
+#   category: 2
+#    )
+
+# Destination.create!(
+#   dap_id: 3304,
+#   dap_name: "Kuala Lumpur International Airport",
+#   d_city: "Kuala Lumpur",
+#   d_country: "Malaysia",
+#   dap_code: "KUL",
+#   d_latitude: 2.745579957962,
+#   d_longitude: 101.70999908447,
+#   category: 2
+#    )
+
+# Destination.create!(
+#   dap_id: 2985,
+#   dap_name: "Sheremetyevo International Airport",
+#   d_city: "Moscow",
+#   d_country: "Russia",
+#   dap_code: "SVO",
+#   d_latitude: 55.972599,
+#   d_longitude: 37.4146,
+#   category: 2
+#    )
+
+# Destination.create!(
+#   dap_id: 4029,
+#   dap_name: "Domodedovo International Airport",
+#   d_city: "Moscow",
+#   d_country: "Russia",
+#   dap_code: "DME",
+#   d_latitude: 55.4087982177734,
+#   d_longitude: 37.9062995910645,
+#   category: 2
+#    )
+
+# Destination.create!(
+#   dap_id: 580,
+#   dap_name: "Amsterdam Airport Schiphol",
+#   d_city: "Amsterdam",
+#   d_country: "Netherlands",
+#   dap_code: "AMS",
+#   d_latitude: 52.308601,
+#   d_longitude: 4.76389,
+#   category: 2
+#    )
+
+# Destination.create!(
+#   dap_id: 1382,
+#   dap_name: "Charles de Gaulle International Airport",
+#   d_city: "Paris",
+#   d_country: "France",
+#   dap_code: "CDG",
+#   d_latitude: 49.012798,
+#   d_longitude: 2.55,
+#   category: 2
+#    )
+
+# Destination.create!(
+#   dap_id: 1354,
+#   dap_name: "Nice-Côte d'Azur Airport",
+#   d_city: "Nice",
+#   d_country: "France",
+#   dap_code: "NCE",
+#   d_latitude: 43.6584014893,
+#   d_longitude: 7.21586990356,
+#   category: 2
+#    )
+
+# Destination.create!(
+#   dap_id: 1555,
+#   dap_name: "Leonardo da Vinci–Fiumicino Airport",
+#   d_city: "Rome",
+#   d_country: "Italy",
+#   dap_code: "FCO",
+#   d_latitude: 41.8002778,
+#   d_longitude: 12.2388889,
+#   category: 2
+#    )
+
+# Destination.create!(
+#   dap_id: 1561,
+#   dap_name: "Naples International Airport",
+#   d_city: "Naples",
+#   d_country: "Italy",
+#   dap_code: "NAP",
+#   d_latitude: 40.886002,
+#   d_longitude: 14.2908,
+#   category: 2
+#    )
+
+# Destination.create!(
+#   dap_id: 302,
+#   dap_name: "Brussels Airport",
+#   d_city: "Brussels",
+#   d_country: "Belgium",
+#   dap_code: "BRU",
+#   d_latitude: 50.9014015198,
+#   d_longitude: 4.48443984985,
+#   category: 2
+#    )
+# Destination.create!(
+#   dap_id: 507,
+#   dap_name: "London Heathrow Airport",
+#   d_city: "London",
+#   d_country: "United Kingdom",
+#   dap_code: "LHR",
+#   d_latitude: 51.4706,
+#   d_longitude: -0.461941,
+#   category: 2
+#    )
+
+
+# Destination.create!(
+#   dap_id: 340,
+#   dap_name: "Frankfurt am Main Airport",
+#   d_city: "Frankfurt",
+#   d_country: "Germany",
+#   dap_code: "FRA",
+#   d_latitude: 50.033333,
+#   d_longitude: 8.570556,
+#   category: 2
+#    )
+
+# Destination.create!(
+#   dap_id: 3682,
+#   dap_name: "Hartsfield Jackson Atlanta International Airport",
+#   d_city: "Atlanta",
+#   d_country: "United States",
+#   dap_code: "ATL",
+#   d_latitude: 33.6367,
+#   d_longitude: -84.428101,
+#   category: 2
+#    )
+
+# Destination.create!(
+#   dap_id: 3364,
+#   dap_name: "Beijing Capital International Airport",
+#   d_city: "Beijing",
+#   d_country: "China",
+#   dap_code: "PEK",
+#   d_latitude: 40.0801010131836,
+#   d_longitude: 116.584999084473,
+#   category: 2
+#    )
+
+# Destination.create!(
+#   dap_id: 2188,
+#   dap_name: "Dubai International Airport",
+#   d_city: "Dubai",
+#   d_country: "United Arab Emirates",
+#   dap_code: "DXB",
+#   d_latitude: 25.2527999878,
+#   d_longitude: 55.3643989563,
+#   category: 2
+#    )
+
+# Destination.create!(
+#   dap_id: 3484,
+#   dap_name: "Los Angeles International Airport",
+#   d_city: "Los Angeles",
+#   d_country: "United States",
+#   dap_code: "LAX",
+#   d_latitude: 33.94250107,
+#   d_longitude: -118.4079971,
+#   category: 2
+#    )
+
+# Destination.create!(
+#   dap_id: 3830,
+#   dap_name: "Chicago O'Hare International Airport",
+#   d_city: "Chicago",
+#   d_country: "United States",
+#   dap_code: "ORD",
+#   d_latitude: 41.9786,
+#   d_longitude: -87.9048,
+#   category: 2
+#    )
+
+# Destination.create!(
+#   dap_id: 3077,
+#   dap_name: "Hong Kong International Airport",
+#   d_city: "Hong Kong",
+#   d_country: "Hong Kong",
+#   dap_code: "HKG",
+#   d_latitude: 22.308901,
+#   d_longitude: 113.915001,
+#   category: 2
+#    )
+
+# Destination.create!(
+#   dap_id: 3406,
+#   dap_name: "Shanghai Pudong International Airport",
+#   d_city: "Shanghai",
+#   d_country: "China",
+#   dap_code: "PVG",
+#   d_latitude: 31.1434001922607,
+#   d_longitude: 121.805000305176,
+#   category: 2
+#    )
+
+# Destination.create!(
+#  dap_id: 3930,
+#   dap_name: "Incheon International Airport",
+#   d_city: "Seoul",
+#   d_country: "South Korea",
+#   dap_code: "ICN",
+#   d_latitude: 37.4691009521484,
+#   d_longitude: 126.450996398926,
+#   category: 2
+#    )
+
+# Destination.create!(
+#   dap_id: 13696,
+#   dap_name: "Istanbul Airport",
+#   d_city: "Istanbul",
+#   d_country: "Turkey",
+#   dap_code: "IST",
+#   d_latitude: 41.275278,
+#   d_longitude: 28.751944,
+#   category: 2
+#    )
+
+
+
+# Destination.create!(
+#   dap_id: 3316,
+#   dap_name: "Singapore Changi Airport",
+#   d_city: "Singapore",
+#   d_country: "Singapore",
+#   dap_code: "SIN",
+#   d_latitude: 1.35019,
+#   d_longitude: 103.994003,
+#   category: 2
+#    )
+
+
+
+# Destination.create!(
+#   dap_id: 3797,
+#   dap_name: "John F Kennedy International Airport",
+#   d_city: "New York",
+#   d_country: "United States",
+#   dap_code: "JFK",
+#   d_latitude: 40.63980103,
+#   d_longitude: -73.77890015,
+#   category: 2
+#    )
+
+
+
+# Destination.create!(
+#   dap_id: 1229,
+#   dap_name: "Adolfo Suárez Madrid–Barajas Airport",
+#   d_city: "Madrid",
+#   d_country: "Spain",
+#   dap_code: "MAD",
+#   d_latitude: 40.471926,
+#   d_longitude: -3.56264,
+#   category: 2
+#    )
+
+# Destination.create!(
+#   dap_id: 1218,
+#   dap_name: "Barcelona International Airport",
+#   d_city: "Barcelona",
+#   d_country: "Spain",
+#   dap_code: "BCN",
+#   d_latitude: 41.2971,
+#   d_longitude: 2.07846,
+#   category: 2
+#    )
+
+# Destination.create!(
+#   dap_id: 193,
+#   dap_name: "Lester B. Pearson International Airport",
+#   d_city: "Toronto",
+#   d_country: "Canada",
+#   dap_code: "YYZ",
+#   d_latitude: 43.6772003174,
+#   d_longitude: -79.6305999756,
+#   category: 2
+#    )
+
+# Destination.create!(
+#   dap_id: 346,
+#   dap_name: "Munich Airport",
+#   d_city: "Munich",
+#   d_country: "Germany",
+#   dap_code: "MUC",
+#   d_latitude: 48.353802,
+#   d_longitude: 11.7861,
+#   category: 2
+#    )
+
+# Destination.create!(
+#   dap_id: 3494,
+#   dap_name: "Newark Liberty International Airport",
+#   d_city: "Newark",
+#   d_country: "United States",
+#   dap_code: "EWR",
+#   d_latitude: 40.6925010681152,
+#   d_longitude: -74.168701171875,
+#   category: 2
+#    )
+
+# Destination.create!(
+#   dap_id: 2564,
+#   dap_name: "Guarulhos - Governador André Franco Montoro International Airport",
+#   d_city: "Sao Paulo",
+#   d_country: "Brazil",
+#   dap_code: "GRU",
+#   d_latitude: -23.4355564117432,
+#   d_longitude: -46.4730567932129,
+#   category: 2
+#    )
+
+# Destination.create!(
+#   dap_id: 3146,
+#   dap_name: "Vir Savarkar International Airport",
+#   d_city: "Port Blair",
+#   d_country: "India",
+#   dap_code: "IXZ",
+#   d_latitude: 11.6412000656128,
+#   d_longitude: 92.7296981811523,
+#   category: 2
+#    )
+
+# Destination.create!(
+#   dap_id: 3361,
+#   dap_name: "Sydney Kingsford Smith International Airport",
+#   d_city: "Sydney",
+#   d_country: "Australia",
+#   dap_code: "SYD",
+#   d_latitude: -33.9460983276367,
+#   d_longitude: 151.177001953125,
+#   category: 2
+#    )
+
+# Destination.create!(
+#   dap_id: 3339,
+#   dap_name: "Melbourne International Airport",
+#   d_city: "Melbourne",
+#   d_country: "Australia",
+#   dap_code: "MEL",
+#   d_latitude: -37.673302,
+#   d_longitude: 144.843002,
+#   category: 2
+#    )
+
+
+# Destination.create!(
+#   dap_id: 2006,
+#   dap_name: "Auckland International Airport",
+#   d_city: "Auckland",
+#   d_country: "New Zealand",
+#   dap_code: "AKL",
+#   d_latitude: -37.0080986023,
+#   d_longitude: 174.792007446,
+#   category: 2
+#    )
+
+# Destination.create!(
+#   dap_id: 1128,
+#   dap_name: "Cairo International Airport",
+#   d_city: "Cairo",
+#   d_country: "Egypt",
+#   dap_code: "CAI",
+#   d_latitude: 30.1219005584717,
+#   d_longitude: 31.4055995941162,
+#   category: 2
+#    )
+
+# Destination.create!(
+#   dap_id: 2650,
+#   dap_name: "Comodoro Arturo Merino Benítez International Airport",
+#   d_city: "Santiago",
+#   d_country: "Chile",
+#   dap_code: "SCL",
+#   d_latitude: -33.3930015563965,
+#   d_longitude: -70.7857971191406,
+#   category: 2
+#    )
+
+
+# Destination.create!(
+#   dap_id: 3877,
+#   dap_name: "McCarran International Airport",
+#   d_city: "Las Vegas",
+#   d_country: "United States",
+#   dap_code: "LAS",
+#   d_latitude: 36.08010101,
+#   d_longitude: -115.1520004,
+#   category: 2
+#    )
+
+# Destination.create!(
+#   dap_id: 1885,
+#   dap_name: "Juan Santamaria International Airport",
+#   d_city: "San Jose",
+#   d_country: "Costa Rica",
+#   dap_code: "SJO",
+#   d_latitude: 9.99386024475098,
+#   d_longitude: -84.2088012695312,
+#   category: 2
+#    )
+
+# Destination.create!(
+#   dap_id: 737,
+#   dap_name: "Stockholm-Arlanda Airport",
+#   d_city: "Stockholm",
+#   d_country: "Sweden",
+#   dap_code: "ARN",
+#   d_latitude: 59.651901245117,
+#   d_longitude: 17.918600082397,
+#   category: 2
+#    )
+
+
+# Destination.create!(
+#   dap_id: 4105,
+#   dap_name: "Hosea Kutako International Airport",
+#   d_city: "Windhoek",
+#   d_country: "Namibia",
+#   dap_code: "WDH",
+#   d_latitude: -22.4799,
+#   d_longitude: 17.4709,
+#   category: 2
+#    )
+
+# Destination.create!(
+#   dap_id: 1871,
+#   dap_name: "Tocumen International Airport",
+#   d_city: "Panama City",
+#   d_country: "Panama",
+#   dap_code: "PTY",
+#   d_latitude: 9.0713596344,
+#   d_longitude: -79.3834991455,
+#   category: 2
+#    )
+
+# Destination.create!(
+#   dap_id: 1587,
+#   dap_name: "Václav Havel Airport Prague",
+#   d_city: "Prague",
+#   d_country: "Czech Republic",
+#   dap_code: "PRG",
+#   d_latitude: 50.1008,
+#   d_longitude: 14.26,
+#   category: 2
+#    )
+
+# Destination.create!(
+#   dap_id: 1165,
+#   dap_name: "Kigali International Airport",
+#   d_city: "Kigali",
+#   d_country: "Rwanda",
+#   dap_code: "KGL",
+#   d_latitude: -1.96863,
+#   d_longitude: 30.1395,
+#   category: 2
+#    )
+
+# Destination.create!(
+#   dap_id: 535,
+#   dap_name: "Edinburgh Airport",
+#   d_city: "Edinburgh",
+#   d_country: "United Kingdom",
+#   dap_code: "EDI",
+#   d_latitude: 55.9500007629395,
+#   d_longitude: -3.37249994277954,
+#   category: 2
+#    )
+
+# Destination.create!(
+#   dap_id: 609,
+#   dap_name: "Copenhagen Kastrup Airport",
+#   d_city: "Copenhagen",
+#   d_country: "Denmark",
+#   dap_code: "CPH",
+#   d_latitude: 55.617900848389,
+#   d_longitude: 12.656000137329,
+#   category: 2
+#    )
+
+# Destination.create!(
+#   dap_id: 287,
+#   dap_name: "Tunis Carthage International Airport",
+#   d_city: "Tunis",
+#   d_country: "Tunisia",
+#   dap_code: "TUN",
+#   d_latitude: 36.851001739502,
+#   d_longitude: 10.2271995544434,
+#   category: 2
+#    )
+
+# Destination.create!(
+#   dap_id: 287,
+#   dap_name: "Tunis Carthage International Airport",
+#   d_city: "Tunis",
+#   d_country: "Tunisia",
+#   dap_code: "TUN",
+#   d_latitude: 36.851001739502,
+#   d_longitude: 10.2271995544434,
+#   category: 2
+#    )
 
 
 puts "creating nature Destinations(3)"

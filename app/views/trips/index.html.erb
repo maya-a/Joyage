@@ -1,3 +1,11 @@
+<h1>all trips</h1>
+
+<% @trips.each do |trip| %>
+<p>
+  <%= trip.destination.d_city %>
+</p>
+<% end %>
+
 <div class="wrapper">
   <div class="polygon">
   <div class="container">
@@ -42,3 +50,4 @@
     </div>
   </div>
 </div>
+
