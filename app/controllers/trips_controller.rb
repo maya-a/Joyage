@@ -13,6 +13,8 @@ class TripsController < ApplicationController
   end
 
   def show
+
+    #@tag = "https://source.unsplash.com/1600x900/?#{@cocktail.name.gsub(' ', '-')}"
   end
 
   def update
