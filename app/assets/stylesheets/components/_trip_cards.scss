@@ -9,7 +9,6 @@
    h2 {
     font-size: 28px;
     margin: 0;
-    height: 10%;
     font-family: "Lato", "sans-serif";
     font-weight: lighter;
     letter-spacing: 7px;
@@ -21,8 +20,14 @@
   padding: 16px;
 }
 
-.card-trip-infos h2 {
+.card-trip-infos h4 {
+  font-family: "Lato", "sans-serif";
+  font-weight: lighter;
+  letter-spacing: 7px;
   color: $orange;
+  margin-bottom: 0px;
+  font-size: 24px;
+  margin-left: 20px;
 }
 
 .card-photo {
