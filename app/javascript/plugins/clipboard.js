@@ -1,11 +1,11 @@
 $(document).ready(function(){
 
-  var clipboard = new Clipboard('.clipboard-btn');
+  var clipboard = new Clipboard('#copy');
   console.log(clipboard);
 
 });
 
-$('.clipboard-btn').tooltip({
+$('#copy').tooltip({
   trigger: 'click',
   placement: 'bottom'
 });

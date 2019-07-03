@@ -246,7 +246,7 @@ $orange: #EF682E;
     padding: 4px;
 
   }
-  i {
+  .fas {
     color: $white;
     font-size: 32px;
 
@@ -260,14 +260,13 @@ $orange: #EF682E;
     letter-spacing: 2px;
   }
   .category {
-
     padding: 5px;
     margin: 2px 0px;
   }
   input:checked + label {
     border: 1px solid $orange;
-    i {
-      color: $orange;
+    .fas {
+      color: $orange !important;
     }
     p {
       color: $orange;
