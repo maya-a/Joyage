@@ -12,7 +12,7 @@
             <% @destinations.each do |destination| %>
             <div class="card-trip">
             <div class="card-photo" style="background-image: linear-gradient(-225deg, rgba(200,101,80,0.6) 0%, rgba(13, 9, 16, 0.72) 50%), url(<%= image_path "city-Amsterdam.jpg" %>);">
-              <%= link_to destination[:city], search_destination_path(@search, destination[:destination].id)  %>
+              <%= link_to destination[:city], search_destination_path(@search, destination[:destination].id) , class: "card-trip-title" %>
 
               </div>
               <div class="card-trip-infos">
