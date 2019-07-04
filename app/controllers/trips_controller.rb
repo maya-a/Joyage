@@ -6,12 +6,26 @@ class TripsController < ApplicationController
     # @itineraries = @trips[0].itineraries
     @search = Search.find(params[:search_id])
     @destinations = []
+    @coordinates = []
     @list.each_with_index do |id, i|
       @destinations << {
         city: Destination.find(id).d_city,
         IATA: Destination.find(id).dap_code,
         ppp: find_avg(@trips)[i]
       }
+
+      @coordinates << {
+        destination_lat: Destination.find(id).d_latitude,
+        destination_lng: Destination.find(id).d_longitude
+      }
+      @search.origins.each do |origin|
+        @coordinates << {
+          origin_city:origin.name,
+          origin_lat: origin.latitude,
+          origin_lng: origin.longitude
+      }
+      end
+
     end
   end
 
