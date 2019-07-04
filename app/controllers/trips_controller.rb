@@ -1,6 +1,7 @@
 class TripsController < ApplicationController
   def index
-    @list = params[:list_destinations]
+    @list = params[:list_destinations].split(',')
+
     @trips = Trip.where(search: params[:search_id])
 
     # @itineraries = @trips[0].itineraries
