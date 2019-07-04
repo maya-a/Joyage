@@ -274,3 +274,206 @@ $orange: #EF682E;
   }
 }
 
+
+
+
+* {
+    box-sizing: border-box;
+}
+#plane {
+    width: 209px;
+    position: relative;
+    margin: 100px auto 0 auto;
+    -webkit-animation: horizontal 4s linear infinite;
+    animation: horizontal 4s linear infinite;
+}
+@-webkit-keyframes horizontal {
+    25% {
+        -webkit-transform: rotate(-10deg);
+        transform: rotate(-10deg);
+    }
+    75% {
+        -webkit-transform: rotate(10deg);
+        transform: rotate(10deg);
+    }
+}
+@keyframes horizontal {
+    25% {
+        -webkit-transform: rotate(-10deg);
+        transform: rotate(-10deg);
+    }
+    75% {
+        -webkit-transform: rotate(10deg);
+        transform: rotate(10deg);
+    }
+}
+#flaps {
+    width: 100%;
+    height: 8px;
+    border-radius: 10px;
+    background-color: #000;
+}
+#flaps:before {
+    content: "";
+    display: block;
+    width: 90px;
+    height: 90px;
+    border-right: 8px solid #000;
+    border-top: 8px solid #000;
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+    position: absolute;
+    top: -43px;
+    left: 56px;
+    z-index: -1;
+}
+#head {
+    width: 58px;
+    height: 58px;
+    border: 9px solid #000;
+    border-radius: 50%;
+    margin: 15px auto 0 auto;
+    background-color: #fff;
+    position: relative;
+}
+#head:before {
+    content: "";
+    display: block;
+    border: 9px solid #000;
+    border-radius: 25px;
+    width: 29px;
+    height: 60px;
+    position: absolute;
+    left: -3px;
+    top: -31px;
+    z-index: -1;
+}
+#head:after {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 50%;
+    border: 7px solid #000;
+    margin: 3px 0 0 3px;
+}
+#propeller {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    left: 69px;
+    top: 17px;
+    -webkit-animation: spin 90ms linear infinite;
+    animation: spin 90ms linear infinite;
+    -webkit-transform-origin: center;
+    transform-origin: center;
+    padding-left: 32px;
+}
+@-webkit-keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+@keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+#propeller:before {
+    content: "";
+    display: block;
+    width: 8px;
+    height: 8px;
+    background-color: #000;
+    position: absolute;
+    top: 50%;
+    z-index: 3;
+    border-radius: 4px;
+    left: 50%;
+    margin: -4px 0 0 -4px;
+}
+
+#propeller span {
+    top: -4px;
+    display: block;
+    position: absolute;
+    width: 7px;
+    height: 39px;
+    background-color: #000;
+    border-radius: 50% 50% / 50% 50%;
+    -webkit-transform-origin: bottom;
+    transform-origin: bottom;
+    border-left: 1px solid #fff;
+}
+#propeller span:nth-child(2) {
+    -webkit-transform: rotate(120deg);
+    transform: rotate(120deg);
+}
+#propeller span:nth-child(3) {
+    -webkit-transform: rotate(-120deg);
+    transform: rotate(-120deg);
+}
+#landing-gear {
+    position: relative;
+    left: 85px;
+    top: -5px;
+}
+#landing-gear span {
+    display: block;
+    width: 5px;
+    height: 20px;
+    background-color: #000;
+    -webkit-transform-origin: bottom;
+    transform-origin: bottom;
+    position: absolute;
+}
+#landing-gear span:before {
+    content: "";
+    display: block;
+    border-radius: 5px;
+    background-color: #000;
+    position: absolute;
+}
+#landing-gear span:nth-child(1) {
+    -webkit-transform: rotate(50deg);
+    transform: rotate(50deg);
+    left: -12px;
+    top: -9px;
+}
+#landing-gear span:nth-child(1):before,
+#landing-gear span:nth-child(3):before {
+    width: 20px;
+    height: 8px;
+}
+#landing-gear span:nth-child(1):before {
+    top: 15px;
+    left: -9px;
+    -webkit-transform: rotate(40deg);
+    transform: rotate(40deg);
+}
+#landing-gear span:nth-child(2) {
+    left: 18px;
+    top: -8px;
+    z-index: -1;
+}
+#landing-gear span:nth-child(2):before {
+    width: 13px;
+    height: 8px;
+    top: 17px;
+    left: -4px;
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+#landing-gear span:nth-child(3) {
+    -webkit-transform: rotate(-50deg);
+    transform: rotate(-50deg);
+    left: 47px;
+    top: -11px;
+}
+#landing-gear span:nth-child(3):before {
+    top: 16px;
+    left: -7px;
+    -webkit-transform: rotate(-40deg);
+    transform: rotate(-40deg);
+}
