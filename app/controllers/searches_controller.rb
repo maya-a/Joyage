@@ -6,6 +6,16 @@ class SearchesController < ApplicationController
     @search = Search.new
   end
 
+
+
+  # 1. append this controller (searches_path , method: post) to the html
+  # 2. respond to the http request with JSON
+  # 3, in frontend (JS), "fetch" this api .. set a loading to true
+  # 4.  wait for response OK(respond_to) from create action
+  # 5. set loading boolean to false
+  # 5. link over to next page
+
+
   def create
     #!!!MISSING!!! the format of the origins from the form after making the search work
     # static
@@ -13,7 +23,11 @@ class SearchesController < ApplicationController
     # dynamic
     @search = Search.new(search_params)
     @search.user = User.first
+
+
+    # @search = Search.create!(max_budget:770, dep_date:"2019-7-17", ret_date:"2019-8-1", user: User.first, category: 2)
     @search.save
+    # could need an exclamation mark after save if there is an error
     params[:origins].each do |id|
       origin = Origin.find(id)
       SearchOrigin.create(search: @search, origin: origin)
@@ -36,14 +50,33 @@ class SearchesController < ApplicationController
       end
     end
 
+
+    begin
+      possible_trips.each do |call|
+        make_trips(call, @search)
+      end
+
+
+    rescue
+      respond_to do |format|
+        format.html { redirect_to new_search_path }
+        format.js { render status: :internal_server_error}
+        return
+      end
+      # make_trips(possible_trips.first, @search)
+    end
+
+    respond_to do |format|
+        format.js { render json: { search_id: @search.id }, status: :created }
+    end
+
     # static
     # make_trips(possible_trips.first, @search)
     # dynamic
 
-    possible_trips.each do |call|
-      make_trips(call, @search)
-    end
-    redirect_to search_trips_path(@search, list_destinations: @list_destinations)
+    # MAY NEED THIS ASK JOE IF CONFUSED WHY OR NOT WHY. TAKEN OUT AFTER LOADINGPAGE_JSCRIPT
+    # redirect_to search_trips_path(@search, list_destinations: @list_destinations)
+
   end
 
 
@@ -56,7 +89,7 @@ class SearchesController < ApplicationController
 
   def make_trips(call, search)
     #translating the API
-    client = OAuth2::Client.new(ENV["SEARCH_KEY"], ENV["SECRET_KEY"], site: 'https://test.api.amadeus.com', token_url: 'https://test.api.amadeus.com/v1/security/oauth2/token')
+    client = OAuth2::Client.new(ENV["SEARCH_KEY"], ENV["SEARCH_SECRET"], site: 'https://test.api.amadeus.com', token_url: 'https://test.api.amadeus.com/v1/security/oauth2/token')
     token = client.client_credentials.get_token
     response = token.get("https://test.api.amadeus.com/v1/shopping/flight-offers?origin=#{call[:oap_code]}&destination=#{call[:dap_code]}&departureDate=2019-08-01&returnDate=2019-09-01&max=2")
     itineraries = []
@@ -83,7 +116,6 @@ class SearchesController < ApplicationController
         # flight_option[:destination]
       }
       end
-
       way_back.each do |flight|
         flight_option << {
           return_origin_city: flight["flightSegment"]["departure"]["iataCode"],
@@ -97,6 +129,7 @@ class SearchesController < ApplicationController
       end
       itineraries << flight_option
     end
+
     # returns a hash of hashes, the main key is the group and the value is a hash
 
     grouped = itineraries.group_by { |d| d[0][:destination] }
