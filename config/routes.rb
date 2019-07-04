@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   end
   get "thankyou", to: "pages#thankyou"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get "pages/loading", to: 'pages#loading_page'
 end
