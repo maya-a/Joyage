@@ -9,7 +9,8 @@ function handleLoading(){
     let container = document.querySelector('#show-container');
 
     container.innerHTML = `
-    <h1 class="headline">Making your dreams become a reality...</h1>
+    <span class="loading-style">
+    <h1>Cool shit is happening</h1>
     <div id="plane">
       <div id="flaps"></div>
       <div id="head"></div>
@@ -23,7 +24,8 @@ function handleLoading(){
         <span></span>
         <span></span>
       </div>
-    </div>`;
+    </div>
+    </span>`;
 
 
     let body = new FormData(form);
