@@ -29,7 +29,6 @@ class TripsController < ApplicationController
     end
   end
 
-
     # @trips = Trip.where.not(latitude: nil, longitude: nil)
     # @markers = []
     # 3.times do
@@ -65,10 +64,7 @@ class TripsController < ApplicationController
     # end
 
   def show
-    @trips = []
-    @trips << Trip.find(params[:id])
-    @trips << Trip.find(params[:id].to_i + 1)
-    @trips << Trip.find(params[:id].to_i + 2)
+    @trips = Trip.where(search_id: params[:search_id])
        @flight_info = []
       # getting first flight only
       @trips.each do |trip|
