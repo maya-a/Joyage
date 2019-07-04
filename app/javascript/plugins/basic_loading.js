@@ -5,7 +5,29 @@ function handleLoading(){
 
    async function handleForm(e) {
     e.preventDefault();
+
+    let container = document.querySelector('#show-container');
+
+    container.innerHTML = `
+    <h1 class="headline">Making your dreams become a reality...</h1>
+    <div id="plane">
+      <div id="flaps"></div>
+      <div id="head"></div>
+      <div id="propeller">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div id="landing-gear">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>`;
+
+
     let body = new FormData(form);
+
     try {
 
       let res = await fetch('/searches', {
@@ -17,13 +39,14 @@ function handleLoading(){
       })
 
 
-      loading = false;
 
       let data = await res.json();
 
-      debugger
-      if(res.status === 200 && !loading) {
-        window.location.href(`/searches/${data.search_id}/trips`);
+      loading = false;
+
+
+      if(!loading) {
+        window.location.pathname = `/searches/${data.search_id}/trips`;
       }
 
 
@@ -31,8 +54,8 @@ function handleLoading(){
     }
 
     catch {
-      alert('something didnt work');
-      window.location.href('/');
+      window.location.pathname =  '/';
+      alert('You must type in the correct information');
     }
 
   }

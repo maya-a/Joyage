@@ -44,17 +44,18 @@ class SearchesController < ApplicationController
       possible_trips.each do |call|
         make_trips(call, @search)
       end
+
+
     rescue
       respond_to do |format|
+        format.html { redirect_to new_search_path }
         format.js { render status: :internal_server_error}
-        format.hmtl { redirect_to new_search_path }
         return
       end
       # make_trips(possible_trips.first, @search)
     end
 
     respond_to do |format|
-      binding.pry
         format.js { render json: { search_id: @search.id }, status: :created }
     end
   end
@@ -69,7 +70,7 @@ class SearchesController < ApplicationController
 
   def make_trips(call, search)
     #translating the API
-    client = OAuth2::Client.new(ENV["API_KEY"], ENV["API_SECRET"], site: 'https://test.api.amadeus.com', token_url: 'https://test.api.amadeus.com/v1/security/oauth2/token')
+    client = OAuth2::Client.new(ENV["SEARCH_KEY"], ENV["SEARCH_SECRET"], site: 'https://test.api.amadeus.com', token_url: 'https://test.api.amadeus.com/v1/security/oauth2/token')
     token = client.client_credentials.get_token
     response = token.get("https://test.api.amadeus.com/v1/shopping/flight-offers?origin=#{call[:oap_code]}&destination=#{call[:dap_code]}&departureDate=2019-08-01&returnDate=2019-09-01&max=2")
     itineraries = []
@@ -96,7 +97,6 @@ class SearchesController < ApplicationController
         # flight_option[:destination]
       }
       end
-
       way_back.each do |flight|
         flight_option << {
           return_origin_city: flight["flightSegment"]["departure"]["iataCode"],
@@ -110,6 +110,7 @@ class SearchesController < ApplicationController
       end
       itineraries << flight_option
     end
+
     # returns a hash of hashes, the main key is the group and the value is a hash
     grouped = itineraries.group_by { |d| d[0][:destination] }
     # creating a possible trip

@@ -1,25 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // import {TweenMax, Power2} from "gsap/TweenMax";
 
 // const loading = () => { TweenMax.set('#circlePath', {
