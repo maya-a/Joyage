@@ -31,7 +31,6 @@ class TripsController < ApplicationController
 
   def show
     @trips = Trip.where(search_id: params[:search_id])
-    raise
        @flight_info = []
       # getting first flight only
       @trips.each do |trip|
