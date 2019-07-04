@@ -7,44 +7,45 @@
         <button id="share" data-toggle="modal" data-target="#shareModal">Share Trip</button>
       </div>
       <div class="itinearies">
+        <% @flight_info.each do |flight_info| %>
         <div class="itnineary-card">
           <div class="information">
-            <h3>From <%= @flight_info[0][:origin_city] %></h3>
+            <h3>From <%= flight_info[:origin_city] %></h3>
           </div>
           <div class="depature">
             <div class="dep date">
               <p><strong>Depature</strong></p>
-              <p><%= @flight_info[0][:departure_date].slice(0..9) %></p>
+              <p><%= flight_info[:departure_date].slice(0..9) %></p>
             </div>
             <div class="dep time">
               <p><strong>Time</strong></p>
-              <p><%= @flight_info[0][:departure_date].slice(11..14) %></p>
+              <p><%= flight_info[:departure_date].slice(11..14) %></p>
             </div>
              <div class="dep duration">
               <p><strong>Duration</strong></p>
-              <p><%= @flight_info[0][:duration].slice(3..7) %></p>
+              <p><%= flight_info[:duration].slice(3..7) %></p>
             </div>
             <div class="dep layover">
               <p><strong>Layovers</strong></p>
-              <p><%= @flight_info[0][:layovers] %></p>
+              <p><%= flight_info[:layovers] %></p>
             </div>
           </div>
           <div class="return">
             <div class="ret date">
               <p><strong>Arrival</strong></p>
-              <p><%= @flight_info[0][:return_arrival_date].slice(0..9) %></p>
+              <p><%= flight_info[:return_arrival_date].slice(0..9) %></p>
             </div>
             <div class="ret time">
               <p><strong>Time</strong></p>
-              <p><%= @flight_info[0][:return_arrival_date].slice(11..14) %></p>
+              <p><%= flight_info[:return_arrival_date].slice(11..14) %></p>
             </div>
              <div class="ret duration">
               <p><strong>Duration</strong></p>
-              <p><%= @flight_info[0][:return_duration].slice(3..7) %></p>
+              <p><%= flight_info[:return_duration].slice(3..7) %></p>
             </div>
             <div class="ret layover">
               <p><strong>Layovers</strong></p>
-              <p><%= @flight_info[0][:return_layovers] %></p>
+              <p><%= flight_info[:return_layovers] %></p>
             </div>
           </div>
           <div class="buttons">
@@ -53,62 +54,12 @@
               <button id="change" data-toggle="modal" data-target="#changeModal">Change Flight</button>
             </div>
             <div class="book">
-              <p><strong><%= @flight_info[0][:price].to_i %> €</strong></p>
+              <p><strong><%= flight_info[:price].to_i %> €</strong></p>
               <%= link_to "Book Flight", thankyou_path, id:"book" %>
             </div>
           </div>
         </div>
-        <div class="itnineary-card">
-          <div class="information">
-            <h3>From <%= @flight_info[1][:origin_city] %></h3>
-          </div>
-          <div class="depature">
-            <div class="dep date">
-              <p><strong>Depature</strong></p>
-              <p><%= @flight_info[1][:departure_date].slice(0..9) %></p>
-            </div>
-            <div class="dep time">
-              <p><strong>Time</strong></p>
-              <p><%= @flight_info[1][:departure_date].slice(11..14) %></p>
-            </div>
-             <div class="dep duration">
-              <p><strong>Duration</strong></p>
-              <p><%= @flight_info[1][:duration].slice(3..7) %></p>
-            </div>
-            <div class="dep layover">
-              <p><strong>Layovers</strong></p>
-              <p><%= @flight_info[1][:layovers] %></p>
-            </div>
-          </div>
-          <div class="return">
-            <div class="ret date">
-              <p><strong>Arrival</strong></p>
-              <p><%= @flight_info[1][:return_arrival_date].slice(0..9) %></p>
-            </div>
-            <div class="ret time">
-              <p><strong>Time</strong></p>
-              <p><%= @flight_info[1][:return_arrival_date].slice(11..14) %></p>
-            </div>
-             <div class="ret duration">
-              <p><strong>Duration</strong></p>
-              <p><%= @flight_info[1][:return_duration].slice(3..7) %></p>
-            </div>
-            <div class="ret layover">
-              <p><strong>Layovers</strong></p>
-              <p><%= @flight_info[1][:return_layovers] %></p>
-            </div>
-          </div>
-          <div class="buttons">
-            <div class="change">
-              <p><strong>Other options</strong></p>
-              <button id="change" data-toggle="modal" data-target="#changeModal">Change Flight</button>
-            </div>
-            <div class="book">
-              <p><strong><%= @flight_info[1][:price].to_i %> €</strong></p>
-              <%= link_to "Book Flight", thankyou_path, id:"book" %>
-            </div>
-          </div>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>

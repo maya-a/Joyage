@@ -52,7 +52,7 @@ class SearchesController < ApplicationController
 
 
     begin
-      possible_trips.each do |call|
+      possible_trips.first(2).each do |call|
         make_trips(call, @search)
       end
 
