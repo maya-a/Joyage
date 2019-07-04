@@ -477,3 +477,13 @@ $orange: #EF682E;
     -webkit-transform: rotate(-40deg);
     transform: rotate(-40deg);
 }
+
+.loading-style{
+  color: $white;
+}
+
+.loading-style h1 {
+  font-size: 25px;
+  font-weight: lighter;
+
+}
