@@ -64,7 +64,6 @@ class TripsController < ApplicationController
     #   }
     # end
 
-
   def show
     @trips = []
     @trips << Trip.find(params[:id])
@@ -126,6 +125,7 @@ class TripsController < ApplicationController
     end
     return avgs
   end
+end
 
 # eval(@trips[0].itineraries.first.info)[0][0][:price]
 # eval(@trips[0].itineraries.first.info)[0][0][:destination]
