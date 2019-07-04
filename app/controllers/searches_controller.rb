@@ -51,30 +51,30 @@ class SearchesController < ApplicationController
     end
 
 
-    # begin
+    begin
       possible_trips.each do |call|
         make_trips(call, @search)
       end
 
 
-    # # rescue
-    #   respond_to do |format|
-    #     format.html { redirect_to new_search_path }
-    #     # format.js { render status: :internal_server_error}
-    #     return
-    #   end
-    #   # make_trips(possible_trips.first, @search)
-    # # end
+    rescue
+      respond_to do |format|
+        format.html { redirect_to new_search_path }
+        format.js { render status: :internal_server_error}
+        return
+      end
+      # make_trips(possible_trips.first, @search)
+    end
 
-    # respond_to do |format|
-    #     # format.js { render json: { search_id: @search.id }, status: :created }
-    # end
+    respond_to do |format|
+        format.js { render json: { search_id: @search.id, list_destinations: @list_destinations }, status: :created }
+    end
 
     # static
     # make_trips(possible_trips.first, @search)
     # dynamic
 
-    redirect_to search_trips_path(@search, list_destinations: @list_destinations)
+    # redirect_to search_trips_path(@search, list_destinations: @list_destinations)
 
   end
 

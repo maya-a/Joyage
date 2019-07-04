@@ -16,7 +16,7 @@
 
               </div>
               <div class="card-trip-infos">
-                <h4><%= destination[:ppp].round %>€</h4>
+                <h4><%=  !destination[:ppp].nil? ?  destination[:ppp].round : "N/A" %>€</h4>
               </div>
             </div>
              <% end %>
