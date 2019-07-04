@@ -12,11 +12,13 @@ $sky: #7ea5ba;
 }
 
 .footer {
-  padding: 20px 0;
+  padding: 5px 0;
   text-align: center;
   width: 100%;
   left: 0;
+  bottom: 0;
   background: white;
+  margin-top: 20px;
 }
 
 .content {
@@ -24,7 +26,6 @@ $sky: #7ea5ba;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 50px;
   margin-bottom: 20px;
   h2 {
     text-align: center;
