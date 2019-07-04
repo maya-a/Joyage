@@ -11,9 +11,13 @@
           <div class="results">
             <% @destinations.each do |destination| %>
             <div class="card-trip">
-            <div class="card-photo" style="background-image: linear-gradient(-225deg, rgba(200,101,80,0.6) 0%, rgba(13, 9, 16, 0.72) 50%), url(<%= image_path "city-Amsterdam.jpg" %>);">
-              <%= link_to destination[:city], search_destination_path(@search, destination[:destination].id) , class: "card-trip-title" %>
 
+              <% if destination[:city] == "New York" %>
+                <div class="card-photo" style="background-image: linear-gradient(-225deg, rgba(200,101,80,0.6) 0%, rgba(13, 9, 16, 0.72) 50%), url(<%= image_path "city-New York.jpg" %>);">
+              <% else %>
+                <div class="card-photo" style="background-image: linear-gradient(-225deg, rgba(200,101,80,0.6) 0%, rgba(13, 9, 16, 0.72) 50%), url(<%= image_path "city-"+destination[:city]+".jpg" %>);">
+                  <% end %>
+              <%= link_to destination[:city], search_destination_path(@search, destination[:destination].id), id:"tripname"  %>
               </div>
               <div class="card-trip-infos">
                 <h4><%=  !destination[:ppp].nil? ?  destination[:ppp].round : "N/A" %>€</h4>
@@ -21,9 +25,7 @@
             </div>
              <% end %>
           </div>
-
           <div id="map" style="width: 100%; height: 300px; "data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY']%>"></div>
-
     </div>
   </div>
 </div>
