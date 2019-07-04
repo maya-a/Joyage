@@ -40,31 +40,31 @@ class TripsController < ApplicationController
         #image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
       # }
 
-    @trips = Trip.where.not(latitude: nil, longitude: nil)
-    @markers = []
-    2.times do
-      @markers << {
-        lat: 25.02424,
-        lng: 41.81812,
-        #infoWindow: render_to_string(partial: "infowindow", locals: { trip: trip }),
-        #image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
-      }
+  #   @trips = Trip.where.not(latitude: nil, longitude: nil)
+  #   @markers = []
+  #   2.times do
+  #     @markers << {
+  #       lat: 25.02424,
+  #       lng: 41.81812,
+  #       #infoWindow: render_to_string(partial: "infowindow", locals: { trip: trip }),
+  #       #image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
+  #     }
 
-          @markers << {
-        lat: 32.080351,
-        lng: 34.767633,
-        #infoWindow: render_to_string(partial: "infowindow", locals: { trip: trip }),
-        #image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
-      }
-            @markers << {
-        lat: 10.080351,
-        lng: 12.767633,
-        #infoWindow: render_to_string(partial: "infowindow", locals: { trip: trip }),
-        #image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
-      }
-    end
+  #         @markers << {
+  #       lat: 32.080351,
+  #       lng: 34.767633,
+  #       #infoWindow: render_to_string(partial: "infowindow", locals: { trip: trip }),
+  #       #image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
+  #     }
+  #           @markers << {
+  #       lat: 10.080351,
+  #       lng: 12.767633,
+  #       #infoWindow: render_to_string(partial: "infowindow", locals: { trip: trip }),
+  #       #image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
+  #     }
+  #   end
 
-  end
+  # end
 
   def show
     trip = Trip.find(params[:id])
@@ -119,6 +119,7 @@ class TripsController < ApplicationController
     end
     return avgs
   end
+end
 
 # eval(@trips[0].itineraries.first.info)[0][0][:price]
 # eval(@trips[0].itineraries.first.info)[0][0][:destination]

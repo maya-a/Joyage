@@ -15,17 +15,16 @@
              <%#= eval(i.info)[0][0][:price].to_f%>
              <br>
            <%# end %>
-           <%= @destinations %>
            <br>
-           <%= @coordinates %>
+           <% @coordinates %>
 
           <%# end %>
           <div class="results">
             <% @destinations.each do |destination| %>
             <div class="card-trip">
+            <div class="card-photo" style="background-image: linear-gradient(-225deg, rgba(200,101,80,0.6) 0%, rgba(13, 9, 16, 0.72) 50%), url(<%= image_path "city-Amsterdam.jpg" %>);">
+              <%= link_to destination[:city], search_trip_path(destination.id)  %>
 
-            <div class="card-photo" style="background-image: linear-gradient(-225deg, rgba(200,101,80,0.6) 0%, rgba(13, 9, 16, 0.72) 50%), url(<%= image_path "city-"+destination[:city]+".jpg" %>);">
-                <h2><%= destination[:city] %></h2>
               </div>
               <div class="card-trip-infos">
                 <h4><%= destination[:ppp].round %>€</h4>
