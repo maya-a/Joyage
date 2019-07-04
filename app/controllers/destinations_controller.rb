@@ -1,7 +1,7 @@
 class DestinationsController < ApplicationController
   def show
     @trips = Trip.where(destination_id: params[:id], search_id: params[:search_id])
-  @flight_info = []
+    @flight_info = []
       # getting first flight only
       @trips.each do |trip|
         trip.itineraries.each do |itinerary|
@@ -28,4 +28,5 @@ class DestinationsController < ApplicationController
       end
     end
   end
+
 
