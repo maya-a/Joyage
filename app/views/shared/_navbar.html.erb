@@ -1,15 +1,22 @@
-<div class="navbar-joyage sticky">
+<div class="navbar-joyage fixed">
    <!-- Logo -->
+
   <div class="navbar-brand">
     <div class="header d-flex align-items-center">
+      <% unless current_page?(root_path) %>
       <%= image_tag "Joyage.png" %>
       <h1>Joyage</h1>
+      <% end %>
     </div>
   </div>
 
-  <!-- Logo -->
+  <!-- User -->
   <div class="navbar-right" hidden-md hidden-lg>
-    <p class="user">Log In</p>
-    <p class="user">Sign Up</p>
+    <% if current_user %>
+      <p>My Trips</p>
+    <% else %>
+      <p class="user">Log In</p>
+      <p class="user">Sign Up</p>
+    <% end %>
   </div>
 </div>

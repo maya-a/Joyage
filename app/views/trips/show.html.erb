@@ -1,18 +1,14 @@
+
+<%= @flight_info %>
 <div class="trips container">
   <div class="row">
     <div class="overview col-md-12 col-md-offset-2">
       <div class="headline">
-        <h1> Your amsterdam trip</h1>
-        <button class="share">Share Trip</button>
-
-        <% link = request.original_url   %>
-        <p id="link"><%= link %></p>
-        <button class="clipboard-btn" data-clipboard-action="copy" data-clipboard-target="#link">
-          Copy
-        </button>
+        <h1> Your Amsterdam trip</h1>
+        <button id="share" data-toggle="modal" data-target="#shareModal">Share Trip</button>
       </div>
       <div class="itinearies">
-        <div class="itnineary card">
+        <div class="itnineary-card">
           <div class="depature">
             <h3>From Berlin</h3>
           </div>
@@ -31,8 +27,70 @@
             </div>
           </div>
           <div class="buttons">
-            <button class="change">Change Flight</button>
-            <button class="book">Book Flight</button>
+            <div class="change">
+              <p><strong>See other options</strong></p>
+              <button id="change" data-toggle="modal" data-target="#changeModal">Change Flight</button>
+            </div>
+            <div class="book">
+              <p><strong>$ 245</strong></p>
+              <button id="book">Book Flight</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Share Modal -->
+<div class="modal fade" id="shareModal" tabindex="-1" role="dialog" aria-labelledby="shareeModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-headline">
+          <i class="fas fa-arrow-alt-circle-down"></i>
+        <h5 class="modal-title" id="shareModalLabel">Share the trip with your friends</h5>
+        </div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p class="share-input">Here's the link. <br> Click on copy to share</p>
+<!--         <p class="share-input">Click on copy to share.</p> -->
+        <div class="link-field">
+        <% link = request.original_url   %>
+        <p id="link"><%= link %></p>
+        </div>
+        <button id="copy" data-clipboard-action="copy" data-clipboard-target ="#link">Copy</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Share Modal -->
+<div class="modal fade" id="changeModal" tabindex="-1" role="dialog" aria-labelledby="changeModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="change-modal-content">
+        <div class="modal-headline">
+        <h5 class="change-modal-title" id="changeModalLabel">Your flight options</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+      <div class="change-modal-body">
+        <div class="options">
+          <div class="option">
+            <%= image_tag "lufthansa.png", {alt: "airline"}  %>
+            <div class="option-flight">
+              <p>From Berlin</p>
+              <p>Options Date Time</p>
+              <p>Price €€</p>
+            </div>
+              <input id="check" name="checkbox" type="radio" value="1" checked="checked" />
+              <label for="check">
+                <i class="far fa-check-circle"></i>
+              </label>
           </div>
         </div>
       </div>

@@ -6,8 +6,10 @@ $orange: #EF682E;
 
 .wrapper {
   background: linear-gradient(160deg, #6a6ed4 0%, #a03cb0 159%);
-  height: 100vh;
+  height: 100%;
   text-align: center;
+  margin-bottom: 100px;
+
 }
 
 .headline {
@@ -244,7 +246,7 @@ $orange: #EF682E;
     padding: 4px;
 
   }
-  i {
+  .fas {
     color: $white;
     font-size: 32px;
 
@@ -258,14 +260,13 @@ $orange: #EF682E;
     letter-spacing: 2px;
   }
   .category {
-
     padding: 5px;
     margin: 2px 0px;
   }
   input:checked + label {
     border: 1px solid $orange;
-    i {
-      color: $orange;
+    .fas {
+      color: $orange !important;
     }
     p {
       color: $orange;
