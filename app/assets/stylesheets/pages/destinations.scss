@@ -23,20 +23,48 @@ body {
   }
 }
 
-.depature {
-  margin-left: 10px;
+.trip-name {
+  color: $orange;
 }
 
-.information {
+// .trip-headline {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   margin-bottom: 70px;
+//   margin-top: 125px;
+//   h1 {
+//     color: $white;
+//     font-weight: lighter;
+//     letter-spacing: 17px;
+//   }
+// }
+
+.depature {
   display: flex;
   justify-content: flex-start;
-  margin-left: 30px;
+  margin-left: 50px;
+  margin-bottom: 4px;
   p {
     text-align: left;
     margin-bottom: 0px;
     color: $blue;
   }
   .dep {
+    margin-right: 50px;
+  }
+}
+
+.return {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 50px;
+  p {
+    text-align: left;
+    margin-bottom: 0px;
+    color: $blue;
+  }
+  .ret {
     margin-right: 50px;
   }
 }
@@ -53,7 +81,8 @@ body {
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 4px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  height: 185px;
 }
 
 //share modal
@@ -156,6 +185,7 @@ body {
   align-items: center;
   p {
     margin-bottom: 0px;
+    padding-right: 10px;
   }
 }
 
@@ -165,7 +195,11 @@ body {
   justify-content: flex-end;
   align-items: center;
   right: 100px;
-  top: -60px;
+  top: -100px;
+}
+
+.change {
+  margin-right: 25px;
   p {
     font-family: "Lato", "sans-serif";
     font-weight: lighter;
@@ -174,8 +208,11 @@ body {
   }
 }
 
-.change {
-  margin-right: 25px;
+.book p {
+  font-family: "Lato", "sans-serif";
+  font-weight: lighter;
+  letter-spacing: 2px;
+  color: $orange;
 }
 
 //buttons
@@ -220,6 +257,9 @@ body {
   padding: 5px 10px;
   margin-left: 10px;
   outline: 0;
+  position: absolute;
+  right: 30px;
+  top: 70px;
 }
 
 
@@ -253,6 +293,7 @@ body {
   margin-left: 10px;
   cursor: pointer;
   outline: 0;
+  text-decoration: none;
   // box-shadow: none!important;
   &:hover {
     color: $white;
