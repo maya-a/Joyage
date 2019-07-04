@@ -5,3 +5,15 @@ $orange: #EF682E;
 #you {
   color: $orange;
 }
+
+.card-trip-title {
+  color: white;
+  font-size: 30px;
+  transition: 0.1s ease;
+}
+
+.card-trip-title:hover {
+  text-decoration: none;
+  color: $orange;
+  font-size: 36px;
+}
