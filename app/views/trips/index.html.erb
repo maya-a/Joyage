@@ -7,18 +7,7 @@
         <div class="headline">
           <h1>Here is what we have found for <span id="you" >you</span>!</h1>
         </div>
-
-         <%#@trips.each_with_index do |trip, index| %>
-           <%#= trip.destination.d_city %>
-           <!-- (<%#= trip.destination.dap_code %>) -->
-           <%# trip.itineraries.each do |i| %>
-             <%#= eval(i.info)[0][0][:price].to_f%>
-             <br>
-           <%# end %>
-           <br>
            <% @coordinates %>
-
-          <%# end %>
           <div class="results">
             <% @destinations.each do |destination| %>
             <div class="card-trip">

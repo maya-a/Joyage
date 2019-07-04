@@ -100,23 +100,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _plugins_flatpickr__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../plugins/flatpickr */ "./app/javascript/plugins/flatpickr.js");
 /* harmony import */ var _plugins_slider__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../plugins/slider */ "./app/javascript/plugins/slider.js");
 /* harmony import */ var _plugins_add_origins__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../plugins/add-origins */ "./app/javascript/plugins/add-origins.js");
-/* harmony import */ var mapbox_gl_dist_mapbox_gl_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! mapbox-gl/dist/mapbox-gl.css */ "./node_modules/mapbox-gl/dist/mapbox-gl.css");
-/* harmony import */ var mapbox_gl_dist_mapbox_gl_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(mapbox_gl_dist_mapbox_gl_css__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var select2_dist_css_select2_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! select2/dist/css/select2.css */ "./node_modules/select2/dist/css/select2.css");
-/* harmony import */ var select2_dist_css_select2_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(select2_dist_css_select2_css__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _plugins_init_mapbox__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../plugins/init_mapbox */ "./app/javascript/plugins/init_mapbox.js");
-/* harmony import */ var _plugins_init_select2__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../plugins/init_select2 */ "./app/javascript/plugins/init_select2.js");
+/* harmony import */ var _plugins_add_origins__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_plugins_add_origins__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _plugins_clipboard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../plugins/clipboard */ "./app/javascript/plugins/clipboard.js");
+/* harmony import */ var _plugins_clipboard__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_plugins_clipboard__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var mapbox_gl_dist_mapbox_gl_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! mapbox-gl/dist/mapbox-gl.css */ "./node_modules/mapbox-gl/dist/mapbox-gl.css");
+/* harmony import */ var mapbox_gl_dist_mapbox_gl_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(mapbox_gl_dist_mapbox_gl_css__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var select2_dist_css_select2_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! select2/dist/css/select2.css */ "./node_modules/select2/dist/css/select2.css");
+/* harmony import */ var select2_dist_css_select2_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(select2_dist_css_select2_css__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _plugins_init_mapbox__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../plugins/init_mapbox */ "./app/javascript/plugins/init_mapbox.js");
+/* harmony import */ var _plugins_init_select2__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../plugins/init_select2 */ "./app/javascript/plugins/init_select2.js");
+/* harmony import */ var _plugins_timer__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../plugins/timer */ "./app/javascript/plugins/timer.js");
 
 
 
+
+ // import "../plugins/basic_loading";
 
  // <-- you need to uncomment the stylesheet_pack_tag in the layout!
 
 
 
 
-Object(_plugins_init_mapbox__WEBPACK_IMPORTED_MODULE_6__["initMapbox"])();
-Object(_plugins_init_select2__WEBPACK_IMPORTED_MODULE_7__["initSelect2"])();
+
+Object(_plugins_init_mapbox__WEBPACK_IMPORTED_MODULE_7__["initMapbox"])();
+Object(_plugins_init_select2__WEBPACK_IMPORTED_MODULE_8__["initSelect2"])();
+Object(_plugins_timer__WEBPACK_IMPORTED_MODULE_9__["timerCountdown"])();
 
 /***/ }),
 
@@ -124,14 +132,10 @@ Object(_plugins_init_select2__WEBPACK_IMPORTED_MODULE_7__["initSelect2"])();
 /*!***********************************************!*\
   !*** ./app/javascript/plugins/add-origins.js ***!
   \***********************************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* WEBPACK VAR INJECTION */(function($) {/* harmony import */ var _init_select2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./init_select2 */ "./app/javascript/plugins/init_select2.js");
-
-$(document).ready(function () {
+/* WEBPACK VAR INJECTION */(function($) {$(document).ready(function () {
   var maxFields = 5; //maximum input boxes allowed
 
   var wrapper = $(".add-origins"); //Fields wrapper
@@ -147,8 +151,6 @@ $(document).ready(function () {
       x++; //text box increment
 
       $(wrapper).append('<%= select_tag "origins", options_from_collection_for_select(Origin.all, "id", "name"), class: "form-control string optional select2"  %>'); //add input box
-
-      Object(_init_select2__WEBPACK_IMPORTED_MODULE_0__["initSelect2"])();
     } else if (x = maxFields) {
       addButton.style.visibility = 'hidden';
     }
@@ -160,6 +162,35 @@ $(document).ready(function () {
     x--;
   });
 });
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
+
+/***/ }),
+
+/***/ "./app/javascript/plugins/clipboard.js":
+/*!*********************************************!*\
+  !*** ./app/javascript/plugins/clipboard.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function($) {$(document).ready(function () {
+  var clipboard = new Clipboard('#copy');
+  console.log(clipboard);
+});
+$('#copy').tooltip({
+  trigger: 'click',
+  placement: 'bottom'
+});
+
+function setTooltip(btn, message) {
+  $(btn).tooltip('show').attr('data-original-title', message).tooltip('show');
+}
+
+function hideTooltip(btn) {
+  setTimeout(function () {
+    $(btn).tooltip('hide');
+  }, 1000);
+}
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
 
 /***/ }),
@@ -259,22 +290,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var select2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! select2 */ "./node_modules/select2/dist/js/select2.js");
 /* harmony import */ var select2__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(select2__WEBPACK_IMPORTED_MODULE_1__);
-//   document.addEventListener('DOMContentLoaded', () => {
-//   var client = algoliasearch('6WKL3F66N2', '66e80879e16a45e9f05ccf20c9bbc9ee');
-//   var index = client.initIndex('Origin');
-//   index.search('.js-example-basic-single', { hitsPerPage: 10, page: 0 })
-//     .then(function searchDone(content) {
-//       console.log(content)
-//     })
-//     .catch(function searchFailure(err) {
-//       console.error(err);
-//     });
-//       })
-// $(document).ready(function() {
-//   $(".js-example-data-array-selected").select2({
-//     data: index
-//   })
-// });
 
 
 
@@ -312,6 +327,44 @@ $(".js-range-slider").ionRangeSlider({
   prefix: "$"
 });
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
+
+/***/ }),
+
+/***/ "./app/javascript/plugins/timer.js":
+/*!*****************************************!*\
+  !*** ./app/javascript/plugins/timer.js ***!
+  \*****************************************/
+/*! exports provided: timerCountdown */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "timerCountdown", function() { return timerCountdown; });
+var timerCountdown = function timerCountdown() {
+  // Set the date we're counting down to
+  var countDownDate = new Date("Oct 5, 2019 15:37:25").getTime(); // Update the count down every 1 second
+
+  var x = setInterval(function () {
+    // Get today's date and time
+    var now = new Date().getTime(); // Find the distance between now and the count down date
+
+    var distance = countDownDate - now; // Time calculations for days, hours, minutes and seconds
+
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor(distance % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
+    var minutes = Math.floor(distance % (1000 * 60 * 60) / (1000 * 60));
+    var seconds = Math.floor(distance % (1000 * 60) / 1000); // Display the result in the element with id="demo"
+
+    document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s "; // If the count down is finished, write some text
+
+    if (distance < 0) {
+      clearInterval(x);
+      document.getElementById("countdown").innerHTML = "Have fun at your trip!";
+    }
+  }, 1000);
+};
+
+
 
 /***/ }),
 
@@ -29962,4 +30015,4 @@ module.exports = g;
 /***/ })
 
 /******/ });
-//# sourceMappingURL=application-c68a5533cf5a57b25860.js.map
+//# sourceMappingURL=application-34e87d5a897f2f28334f.js.map

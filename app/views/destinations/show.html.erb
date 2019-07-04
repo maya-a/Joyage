@@ -8,21 +8,35 @@
       </div>
       <div class="itinearies">
         <div class="itnineary-card">
-          <div class="depature">
-            <h3>From Berlin</h3>
-          </div>
           <div class="information">
-            <div class="info date">
-              <p><strong>Date</strong></p>
-              <p>Depature Date</p>
+            <h3>From <%= @flight_info[0][:origin_city] %></h3>
+          </div>
+          <div class="depature">
+            <div class="dep date">
+              <p><strong>Depature</strong></p>
+              <p><%= @flight_info[0][:departure_date] %></p>
             </div>
-            <div class="info time">
-              <p><strong>Time</strong></p>
-              <p>18:10</p>
+             <div class="dep time">
+              <p><strong>Duration</strong></p>
+              <p><%= @flight_info[0][:duration] %></p>
             </div>
-            <div class="info airline">
-              <p><strong>Airline</strong></p>
-              <p>Lufthansa</p>
+            <div class="dep layover">
+              <p><strong>Layovers</strong></p>
+              <p><%= @flight_info[0][:layovers] %></p>
+            </div>
+          </div>
+          <div class="return">
+            <div class="ret date">
+              <p><strong>Depature</strong></p>
+              <p><%= @flight_info[0][:departure_date] %></p>
+            </div>
+             <div class="ret time">
+              <p><strong>Duration</strong></p>
+              <p><%= @flight_info[0][:duration] %></p>
+            </div>
+            <div class="ret layover">
+              <p><strong>Layovers</strong></p>
+              <p><%= @flight_info[0][:layovers] %></p>
             </div>
           </div>
           <div class="buttons">
