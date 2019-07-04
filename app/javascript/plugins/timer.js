@@ -1,7 +1,6 @@
 const timerCountdown = () => {
   // Set the date we're counting down to
-  const countDownDate = new Date("Jan 5, 2021 15:37:25").getTime();
-
+  const countDownDate = new Date("Oct 5, 2019 15:37:25").getTime();
   // Update the count down every 1 second
   const x = setInterval(function() {
 
