@@ -22,6 +22,7 @@ gem "rest-client"
 gem 'unsplash'
 gem 'clipboard', '~> 1.3', '>= 1.3.3'
 gem 'clipboard-rails'
+gem 'strftime'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
