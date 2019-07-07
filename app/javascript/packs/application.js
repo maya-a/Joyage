@@ -26,3 +26,4 @@ if(select2) initSelect2();
 
 const countdown = document.querySelector('#countdown');
 if(countdown) timerCountdown();
+

@@ -3,12 +3,16 @@ class DestinationsController < ApplicationController
     @trips = Trip.where(destination_id: params[:id], search_id: params[:search_id])
     @flights_infos = []
       # getting first flight only
+
     @trips.each do |trip|
       trip.itineraries.each do |itinerary|
         flight_info = {
           itinerary_index: itinerary.id ,
           destination_code: eval(itinerary.info)[0][:destination],
           price:            eval(itinerary.info)[0][:price],
+          destination_city: Destination.find(trip.destination.id).d_city,
+          origin_city_name: Origin.find_by(code: eval(itinerary.info)[1][:origin_city]).city,
+
 
           origin_city:    eval(itinerary.info)[1][:origin_city],
           arrival_city:   eval(itinerary.info)[1][:arrival_city],
