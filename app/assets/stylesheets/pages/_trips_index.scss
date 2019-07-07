@@ -26,3 +26,14 @@ $orange: #EF682E;
   color: $white;
   text-decoration: none;
 }
+
+.trips {
+  text-align: center;
+  font-family: "Lato", "sans-serif";
+  font-weight: lighter;
+  letter-spacing: 2px;
+}
+
+.trip-name {
+  color: $orange;
+}
