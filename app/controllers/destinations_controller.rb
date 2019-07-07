@@ -9,6 +9,8 @@ class DestinationsController < ApplicationController
             itinerary_index: itinerary.id ,
             destination_code: eval(itinerary.info)[0][0][:destination],
             price:            eval(itinerary.info)[0][0][:price],
+            destination_city: Destination.find(trip.destination.id).d_city,
+            origin_city_name: Origin.find_by(code: eval(itinerary.info)[0][1][:origin_city]).city,
 
             origin_city:    eval(itinerary.info)[0][1][:origin_city],
             arrival_city:   eval(itinerary.info)[0][1][:arrival_city],

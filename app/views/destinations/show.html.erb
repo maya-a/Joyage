@@ -1,16 +1,25 @@
-<%= @flight_info[0][:departure_date].strfd("%b %d, %Y") %>
 <div class="trips container">
   <div class="row">
     <div class="overview col-md-12 col-md-offset-2">
       <div class="headline">
-        <h1> Your trip to <span class="trip-name"><strong><%= @flight_info[0][:destination_code] %></strong></span></h1>
+        <h1> Your trip to <span class="trip-name"><strong><%= @flight_info[0][:destination_city] %></strong></span></h1>
         <button id="share" data-toggle="modal" data-target="#shareModal">Share Trip</button>
       </div>
       <div class="itinearies">
         <% @flight_info.each do |info| %>
         <div class="itnineary-card">
           <div class="cities">
-            <h3><strong> <%= info[:origin_city] %> <i class="fas fa-arrows-alt-h"></i> <%= info[:destination_code] %></strong></h3>
+            <div class="dep-city">
+              <p><%= info[:origin_city_name] %></p>
+            <h3><strong> <%= info[:origin_city] %> </strong></h3>
+            </div>
+            <div class="arrows">
+              <h3><i class="fas fa-arrows-alt-h"></i></h3>
+            </div>
+            <div class="ret-city">
+              <p><%= info[:destination_city] %></p>
+              <h3><strong><%= info[:destination_code] %></strong></h3>
+            </div>
           </div>
           <div class="information">
             <div class="depature">
