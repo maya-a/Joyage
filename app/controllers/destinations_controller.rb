@@ -2,12 +2,14 @@ class DestinationsController < ApplicationController
   def show
     @trips = Trip.where(destination_id: params[:id], search_id: params[:search_id])
     @flights_infos = []
+    @choices = []
+    @opt
       # getting first flight only
 
     @trips.each do |trip|
-      trip.itineraries.each do |itinerary|
+      trip.itineraries.each_with_index do |itinerary, i|
         flight_info = {
-          itinerary_index: itinerary.id ,
+          itinerary_index: itinerary.id,
           destination_code: eval(itinerary.info)[0][:destination],
           price:            eval(itinerary.info)[0][:price],
           destination_city: Destination.find(trip.destination.id).d_city,
@@ -28,9 +30,14 @@ class DestinationsController < ApplicationController
           return_layovers:       eval(itinerary.info)[2][:return_layovers],
           return_duration:       eval(itinerary.info)[2][:return_duration]
         }
-        @flights_infos << flight_info
+        @choices << flight_info
       end
     end
+        @choices = @choices.sort_by { |choice| choice[:price].to_f }
+        @choices = @choices.group_by {|origin| origin[:origin_city_name]}
+        @choices.values.each do |value|
+          @flights_infos << value.first
+        end
     raise
   end
 end

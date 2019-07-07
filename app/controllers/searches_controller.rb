@@ -91,18 +91,18 @@ class SearchesController < ApplicationController
     #translating the API
     client = OAuth2::Client.new(ENV["SEARCH_KEY"], ENV["SECRET_KEY"], site: 'https://test.api.amadeus.com', token_url: 'https://test.api.amadeus.com/v1/security/oauth2/token')
     token = client.client_credentials.get_token
-    response = token.get("https://test.api.amadeus.com/v1/shopping/flight-offers?origin=#{call[:oap_code]}&destination=#{call[:dap_code]}&departureDate=2019-08-01&returnDate=2019-09-01&max=2")
+    response = token.get("https://test.api.amadeus.com/v1/shopping/flight-offers?origin=#{call[:oap_code]}&destination=#{call[:dap_code]}&departureDate=2019-08-01&returnDate=2019-09-01&max=5")
     itineraries = []
+    flight_option = []
+
     response_body = JSON.parse(response.body)
     response_body["data"].each do |flight_offer|
+
       next if flight_offer['offerItems'][0]["services"][0]["segments"].count > 1
-      #DATA is an array of different itineraries
-      #need to go inside each element(flight offer and then get the way there and back of each)
 
       way_there = flight_offer['offerItems'][0]["services"][0]["segments"]
       way_back = flight_offer['offerItems'][0]["services"][1]["segments"]
 
-      flight_option = []
       flight_option << {
         destination: flight_offer['offerItems'][0]["services"][0]["segments"][-1]["flightSegment"]["arrival"]["iataCode"],
         price: flight_offer['offerItems'][0]["price"]["total"],
@@ -121,22 +121,23 @@ class SearchesController < ApplicationController
               duration: flight["flightSegment"]["duration"]
               # flight_option[:destination]
             }
-        end
-        way_back.each do |flight|
-          flight_option <<
-            {
-              return_origin_city: flight["flightSegment"]["departure"]["iataCode"],
-              return_arrival_city: flight["flightSegment"]["arrival"]["iataCode"],
-              return_departure_date: flight["flightSegment"]["departure"]["at"],
-              return_arrival_date: flight["flightSegment"]["arrival"]["at"],
-              return_layovers: flight.length,
-                # if the layovers = 1 then its a direct flight! its its 2 then theres 1 layover!
-                return_duration: flight["flightSegment"]["duration"]
-              }
-        end
-        itineraries << flight_option
       end
 
+      way_back.each do |flight|
+        flight_option <<
+          {
+            return_origin_city: flight["flightSegment"]["departure"]["iataCode"],
+            return_arrival_city: flight["flightSegment"]["arrival"]["iataCode"],
+            return_departure_date: flight["flightSegment"]["departure"]["at"],
+            return_arrival_date: flight["flightSegment"]["arrival"]["at"],
+            return_layovers: flight.length,
+              # if the layovers = 1 then its a direct flight! its its 2 then theres 1 layover!
+              return_duration: flight["flightSegment"]["duration"]
+            }
+      end
+
+        itineraries << flight_option
+      end
     # returns a hash of hashes, the main key is the group and the value is a hash
 
     grouped = itineraries.group_by { |d| d[0][:destination] }
