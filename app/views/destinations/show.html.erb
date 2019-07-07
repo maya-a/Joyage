@@ -7,7 +7,9 @@
         <button id="share" data-toggle="modal" data-target="#shareModal">Share Trip</button>
       </div>
       <div class="itinearies">
-        <% @flight_info.each do |flight_info| %>
+        <% @flights_infos.each do |flight_info| %>
+        <h1><%= flight_info[:origin_city] %></h1>
+        <h1><%= flight_info[:arrival_city] %></h1>
         <div class="itnineary-card">
           <div class="information">
             <h3>From <%= flight_info[:origin_city] %></h3>

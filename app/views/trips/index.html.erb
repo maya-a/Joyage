@@ -20,7 +20,7 @@
               <%= link_to destination[:city], search_destination_path(@search, destination[:destination].id), id:"tripname"  %>
               </div>
               <div class="card-trip-infos">
-                <h4><%=  !destination[:ppp].nil? ?  destination[:ppp].round : "N/A" %>€</h4>
+                <h4><%=  !destination[:ppp].nil? ?  destination[:ppp].round : "N/A" %>€ Per Person</h4>
               </div>
             </div>
              <% end %>
