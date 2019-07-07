@@ -6,13 +6,40 @@ $orange: #EF682E;
   color: $orange;
 }
 
-.card-trip-title {
+.index-headline {
+  margin-bottom: 60px;
+  margin-top: 100px;
+  h1 {
+    color: $white;
+    font-weight: lighter;
+    letter-spacing: 17px;
+    font-family: "Lato", "sans-serif";
+    margin-bottom: 20px;
+  }
+  h3 {
+    color: $white;
+    letter-spacing: 7px;
+    font-family: "Lato", "sans-serif";
+  }
+}
+
+.card-trip {
+  &:hover {
+    .flights {
+      display: block;
+      transform: translateY(0);
+    }
+  }
+}
+
+
+.card-trip #tripname {
   color: white;
   font-size: 30px;
   transition: 0.1s ease;
 }
 
-.card-trip-title:hover {
+.card-trip #tripname:hover {
   text-decoration: none;
   color: $orange;
   font-size: 36px;
@@ -27,6 +54,18 @@ $orange: #EF682E;
   text-decoration: none;
 }
 
+
+.card-trip-infos {
+  p {
+  font-family: "Lato", "sans-serif";
+  margin-bottom: 0px;
+  letter-spacing: 2px;
+  color: $orange;
+  font-size: 12px;
+  margin-left: 10px;
+  }
+}
+
 .trips {
   text-align: center;
   font-family: "Lato", "sans-serif";
@@ -34,6 +73,64 @@ $orange: #EF682E;
   letter-spacing: 2px;
 }
 
-.trip-name {
-  color: $orange;
+.flights {
+  background-color: white;
+  opacity: 0.8;
+  margin-bottom: 15px;
+  width: 390px;
+  border-radius: 4px;
+  height: 195px;
+  display: none;
+}
+
+.flight-cards {
+  display: flex;
+  justify-content: space-evenly;
+
+}
+
+.destination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+    h5 {
+    font-family: "Lato", "sans-serif";
+    letter-spacing: 2px;
+    color: $blue;
+    font-weight: bolder;
+    font-size: 20px;
+    .avg {
+      font-size: 20px;
+      font-weight: lighter;
+    }
+  }
+}
+
+.dates{
+  p {
+    font-family: "Lato", "sans-serif";
+    letter-spacing: 2px;
+    color: $blue;
+    font-weight: bolder;
+    margin-bottom: 10px;
+  }
+}
+
+.times {
+  display: flex;
+  justify-content: center;
+  p {
+    font-family: "Lato", "sans-serif";
+    letter-spacing: 2px;
+    color: $blue;
+    margin-bottom: 10px;
+  }
+  .fas {
+    font-size: 15px;
+  }
+  .words {
+    text-align: left;
+    margin-right: 12px;
+  }
 }

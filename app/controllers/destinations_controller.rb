@@ -7,11 +7,14 @@ class DestinationsController < ApplicationController
     @trips.each do |trip|
       trip.itineraries.each do |itinerary|
         flight_info = {
+
           itinerary_index: itinerary.id ,
           destination_code: eval(itinerary.info)[0][:destination],
           price:            eval(itinerary.info)[0][:price],
           destination_city: Destination.find(trip.destination.id).d_city,
           origin_city_name: Origin.find_by(code: eval(itinerary.info)[1][:origin_city]).city,
+          destination_id: Destination.find_by(:id),
+
 
 
           origin_city:    eval(itinerary.info)[1][:origin_city],
