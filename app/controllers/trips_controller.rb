@@ -28,7 +28,6 @@ class TripsController < ApplicationController
           ng: origin.longitude
       }
       end
-
       @coordinates.each do |x|
         @markers << {lat: x[:lat], lng: x[:lng]
         }
@@ -122,7 +121,7 @@ class TripsController < ApplicationController
     trips.each do |trip|
     sum = 0
       trip.itinerarys.each do |i|
-        sum += eval(i.info)[0][0][:price].to_f
+        sum += eval(i.info)[0][:price].to_f
       end
       avgs << sum.fdiv(trip.itinerarys.length)
     end

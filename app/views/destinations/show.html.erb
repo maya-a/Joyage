@@ -6,7 +6,10 @@
         <button id="share" data-toggle="modal" data-target="#shareModal">Share Trip</button>
       </div>
       <div class="itinearies">
-        <% @flight_info.each do |info| %>
+
+
+
+        <% @flights_infos.each do |info| %>
         <div class="itnineary-card">
           <div class="cities">
             <div class="dep-city">
@@ -71,6 +74,7 @@
               <p id="change" data-toggle="modal" data-target="#changeModal"><strong>See other options</strong></p>
               <p class="price"><strong><%= @flight_info[0][:price].to_i %> €</strong></p>
             <div class="book">
+
               <%= link_to "Book Flight", thankyou_path, id:"book" %>
             </div>
           </div>
