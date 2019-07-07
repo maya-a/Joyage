@@ -2,7 +2,7 @@
   <div class="row">
     <div class="overview col-md-12 col-md-offset-2">
       <div class="headline">
-        <h1> Your trip to <span class="trip-name"><strong><%= @flight_info[0][:destination_city] %></strong></span></h1>
+        <h1> Your trip to <span class="trip-name"><strong><%= @flights_infos[0][:destination_city] %></strong></span></h1>
         <button id="share" data-toggle="modal" data-target="#shareModal">Share Trip</button>
       </div>
       <div class="itinearies">
@@ -72,7 +72,7 @@
           </div>
           <div class="buttons">
               <p id="change" data-toggle="modal" data-target="#changeModal"><strong>See other options</strong></p>
-              <p class="price"><strong><%= @flight_info[0][:price].to_i %> €</strong></p>
+              <p class="price"><strong><%= @flights_infos[0][:price].to_i %> €</strong></p>
             <div class="book">
 
               <%= link_to "Book Flight", thankyou_path, id:"book" %>
