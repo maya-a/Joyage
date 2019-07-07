@@ -252,7 +252,8 @@ Destination.create!(
   dap_code: "AXD",
   d_latitude: 40.855899810791,
   d_longitude: 25.9563007354736,
-  category: 1
+  category: 1,
+  photo: 'https://www.broadwaytravel.com/blog/wp-content/uploads/2018/11/The-breathtaking-Palaiokastritsa-Beach-on-the-island-of-Corfu-Greece-580x345.jpg'
   )
 
 # Destination.create!(
@@ -274,7 +275,8 @@ Destination.create!(
   dap_code: "BKK",
   d_latitude: 13.6810998916626,
   d_longitude: 100.747001647949,
-  category: 1
+  category: 1,
+  photo:'https://cdn.thecrazytourist.com/wp-content/uploads/2018/07/ccimage-shutterstock_678671620.jpg'
    )
 
 # Destination.create!(
@@ -307,7 +309,8 @@ Destination.create!(
   dap_code: "PUJ",
   d_latitude: 18.5673999786,
   d_longitude: -68.3634033203,
-  category: 1
+  category: 1,
+  photo: 'https://www.belivehotels.com/imagenes/playas/dgopc_playa.jpg'
    )
 
 # Destination.create!(
@@ -362,7 +365,8 @@ Destination.create!(
   dap_code: "PPS",
   d_latitude: 9.74211978912354,
   d_longitude: 118.759002685547,
-  category: 1
+  category: 1,
+  photo: 'http://balikpinasbaliksaya.com.ph/wp-content/uploads/2018/08/Puerto-Princesa-Palawan-1200x630.jpg'
    )
 
 Destination.create!(
@@ -373,7 +377,8 @@ Destination.create!(
   dap_code: "CUN",
   d_latitude: 21.0365009308,
   d_longitude: -86.8770980835,
-  category: 1
+  category: 1,
+  photo:'https://www.mexicodestinos.com/blog/wp-content/uploads/2018/08/sargazo-en-cancun-todo-lo-que-debes-saber-antes-de-tu-viaje.jpg'
    )
 
 # Destination.create!(
@@ -499,16 +504,17 @@ puts "creating city Destinations(2)"
 #   category: 2
 #    )
 
-Destination.create!(
-  dap_id: 1590,
-  dap_name: "Ben Gurion International Airport",
-  d_city: "Tel-aviv",
-  d_country: "Israel",
-  dap_code: "TLV",
-  d_latitude: 32.0113983154297,
-  d_longitude: 34.8866996765137,
-  category: 2
-   )
+# Destination.create!(
+#   dap_id: 1590,
+#   dap_name: "Ben Gurion International Airport",
+#   d_city: "Tel-aviv",
+#   d_country: "Israel",
+#   dap_code: "TLV",
+#   d_latitude: 32.0113983154297,
+#   d_longitude: 34.8866996765137,
+#   category: 2,
+#   photo:
+#    )
 
 # Destination.create!(
 #   dap_id: 3380,
@@ -617,7 +623,8 @@ Destination.create!(
   dap_code: "AMS",
   d_latitude: 52.308601,
   d_longitude: 4.76389,
-  category: 2
+  category: 2,
+  photo:'https://cdn.civitatis.com/paises-bajos/amsterdam/galeria/casas-barco-amsterdam.jpg'
    )
 
 # Destination.create!(
@@ -682,7 +689,8 @@ Destination.create!(
   dap_code: "LHR",
   d_latitude: 51.4706,
   d_longitude: -0.461941,
-  category: 2
+  category: 2,
+  photo:'https://www.fodors.com/wp-content/uploads/2017/10/HERO_UltimateLondon_Hero_shutterstock412054315.jpg'
    )
 
 
@@ -719,16 +727,17 @@ Destination.create!(
 #   category: 2
 #    )
 
-# Destination.create!(
-#   dap_id: 2188,
-#   dap_name: "Dubai International Airport",
-#   d_city: "Dubai",
-#   d_country: "United Arab Emirates",
-#   dap_code: "DXB",
-#   d_latitude: 25.2527999878,
-#   d_longitude: 55.3643989563,
-#   category: 2
-#    )
+Destination.create!(
+  dap_id: 2188,
+  dap_name: "Dubai International Airport",
+  d_city: "Dubai",
+  d_country: "United Arab Emirates",
+  dap_code: "DXB",
+  d_latitude: 25.2527999878,
+  d_longitude: 55.3643989563,
+  category: 2,
+  photo:'https://io.telkomuniversity.ac.id/wp-content/uploads/2015/03/Dubai-e1434096715956.jpg'
+   )
 
 # Destination.create!(
 #   dap_id: 3484,
@@ -815,7 +824,8 @@ Destination.create!(
   dap_code: "JFK",
   d_latitude: 40.63980103,
   d_longitude: -73.77890015,
-  category: 2
+  category: 2,
+  photo:'https://imgs.6sqft.com/wp-content/uploads/2018/02/20105946/TimesSquare_bright.jpg'
    )
 
 
@@ -897,27 +907,29 @@ Destination.create!(
 #   category: 2
 #    )
 
-Destination.create!(
-  dap_id: 3361,
-  dap_name: "Sydney Kingsford Smith International Airport",
-  d_city: "Sydney",
-  d_country: "Australia",
-  dap_code: "SYD",
-  d_latitude: -33.9460983276367,
-  d_longitude: 151.177001953125,
-  category: 2
-   )
-
 # Destination.create!(
-#   dap_id: 3339,
-#   dap_name: "Melbourne International Airport",
-#   d_city: "Melbourne",
-#   d_country: "Australia",
-#   dap_code: "MEL",
-#   d_latitude: -37.673302,
-#   d_longitude: 144.843002,
-#   category: 2
-#    )
+  # dap_id: 3361,
+  # dap_name: "Sydney Kingsford Smith International Airport",
+  # d_city: "Sydney",
+  # d_country: "Australia",
+  # dap_code: "SYD",
+  # d_latitude: -33.9460983276367,
+  # d_longitude: 151.177001953125,
+  # category: 2,
+  # photo:
+  #  )
+
+Destination.create!(
+  dap_id: 2359,
+  dap_name: "Tokyo Haneda International Airport",
+  d_city: "Tokyo",
+  d_country: "Japan",
+  dap_code: "HND",
+  d_latitude: 35.552299,
+  d_longitude:  139.779999,
+  category: 2,
+  photo: 'https://univerlist.com/media/uploads/2018/12/21/mang-gi-khi-di-nhat3.jpg'
+   )
 
 
 # Destination.create!(
@@ -973,17 +985,6 @@ Destination.create!(
 #   dap_code: "SJO",
 #   d_latitude: 9.99386024475098,
 #   d_longitude: -84.2088012695312,
-#   category: 2
-#    )
-
-# Destination.create!(
-#   dap_id: 737,
-#   dap_name: "Stockholm-Arlanda Airport",
-#   d_city: "Stockholm",
-#   d_country: "Sweden",
-#   dap_code: "ARN",
-#   d_latitude: 59.651901245117,
-#   d_longitude: 17.918600082397,
 #   category: 2
 #    )
 
@@ -1090,16 +1091,17 @@ puts "creating nature Destinations(3)"
 #   category: 3
 #    )
 
-# Destination.create!(
-#   dap_id: 2762,
-#   dap_name: "El Alto International Airport",
-#   d_city: "La Paz",
-#   d_country: "Bolivia",
-#   dap_code: "LPB",
-#   d_latitude: -16.5132999420166,
-#   d_longitude: -68.1922988891602,
-#   category: 3
-#    )
+Destination.create!(
+  dap_id: 2762,
+  dap_name: "El Alto International Airport",
+  d_city: "La Paz",
+  d_country: "Bolivia",
+  dap_code: "LPB",
+  d_latitude: -16.5132999420166,
+  d_longitude: -68.1922988891602,
+  category: 3,
+    photo: "https://blog.continentalcurrency.ca/wp-content/uploads/2016/05/bolivia-travel-guide-922x610.jpg"
+   )
 
 # Destination.create!(
 #   dap_id: 421,
@@ -1145,17 +1147,17 @@ puts "creating nature Destinations(3)"
 #   category: 3
 #    )
 
-
-# Destination.create!(
-#   dap_id: 2789,
-#   dap_name: "Jorge Chávez International Airport",
-#   d_city: "Lima",
-#   d_country: "Peru",
-#   dap_code: "LIM",
-#   d_latitude: -12.0219,
-#   d_longitude: -77.114305,
-#   category: 3
-#    )
+Destination.create!(
+  dap_id: 2789,
+  dap_name: "Jorge Chávez International Airport",
+  d_city: "Lima",
+  d_country: "Peru",
+  dap_code: "LIM",
+  d_latitude: -12.0219,
+  d_longitude: -77.114305,
+  category: 3,
+  photo: 'https://d1ljaggyrdca1l.cloudfront.net/wp-content/uploads/2017/05/Guests-admiring-Machu-Picchu-in-Peru-1600x900.jpg'
+   )
 
 # Destination.create!(
 #   dap_id: 1745,
@@ -1180,17 +1182,6 @@ puts "creating nature Destinations(3)"
 #    )
 
 # Destination.create!(
-#   dap_id: 3953,
-#   dap_name: "Riga International Airport",
-#   d_city: "Riga",
-#   d_country: "Latvia",
-#   dap_code: "RIX",
-#   d_latitude: 56.9235992431641,
-#   d_longitude: 23.9710998535156,
-#   category: 3
-#    )
-
-# Destination.create!(
 #   dap_id: 2877,
 #   dap_name: "Douglas-Charles Airport",
 #   d_city: "Dominica",
@@ -1200,28 +1191,30 @@ puts "creating nature Destinations(3)"
 #   d_longitude: -61.299999,
 #   category: 3
 #    )
-Destination.create!(
-  dap_id: 3093,
-  dap_name: "Indira Gandhi International Airport",
-  d_city: "Delhi",
-  d_country: "India",
-  dap_code: "DEL",
-  d_latitude: 28.5665,
-  d_longitude: 77.103104,
-  category: 3
-   )
+# Destination.create!(
+#   dap_id: 3093,
+#   dap_name: "Indira Gandhi International Airport",
+#   d_city: "Delhi",
+#   d_country: "India",
+#   dap_code: "DEL",
+#   d_latitude: 28.5665,
+#   d_longitude: 77.103104,
+#   category: 3,
+#   photo:
+#    )
 
 
-Destination.create!(
-  dap_id: 189,
-  dap_name: "St. John's International Airport",
-  d_city: "St. John's",
-  d_country: "Canada",
-  dap_code: "YYT",
-  d_latitude: 47.618598938,
-  d_longitude: -52.7518997192,
-  category: 3
-   )
+# Destination.create!(
+#   dap_id: 189,
+#   dap_name: "St. John's International Airport",
+#   d_city: "St. John's",
+#   d_country: "Canada",
+#   dap_code: "YYT",
+#   d_latitude: 47.618598938,
+#   d_longitude: -52.7518997192,
+#   category: 3,
+#   photo:
+#    )
 
 # Destination.create!(
 #   dap_id: 2903,
@@ -1234,16 +1227,17 @@ Destination.create!(
 #   category: 3
 #    )
 
-# Destination.create!(
-#   dap_id: 1741,
-#   dap_name: "Podgorica Airport",
-#   d_city: "Podgorica",
-#   d_country: "Montenegro",
-#   dap_code: "TGD",
-#   d_latitude: 42.359402,
-#   d_longitude: 19.2519,
-#   category: 3
-#    )
+Destination.create!(
+  dap_id: 1741,
+  dap_name: "Podgorica Airport",
+  d_city: "Podgorica",
+  d_country: "Montenegro",
+  dap_code: "TGD",
+  d_latitude: 42.359402,
+  d_longitude: 19.2519,
+  category: 3,
+  photo: "https://www.roughguides.com/wp-content/uploads/2013/04/herceg-novi-montenegro-shutterstock_1035131746.jpg"
+   )
 
 # Destination.create!(
 #   dap_id: 2256,
@@ -1264,42 +1258,33 @@ Destination.create!(
   dap_code: "KEF",
   d_latitude: 63.985000610352,
   d_longitude: -22.605600357056,
-  category: 3
-   )
-
-# Destination.create!(
-#   dap_id: 7,
-#   dap_name: "Narsarsuaq Airport",
-#   d_city: "Narssarssuaq",
-#   d_country: "Greenland",
-#   dap_code: "UAK",
-#   d_latitude: 61.1604995728,
-#   d_longitude: -45.4259986877,
-#   category: 3
-#    )
-
-Destination.create!(
-  dap_id: 3774,
-  dap_name: "Ted Stevens Anchorage International Airport",
-  d_city: "Anchorage",
-  d_country: "United States",
-  dap_code: "ANC",
-  d_latitude: 61.1744003295898,
-  d_longitude: -149.996002197266,
-  category: 3
+  category: 3,
+  photo: 'https://cdn-image.travelandleisure.com/sites/default/files/styles/1600x1000/public/1511299447/iceland-first-lady-travel-2-ICE1117.jpg?itok=5cjmXKQ1'
    )
 
 Destination.create!(
-  dap_id: 1107,
-  dap_name: "Addis Ababa Bole International Airport",
-  d_city: "Addis Ababa",
-  d_country: "Ethiopia",
-  dap_code: "ADD",
-  d_latitude: 8.97789001465,
-  d_longitude: 38.7993011475,
-  category: 3
+  dap_id: 7,
+  dap_name: "Narsarsuaq Airport",
+  d_city: "Narssarssuaq",
+  d_country: "Greenland",
+  dap_code: "UAK",
+  d_latitude: 61.1604995728,
+  d_longitude: -45.4259986877,
+  category: 3,
+  photo: 'https://assets3.thrillist.com/v1/image/2808049/size/gn-gift_guide_variable_c.jpg'
    )
 
+Destination.create!(
+  dap_id: 737,
+  dap_name: "Stockholm-Arlanda Airport",
+  d_city: "Stockholm",
+  d_country: "Sweden",
+  dap_code: "ARN",
+  d_latitude: 59.651901245117,
+  d_longitude: 17.918600082397,
+  category: 3,
+  photo: "https://ae01.alicdn.com/kf/HTB1ehDubqmWBuNjy1Xaq6xCbXXav/Home-decoration-Stockholm-city-landscape-Silk-Fabric-Poster-Print-414FJ.jpg_640x640.jpg"
+   )
 
 
 # Destination.create!(
@@ -1323,7 +1308,8 @@ Destination.create!(
   dap_code: "ZRH",
   d_latitude: 47.464699,
   d_longitude: 8.54917,
-  category: 4
+  category: 4,
+  photo: 'https://www.planetware.com/photos-large/CH/switzerland-ski-resorts-zermatt-matterhorn.jpg'
    )
 
 Destination.create!(
@@ -1334,30 +1320,33 @@ Destination.create!(
   dap_code: "CVF",
   d_latitude: 45.3967018127441,
   d_longitude: 6.63471984863281,
-  category: 4
-   )
-
-Destination.create!(
-  dap_id: 3819,
-  dap_name: "City of Colorado Springs Municipal Airport",
-  d_city: "Colorado Springs",
-  d_country: "United States",
-  dap_code: "COS",
-  d_latitude: 38.805801,
-  d_longitude: -104.700996,
-  category: 4
+  category: 4,
+  photo:'https://d3giqtqir6ti3x.cloudfront.net/wp-content/uploads/2014/10/01102225/esprit_courchevel_view.jpg'
    )
 
 # Destination.create!(
-#   dap_id: 7001,
-#   dap_name: "Aspen-Pitkin Co/Sardy Field",
-#   d_city: "Aspen",
+#   dap_id: 3819,
+#   dap_name: "City of Colorado Springs Municipal Airport",
+#   d_city: "Colorado Springs",
 #   d_country: "United States",
-#   dap_code: "ASE",
-#   d_latitude: 39.22320175,
-#   d_longitude: -106.8690033,
-#   category: 4
+#   dap_code: "COS",
+#   d_latitude: 38.805801,
+#   d_longitude: -104.700996,
+#   category: 4,
+#   photo:
 #    )
+
+Destination.create!(
+  dap_id: 7001,
+  dap_name: "Aspen-Pitkin Co/Sardy Field",
+  d_city: "Aspen",
+  d_country: "United States",
+  dap_code: "ASE",
+  d_latitude: 39.22320175,
+  d_longitude: -106.8690033,
+  category: 4,
+  photo: 'https://www.colorado.com/sites/default/files/AspenSnowmassPRGondola.jpg'
+   )
 
 # Destination.create!(
 #   dap_id: 1423,
@@ -1380,6 +1369,7 @@ Destination.create!(
 #   d_longitude: 11.3264,
 #   category: 4
 #    )
+
 Destination.create!(
   dap_id: 5995,
   dap_name: "Okadama Airport",
@@ -1388,7 +1378,8 @@ Destination.create!(
   dap_code: "OKD",
   d_latitude: 43.117447,
   d_longitude: 141.38134,
-  category: 4
+  category: 4,
+  photo: 'https://sapporo-teine.com/snow/lang/assets/images/top/mv02.jpg'
    )
 # Destination.create!(
 #   dap_id: 8080,
@@ -1409,7 +1400,8 @@ Destination.create!(
   dap_code: "INN",
   d_latitude: 47.260201,
   d_longitude: 11.344,
-  category: 4
+  category: 4,
+  photo: `http://awe365.com/content/uploads/2016/01/Innsbruck-Freeride-snowboarding-in-Kuhtai-by-Tommy-Bause-%C2%A9-2010-TVB-Innsbruck.jpg`
    )
 
 # Destination.create!(
