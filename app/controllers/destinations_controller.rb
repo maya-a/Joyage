@@ -31,6 +31,7 @@ class DestinationsController < ApplicationController
         @flights_infos << flight_info
       end
     end
+    raise
   end
 end
 
