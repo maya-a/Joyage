@@ -17,7 +17,7 @@
               <div class="dep-info-1">
                 <div class="dep date">
                   <p class="sub-header" ><strong>Outbound</strong></p>
-                  <p class="date"><%= info[:departure_date].slice(0..9).strfd("%b %d, %Y") %></p>
+                  <p class="date"><%= info[:departure_date].to_datetime.strftime("%b %d") %></p>
                 </div>
                 <div class="dep time">
                   <p class="sub-header"><strong>Dep Time</strong></p>
@@ -39,7 +39,7 @@
               <div class="ret-info-1">
                 <div class="ret date">
                   <p class="sub-header"><strong>Arrival</strong></p>
-                  <p class="date"><%= info[:return_arrival_date].slice(0..9).strfd("%b %d, %Y") %></p>
+                  <p class="date"><%= info[:return_arrival_date].to_datetime.strftime("%b %d") %></p>
                 </div>
                 <div class="ret time">
                   <p class="sub-header"><strong>Dep Time</strong></p>
