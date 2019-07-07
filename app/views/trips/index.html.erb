@@ -5,7 +5,7 @@
     <div class="row">
       <div class="new-search col-md-12 col-md-offset-2">
         <div class="headline">
-          <h1>Here is what we have found for <span id="you" >you</span>!</h1>
+          <h1>Here is what we have found for <span id="you" ><strong>you</strong></span>!</h1>
         </div>
            <% @coordinates %>
           <div class="results">
@@ -20,7 +20,7 @@
               <%= link_to destination[:city], search_destination_path(@search, destination[:destination].id), id:"tripname"  %>
               </div>
               <div class="card-trip-infos">
-                <h4><%=  !destination[:ppp].nil? ?  destination[:ppp].round : "N/A" %>€</h4>
+                <h4><%=  !destination[:ppp].nil? ?  destination[:ppp].round : "N/A" %>€ Per Person</h4>
               </div>
             </div>
              <% end %>
