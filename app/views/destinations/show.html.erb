@@ -7,8 +7,6 @@
       </div>
       <div class="itinearies">
 
-
-
         <% @flights_infos.each do |info| %>
         <div class="itnineary-card">
           <div class="cities">
@@ -123,18 +121,23 @@
         </div>
       <div class="change-modal-body">
         <div class="options">
+        <% @choices.each do |key, value| %>
           <div class="option">
             <%= image_tag "lufthansa.png", {alt: "airline"}  %>
             <div class="option-flight">
-              <p>From TLV</p>
+              <%value.each do |element|%>
+              <%=element[:destination_city]%>
               <p>2019-08-01 16:50</p>
               <p>150 €</p>
+              <% end %>
+              <% raise %>
             </div>
               <input id="check" name="checkbox" type="radio" value="1" checked="checked" />
               <label for="check">
                 <i class="far fa-check-circle"></i>
               </label>
           </div>
+          <% end %>
           <div class="option">
             <%= image_tag "lufthansa.png", {alt: "airline"}  %>
             <div class="option-flight">
