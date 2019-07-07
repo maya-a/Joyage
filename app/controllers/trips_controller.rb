@@ -38,11 +38,12 @@ class TripsController < ApplicationController
       end
     end
     @travel = @trips.group_by { |d| d[:destination_id] }
-    @flight_info = []
+    @flights_infos = []
       # getting first flight only
       @travel.each do |did, trip|
-        trip = Trip.find(trip[0][:id])
+        trip = Trip.find(trip[0].id)
         trip.itineraries.each do |itinerary|
+          itinerary = Itinerary.find(itinerary.id)
           @flight_info << {
             itinerary_index: itinerary.id ,
             destination_code: eval(itinerary.info)[0][:destination],
