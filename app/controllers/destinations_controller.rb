@@ -38,7 +38,6 @@ class DestinationsController < ApplicationController
         @choices.values.each do |value|
           @flights_infos << value.first
         end
-    raise
   end
 end
 
