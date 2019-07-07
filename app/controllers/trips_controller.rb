@@ -9,8 +9,10 @@ class TripsController < ApplicationController
     @destinations = []
     @coordinates = []
     @markers = []
+    @origin_codes = []
     @list.each_with_index do |id, i|
-      if find_avg(@trips)[i] < @search.max_budget
+      @search.origins.each { |origin| @origin_codes << origin.code}
+      if find_avg(@trips)[i] < @search.max_budget && !(@origin_codes.include?(Destination.find(id).dap_code))
         @destinations << {
           destination: Destination.find(id),
           city: Destination.find(id).d_city,
