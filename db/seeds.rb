@@ -1401,7 +1401,7 @@ Destination.create!(
   d_latitude: 47.260201,
   d_longitude: 11.344,
   category: 4,
-  photo: `http://awe365.com/content/uploads/2016/01/Innsbruck-Freeride-snowboarding-in-Kuhtai-by-Tommy-Bause-%C2%A9-2010-TVB-Innsbruck.jpg`
+  photo: `https://www.sno.co.uk/img/ski-resorts/innsbruck/2015_165.jpg`
    )
 
 # Destination.create!(

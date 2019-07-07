@@ -4,7 +4,7 @@
       <div class="row">
         <div class="new-search col-md-12 col-md-offset-2">
           <div class="headline">
-            <%= @flight_info %>
+            <%#= @flight_info %>
             <h1>Here is what we have found for <span id="you" ><strong>you</strong></span>!</h1>
           </div>
           <% @coordinates %>
@@ -12,12 +12,12 @@
             <% @destinations.each do |destination| %>
 
             <div class="card-trip">
-              <% raise %>
-              <div class="card-photo" style="background-image: linear-gradient(-225deg, rgba(200,101,80,0.6) 0%, rgba(13, 9, 16, 0.72) 50%), url(<%= image_path "city-"+destination[:city]+".jpg" %>);">
+              <div class="card-photo" style="background-image: linear-gradient(-225deg, rgba(200,101,80,0.6) 0%, rgba(13, 9, 16, 0.72) 50%), url(<%= destination.values[-4].photo %>);">
                 <%= link_to destination[:city], search_destination_path(@search, destination[:destination].id), id:"tripname"  %>
               </div>
               <div class="card-trip-infos">
-                <h4><%=  !destination[:ppp].nil? ?  destination[:ppp].round : "N/A" %>€ Per Person</h4>
+                <h4><%=  !destination[:ppp].nil? ?  destination[:ppp].round : "N/A" %>€</h4>
+                <p>average Per Person</p>
               </div>
             </div>
             <div class="flights">
