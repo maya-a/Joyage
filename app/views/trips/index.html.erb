@@ -12,8 +12,8 @@
           <div class="results">
             <% @destinations.each do |destination| %>
             <div class="card-trip">
-              <div class="card-photo" style="background-image: linear-gradient(-225deg, rgba(200,101,80,0.6) 0%, rgba(13, 9, 16, 0.72) 50%), url(<%= image_path destination.values[-4].photo %>);">
-                <%= link_to destination[:city], search_destination_path(@search, destination[:destination].id), id:"tripname"  %>
+              <div class="card-photo" style="background-image: linear-gradient(-225deg, rgba(200,101,80,0.6) 0%, rgba(13, 9, 16, 0.72) 50%), url(<%# image_path destination.values[-4].photo %>);">
+              <%= link_to destination[:city], search_destination_path(@search, destination[:destination].id), id:"tripname"  %>
               </div>
               <div class="card-trip-infos">
                 <h4><%=  !destination[:ppp].nil? ?  destination[:ppp].round : "N/A" %>€</h4>
@@ -23,7 +23,7 @@
             <div class="flights">
               <div class="destination">
                 <h5><%= destination[:city] %></h5>
-                <h5><%= destination[:ppp].round %> €<span class="avg">(avg.)</span></h5>
+                <h5><%= destination[:ppp].round %> €<span class="avg">(avg)</span></h5>
               </div>
                 <%# @flights %>
               <div class="flight-cards">
@@ -47,6 +47,7 @@
                     <p><%= i[:price].to_i.round %> €</p>
                   </div>
                 </div>
+                <!--   <div class="card_separator"></div> -->
                 <% end %>
                 <% end %> <!-- end for flights_info -->
               </div>

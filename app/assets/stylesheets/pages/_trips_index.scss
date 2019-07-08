@@ -23,7 +23,6 @@ $orange: #EF682E;
   }
 }
 
-
 .card-photo {
   width: 100%;
   height: 195px;
@@ -48,6 +47,8 @@ $orange: #EF682E;
   letter-spacing: 7px;
   color: $white;
   text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
 }
 
 
@@ -71,10 +72,10 @@ $orange: #EF682E;
 
 .flights {
   background-color: white;
-  opacity: 0.8;
   margin-bottom: 15px;
   border-radius: 4px;
   height: 195px;
+
   // display: none;
 }
 
@@ -129,3 +130,11 @@ $orange: #EF682E;
     margin-right: 12px;
   }
 }
+
+// .card_separator {
+//   width: 1.3px;
+//   height: 135px;
+//   background-color: rgba(45, 45, 45, 0.1);
+//   position: absolute;
+//   margin-top: -10px;
+// }
