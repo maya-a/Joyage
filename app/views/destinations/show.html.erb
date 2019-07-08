@@ -7,19 +7,19 @@
       </div>
       <div class="itinearies">
 
-        <% @flights_infos.each do |info| %>
+        <% @choices.values.each do |value| %>
         <div class="itnineary-card">
           <div class="cities">
             <div class="dep-city">
-              <p><%= info[:origin_city_name] %></p>
-            <h3><strong> <%= info[:origin_city] %> </strong></h3>
+              <p><%= value.first[:origin_city_name] %></p>
+              <h3><strong> <%= value.first[:origin_city] %> </strong></h3>
             </div>
             <div class="arrows">
               <h3><i class="fas fa-arrows-alt-h"></i></h3>
             </div>
             <div class="ret-city">
-              <p><%= info[:destination_city] %></p>
-              <h3><strong><%= info[:destination_code] %></strong></h3>
+              <p><%= value.first[:destination_city] %></p>
+              <h3><strong><%= value.first[:destination_code] %></strong></h3>
             </div>
           </div>
           <div class="information">
@@ -27,61 +27,110 @@
               <div class="dep-info-1">
                 <div class="dep date">
                   <p class="sub-header" ><strong>Outbound</strong></p>
-                  <p class="date"><%= info[:departure_date].to_datetime.strftime("%b %d") %></p>
+                  <p class="date"><%= value.first[:departure_date].to_datetime.strftime("%b %d") %></p>
                 </div>
                 <div class="dep time">
                   <p class="sub-header"><strong>Dep Time</strong></p>
-                  <p><%= info[:departure_date].slice(11..15) %></p>
+                  <p><%= value.first[:departure_date].slice(11..15) %></p>
                 </div>
               </div>
               <div class="dep-info-2">
-                 <div class="dep duration">
-                  <p class="sub-header"><strong>Duration</strong></p>
-                  <p><%= info[:duration].slice(3..7) %></p>
-                </div>
-                <div class="dep layover">
-                  <p class="sub-header"><strong>Layovers</strong></p>
-                  <p><%= info[:layovers]-1 %></p>
-                </div>
+               <div class="dep duration">
+                <p class="sub-header"><strong>Duration</strong></p>
+                <p><%= value.first[:duration].slice(3..7) %></p>
               </div>
-            </div>
-            <div class="return">
-              <div class="ret-info-1">
-                <div class="ret date">
-                  <p class="sub-header"><strong>Arrival</strong></p>
-                  <p class="date"><%= info[:return_arrival_date].to_datetime.strftime("%b %d") %></p>
-                </div>
-                <div class="ret time">
-                  <p class="sub-header"><strong>Dep Time</strong></p>
-                  <p><%= info[:return_arrival_date].slice(11..15) %></p>
-                </div>
-              </div>
-              <div class="ret-info-2">
-                <div class="ret duration">
-                  <p class="sub-header"><strong>Duration</strong></p>
-                  <p><%= info[:return_duration].slice(3..7) %></p>
-                </div>
-                <div class="ret layover">
-                  <p class="sub-header"><strong>Layovers</strong></p>
-                  <p><%= info[:return_layovers]-1 %></p>
-                </div>
+              <div class="dep arrival">
+                <p class="sub-header"><strong>Arr Time</strong></p>
+                <p><%= value.first[:arrival_date].slice(11..15) %></p>
               </div>
             </div>
           </div>
-          <div class="buttons">
-              <p id="change" data-toggle="modal" data-target="#changeModal"><strong>See other options</strong></p>
-              <p class="price"><strong><%= @flights_infos[0][:price].to_i %> €</strong></p>
-            <div class="book">
-
-              <%= link_to "Book Flight", thankyou_path, id:"book" %>
+          <div class="return">
+            <div class="ret-info-1">
+              <div class="ret date">
+                <p class="sub-header"><strong>Return</strong></p>
+                <p class="date"><%= value.first[:return_arrival_date].to_datetime.strftime("%b %d") %></p>
+              </div>
+              <div class="ret time">
+                <p class="sub-header"><strong>Dep Time</strong></p>
+                <p><%= value.first[:return_arrival_date].slice(11..15) %></p>
+              </div>
+            </div>
+            <div class="ret-info-2">
+              <div class="ret duration">
+                <p class="sub-header"><strong>Duration</strong></p>
+                <p><%= value.first[:return_duration].slice(3..7) %></p>
+              </div>
+              <div class="ret arrival">
+                <p class="sub-header"><strong>Arr Time</strong></p>
+                <p><%= value.first[:return_arrival_date].slice(11..15) %></p>
+              </div>
             </div>
           </div>
         </div>
-        <% end %>
+        <div class="buttons">
+          <p id="change" data-toggle="modal" data-target="#changeModal"><strong>See other options</strong></p>
+          <p class="price"><strong><%= @flights_infos[0][:price].to_i %> €</strong></p>
+          <div class="book">
+
+            <%= link_to "Book Flight", thankyou_path, id:"book" %>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+</div>
+
+<!--Change Modal -->
+<div class="modal fade" id="changeModal" tabindex="-1" role="dialog" aria-labelledby="changeModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="change-modal-content">
+      <div class="modal-headline">
+        <h5 class="change-modal-title" id="changeModalLabel">Your flight options</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="change-modal-body">
+        <div class="options">
+          <% @choices.values.each do |value| %>
+              <% value[1..-1].each do |v| %>
+          <div class="option">
+            <div class="option-flight">
+              <div class="option-flight-dep">
+                <p class="sub-header">Outbound</p>
+                <p> <%= v[:origin_city] %> to <%= v[:destination_code] %> </p>
+                <p><%= v[:departure_date].slice(11..15) %> <i class="fas fa-plane"></i> <%= v[:arrival_date].slice(11..15) %></p>
+              </div>
+              <div class="option-flight-ret">
+                <p class="sub-header">Return</p>
+                <p> <%= v[:destination_code] %> to <%= v[:origin_city] %> </p>
+                <p><%= v[:return_departure_date].slice(11..15) %> <i class="fas fa-plane fa-rotate-180"></i> <%= v[:return_arrival_date].slice(11..15) %></p>
+              </div>
+              <div class="option-flight-price">
+                <% if v[:price].to_i.round == @choices.values.first[0][:price].to_i %>
+                  <p>Same Price</p>
+                <% else %>
+                  <p>Add <%= ((v[:price].to_i) - (@choices.values.first[0][:price].to_i)).round %> €</p>
+                <% end %>
+              </div>
+            </div>
+            <input id="check" name="checkbox" type="radio" value="1" />
+            <label for="check">
+              <i class="far fa-check-circle"></i>
+            </label>
+          </div>
+          <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
 </div>
+</div>
+
 
 <!--Share Modal -->
 <div class="modal fade" id="shareModal" tabindex="-1" role="dialog" aria-labelledby="shareeModalLabel" aria-hidden="true">
@@ -90,7 +139,7 @@
       <div class="modal-header">
         <div class="modal-headline">
           <i class="fas fa-arrow-alt-circle-down"></i>
-        <h5 class="modal-title" id="shareModalLabel">Share the trip with your friends</h5>
+          <h5 class="modal-title" id="shareModalLabel">Share the trip with your friends</h5>
         </div>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -98,70 +147,12 @@
       </div>
       <div class="modal-body">
         <p class="share-input">Here's the link. <br> Click on copy to share</p>
-<!--         <p class="share-input">Click on copy to share.</p> -->
+        <!--         <p class="share-input">Click on copy to share.</p> -->
         <div class="link-field">
-        <% link = request.original_url   %>
-        <p id="link"><%= link %></p>
+          <% link = request.original_url   %>
+          <p id="link"><%= link %></p>
         </div>
         <button id="copy" data-clipboard-action="copy" data-clipboard-target ="#link">Copy</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!--Change Modal -->
-<div class="modal fade" id="changeModal" tabindex="-1" role="dialog" aria-labelledby="changeModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="change-modal-content">
-        <div class="modal-headline">
-        <h5 class="change-modal-title" id="changeModalLabel">Your flight options</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        </div>
-      <div class="change-modal-body">
-        <div class="options">
-        <% @choices.each do |key, value| %>
-          <div class="option">
-            <%= image_tag "lufthansa.png", {alt: "airline"}  %>
-            <div class="option-flight">
-              <%value.each do |element|%>
-              <%=element[:destination_city]%>
-              <p>2019-08-01 16:50</p>
-              <p>150 €</p>
-              <% end %>
-            </div>
-              <input id="check" name="checkbox" type="radio" value="1" checked="checked" />
-              <label for="check">
-                <i class="far fa-check-circle"></i>
-              </label>
-          </div>
-          <% end %>
-          <div class="option">
-            <%= image_tag "lufthansa.png", {alt: "airline"}  %>
-            <div class="option-flight">
-              <p>From TLV</p>
-              <p>2019-08-01 20:00</p>
-              <p>219 €</p>
-            </div>
-              <input id="check" name="checkbox" type="radio" value="2" />
-              <label for="check">
-                <i class="far fa-check-circle"></i>
-              </label>
-          </div>
-          <div class="option">
-            <%= image_tag "lufthansa.png", {alt: "airline"}  %>
-            <div class="option-flight">
-              <p>From TLV</p>
-              <p>2019-08-01 07:15</p>
-              <p>90 €</p>
-            </div>
-              <input id="check" name="checkbox" type="radio" value="3"/>
-              <label for="check">
-                <i class="far fa-check-circle"></i>
-              </label>
-          </div>
-        </div>
       </div>
     </div>
   </div>
