@@ -24,7 +24,7 @@ class TripsController < ApplicationController
         @coordinates << {
           origin_city:origin.name,
           lat: origin.latitude,
-          ng: origin.longitude
+          lng: origin.longitude
       }
       end
       @coordinates.each do |x|
@@ -63,6 +63,7 @@ class TripsController < ApplicationController
           return_layovers:       eval(itinerary.info)[2][:return_layovers],
           return_duration:       eval(itinerary.info)[2][:return_duration]
         }
+
       end
     end
   end
@@ -98,31 +99,16 @@ class TripsController < ApplicationController
     #@tag = "https://source.unsplash.com/1600x900/?#{@cocktail.name.gsub(' ', '-')}"
   end
 
-  def new
-
-  end
-
-  def create
-  end
-
-  def update
-  end
-
-  def edit
-  end
-
-  def destroy
-  end
 
   private
   def find_avg(trips)
     avgs = []
     trips.each do |trip|
     sum = 0
-      trip.itinerarys.each do |i|
+      trip.itineraries.each do |i|
         sum += eval(i.info)[0][:price].to_f
       end
-      avgs << sum.fdiv(trip.itinerarys.length)
+      avgs << sum.fdiv(trip.itineraries.length)
     end
     return avgs
   end
