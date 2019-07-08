@@ -189,7 +189,7 @@ body {
 //change modal
 
 .change-modal-content {
-  width: 100%;
+  width: 110%;
   border-radius: 5px;
   font-family: "Lato", "sans-serif";
   font-weight: lighter;
@@ -200,24 +200,20 @@ body {
 
 .modal-headline {
   border-bottom: none;
-  padding: 20px 15px 0px 10px;
+  padding: 10px 10px 10px 10px;
   justify-content: space-between;
-}
-
-.options {
-  margin-top: 20px;
+  border-bottom: 1px solid rgba(70, 125, 207, 0.7);
+  h5 {
+    margin-bottom: 0px;
+  }
 }
 
 .option {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid rgba(210,210,210,0.8);
+  // border-bottom: 1px solid rgba(210,210,210,0.8);
   padding: 20px 15px;
-  img {
-    width: 50px;
-    height: 50px;
-  }
   input {
     visibility: hidden;
   }
@@ -239,12 +235,35 @@ body {
     margin-bottom: 0px;
     padding-right: 10px;
   }
+  .option-flight-dep {
+    .sub-header {
+      font-weight: bolder;
+      margin-bottom: 10px;
+    }
+  }
+  .option-flight-ret {
+    margin-left: 40px;
+    .sub-header {
+      font-weight: bolder;
+      margin-bottom: 10px;
+    }
+  }
+  .option-flight-price {
+    margin-left: 30px;
+    p {
+      font-size: 18px;
+      font-weight: bolder;
+      color: $orange;
+    }
+  }
+
 }
 
 .buttons {
   position: relative;
   margin-top: 15px;
   margin-bottom: 15px;
+  text-align: center;
   p {
     margin-bottom: 4px;
   }
@@ -261,13 +280,6 @@ body {
   }
 }
 
-.book p {
-  font-family: "Lato", "sans-serif";
-  font-weight: lighter;
-  letter-spacing: 2px;
-  color: $orange;
-  margin-bottom: 3px;
-}
 
 //buttons
 
@@ -335,6 +347,13 @@ body {
 .book {
   margin-bottom: 10px;
   margin-top: 10px;
+  p {
+    font-family: "Lato", "sans-serif";
+    font-weight: lighter;
+    letter-spacing: 2px;
+    color: $orange;
+    margin-bottom: 3px;
+  }
 }
 
 #book {
