@@ -1,7 +1,11 @@
 class FlightInfoJob < ApplicationJob
   queue_as :default
 
-  def perform(call, search)
+  def perform(oap_code, dap_code, dep_date,  ret_date, search_id)
+    call = {
+      oap_code: oap_code, dap_code: dap_code, dep_date: dep_date.to_date, ret_date: ret_date.to_date
+    }
+    search = Search.find(search_id)
       make_trips(call, search)
   end
 

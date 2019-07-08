@@ -57,7 +57,7 @@ class SearchesController < ApplicationController
         # token = client.client_credentials.get_token
 
         possible_trips.each do |call|
-          FlightInfoJob.perform_later(call, @search)
+          FlightInfoJob.perform_later(call[:oap_code], call[:dap_code] ,call[:dep_date].to_s, call[:ret_date].to_s,  @search.id)
           # make_trips(call, @search, token)
         end
 
