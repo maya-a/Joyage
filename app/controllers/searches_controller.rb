@@ -23,8 +23,6 @@ class SearchesController < ApplicationController
     # dynamic
     @search = Search.new(search_params)
     @search.user = User.first
-
-
     # @search = Search.create!(max_budget:770, dep_date:"2019-7-17", ret_date:"2019-8-1", user: User.first, category: 2)
     @search.save
     # could need an exclamation mark after save if there is an error

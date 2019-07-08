@@ -1250,29 +1250,29 @@ Destination.create!(
 #    category: 3
 #    )
 
-Destination.create!(
-  dap_id: 16,
-  dap_name: "Keflavik International Airport",
-  d_city: "Keflavik",
-  d_country: "Iceland",
-  dap_code: "KEF",
-  d_latitude: 63.985000610352,
-  d_longitude: -22.605600357056,
-  category: 3,
-  photo: 'https://cdn-image.travelandleisure.com/sites/default/files/styles/1600x1000/public/1511299447/iceland-first-lady-travel-2-ICE1117.jpg?itok=5cjmXKQ1'
-   )
+# Destination.create!(
+#   dap_id: 16,
+#   dap_name: "Keflavik International Airport",
+#   d_city: "Keflavik",
+#   d_country: "Iceland",
+#   dap_code: "KEF",
+#   d_latitude: 63.985000610352,
+#   d_longitude: -22.605600357056,
+#   category: 3,
+#   photo: 'https://cdn-image.travelandleisure.com/sites/default/files/styles/1600x1000/public/1511299447/iceland-first-lady-travel-2-ICE1117.jpg?itok=5cjmXKQ1'
+#    )
 
-Destination.create!(
-  dap_id: 7,
-  dap_name: "Narsarsuaq Airport",
-  d_city: "Narssarssuaq",
-  d_country: "Greenland",
-  dap_code: "UAK",
-  d_latitude: 61.1604995728,
-  d_longitude: -45.4259986877,
-  category: 3,
-  photo: 'https://assets3.thrillist.com/v1/image/2808049/size/gn-gift_guide_variable_c.jpg'
-   )
+# Destination.create!(
+#   dap_id: 7,
+#   dap_name: "Narsarsuaq Airport",
+#   d_city: "Narssarssuaq",
+#   d_country: "Greenland",
+#   dap_code: "UAK",
+#   d_latitude: 61.1604995728,
+#   d_longitude: -45.4259986877,
+#   category: 3,
+#   photo: 'https://assets3.thrillist.com/v1/image/2808049/size/gn-gift_guide_variable_c.jpg'
+#    )
 
 Destination.create!(
   dap_id: 737,
@@ -1336,17 +1336,17 @@ Destination.create!(
 #   photo:
 #    )
 
-Destination.create!(
-  dap_id: 7001,
-  dap_name: "Aspen-Pitkin Co/Sardy Field",
-  d_city: "Aspen",
-  d_country: "United States",
-  dap_code: "ASE",
-  d_latitude: 39.22320175,
-  d_longitude: -106.8690033,
-  category: 4,
-  photo: 'https://www.colorado.com/sites/default/files/AspenSnowmassPRGondola.jpg'
-   )
+# Destination.create!(
+#   dap_id: 7001,
+#   dap_name: "Aspen-Pitkin Co/Sardy Field",
+#   d_city: "Aspen",
+#   d_country: "United States",
+#   dap_code: "ASE",
+#   d_latitude: 39.22320175,
+#   d_longitude: -106.8690033,
+#   category: 4,
+#   photo: 'https://www.colorado.com/sites/default/files/AspenSnowmassPRGondola.jpg'
+#    )
 
 # Destination.create!(
 #   dap_id: 1423,
@@ -1370,17 +1370,17 @@ Destination.create!(
 #   category: 4
 #    )
 
-Destination.create!(
-  dap_id: 5995,
-  dap_name: "Okadama Airport",
-  d_city: "Sapporo",
-  d_country: "Japan",
-  dap_code: "OKD",
-  d_latitude: 43.117447,
-  d_longitude: 141.38134,
-  category: 4,
-  photo: 'https://sapporo-teine.com/snow/lang/assets/images/top/mv02.jpg'
-   )
+# Destination.create!(
+#   dap_id: 5995,
+#   dap_name: "Okadama Airport",
+#   d_city: "Sapporo",
+#   d_country: "Japan",
+#   dap_code: "OKD",
+#   d_latitude: 43.117447,
+#   d_longitude: 141.38134,
+#   category: 4,
+#   photo: 'https://sapporo-teine.com/snow/lang/assets/images/top/mv02.jpg'
+#    )
 # Destination.create!(
 #   dap_id: 8080,
 #   dap_name: "Méribel Altiport",
