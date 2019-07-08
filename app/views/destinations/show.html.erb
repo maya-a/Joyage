@@ -73,7 +73,7 @@
           <p class="price"><strong><%= @flights_infos[0][:price].to_i %> €</strong></p>
           <div class="book">
 
-            <%= link_to "Book Flight", thankyou_path, id:"book" %>
+            <p id="book">Book Flight</p>
           </div>
         </div>
       </div>
@@ -157,3 +157,6 @@
     </div>
   </div>
 </div>
+<%= content_for(:after_js) do %>
+  <%= javascript_pack_tag "redirect" %>
+<% end %>

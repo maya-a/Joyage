@@ -18,17 +18,27 @@
         "/packs/js/loading_script-b58c2ae06057606e9aec.js.map"
       ]
     },
-    "toggle": {
+    "redirect": {
       "js": [
-        "/packs/js/toggle-ce14c892282055e9cd34.js"
+        "/packs/js/redirect-fa0cce22b11ca539882e.js"
       ],
       "js.map": [
-        "/packs/js/toggle-ce14c892282055e9cd34.js.map"
+        "/packs/js/redirect-fa0cce22b11ca539882e.js.map"
+      ]
+    },
+    "toggle": {
+      "js": [
+        "/packs/js/toggle-ef59a4109ce895972b30.js"
+      ],
+      "js.map": [
+        "/packs/js/toggle-ef59a4109ce895972b30.js.map"
       ]
     }
   },
   "loading_script.js": "/packs/js/loading_script-b58c2ae06057606e9aec.js",
   "loading_script.js.map": "/packs/js/loading_script-b58c2ae06057606e9aec.js.map",
-  "toggle.js": "/packs/js/toggle-ce14c892282055e9cd34.js",
-  "toggle.js.map": "/packs/js/toggle-ce14c892282055e9cd34.js.map"
+  "redirect.js": "/packs/js/redirect-fa0cce22b11ca539882e.js",
+  "redirect.js.map": "/packs/js/redirect-fa0cce22b11ca539882e.js.map",
+  "toggle.js": "/packs/js/toggle-ef59a4109ce895972b30.js",
+  "toggle.js.map": "/packs/js/toggle-ef59a4109ce895972b30.js.map"
 }
