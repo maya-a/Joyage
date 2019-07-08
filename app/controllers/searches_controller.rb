@@ -91,7 +91,7 @@ class SearchesController < ApplicationController
     #translating the API
     client = OAuth2::Client.new(ENV["SEARCH_KEY"], ENV["SECRET_KEY"], site: 'https://test.api.amadeus.com', token_url: 'https://test.api.amadeus.com/v1/security/oauth2/token')
     token = client.client_credentials.get_token
-    response = token.get("https://test.api.amadeus.com/v1/shopping/flight-offers?origin=#{call[:oap_code]}&destination=#{call[:dap_code]}&departureDate=2019-08-01&returnDate=2019-09-01&max=5")
+    response = token.get("https://test.api.amadeus.com/v1/shopping/flight-offers?origin=#{call[:oap_code]}&destination=#{call[:dap_code]}&departureDate=#{call[:dep_date]}&returnDate=#{call[:ret_date]}&max=5")
     itineraries = []
     flight_option = []
 
