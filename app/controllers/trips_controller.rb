@@ -8,14 +8,15 @@ class TripsController < ApplicationController
     @destinations = []
     @coordinates = []
     @markers = []
+    @arr_avg = find_avg(@trips, @list)
     @list.each_with_index do |id, i|
+
       @destinations << {
         destination: Destination.find(id),
         city: Destination.find(id).d_city,
         IATA: Destination.find(id).dap_code,
-        ppp: find_avg(@trips)[i]
+        ppp: @arr_avg[i]
       }
-
       @coordinates << {
         lat: Destination.find(id).d_latitude,
         lng: Destination.find(id).d_longitude
@@ -101,16 +102,32 @@ class TripsController < ApplicationController
 
 
   private
-  def find_avg(trips)
-    avgs = []
-    trips.each do |trip|
-    sum = 0
-      trip.itineraries.each do |i|
-        sum += eval(i.info)[0][:price].to_f
+
+  def find_avg(trips, arr_des)
+    arr_avg = []
+    arr_des.each_with_index do |des, i|
+      sum = 0
+      size = 0
+      trips.where(destination_id: des.to_i).each do |trip|
+        trip.itineraries.each do |itinerarie|
+          sum += eval(itinerarie.info)[0][:price].to_f
+          size += 1
+        end
       end
-      avgs << sum.fdiv(trip.itineraries.length)
+      arr_avg << sum.fdiv(size)
+      size = 0
     end
-    return avgs
+    raise
+  #   avgs = []
+  #   trips.each do |trip|
+  #   sum = 0
+  #     trip.itineraries.each do |i|
+  #       sum += eval(i.info)[0][:price].to_f
+  #     end
+  #     avgs << sum.fdiv(trip.itineraries.length)
+  #   end
+  #   raise
+  #   return avgs
   end
 end
 
