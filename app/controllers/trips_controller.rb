@@ -44,7 +44,8 @@ class TripsController < ApplicationController
         trip = Trip.find(trip[0].id)
         trip.itineraries.each do |itinerary|
           itinerary = Itinerary.find(itinerary.id)
-          flight_info = {
+
+          @flights_infos << {
             itinerary_index: itinerary.id ,
             destination_code: eval(itinerary.info)[0][:destination],
             price:            eval(itinerary.info)[0][:price],

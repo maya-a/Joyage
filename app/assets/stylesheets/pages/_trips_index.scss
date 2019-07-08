@@ -23,15 +23,11 @@ $orange: #EF682E;
   }
 }
 
-.card-trip {
-  &:hover {
-    .flights {
-      display: block;
-      transform: translateY(0);
-    }
-  }
-}
 
+.card-photo {
+  width: 100%;
+  height: 195px;
+}
 
 .card-trip #tripname {
   color: white;
@@ -80,7 +76,7 @@ $orange: #EF682E;
   width: 390px;
   border-radius: 4px;
   height: 195px;
-  display: none;
+  // display: none;
 }
 
 .flight-cards {
