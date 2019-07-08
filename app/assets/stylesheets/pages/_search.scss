@@ -239,7 +239,7 @@ $orange: #EF682E;
   label {
     cursor: pointer;
     margin-bottom: 0px;
-    border: 1px solid $white;
+    // border: 1px solid $white;
     border-radius: 4px;
     width: 69px;
     height: 69px;
@@ -264,12 +264,13 @@ $orange: #EF682E;
     margin: 2px 0px;
   }
   input:checked + label {
-    border: 1px solid $orange;
+    // border: 1px solid $orange;
+    background-color: $orange;
     .fas {
-      color: $orange !important;
+      color: white !important;
     }
     p {
-      color: $orange;
+      color: white;
     }
   }
 }
