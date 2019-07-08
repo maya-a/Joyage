@@ -264,6 +264,9 @@ body {
   margin-top: 15px;
   margin-bottom: 15px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   p {
     margin-bottom: 4px;
   }
@@ -344,18 +347,6 @@ body {
   }
 }
 
-.book {
-  margin-bottom: 10px;
-  margin-top: 10px;
-  p {
-    font-family: "Lato", "sans-serif";
-    font-weight: lighter;
-    letter-spacing: 2px;
-    color: $orange;
-    margin-bottom: 3px;
-  }
-}
-
 #book {
   color: $white;
   background-color: $orange;
@@ -365,11 +356,19 @@ body {
   font-weight: lighter;
   border-radius: 25px;
   padding: 7px 15px;
-
   cursor: pointer;
   outline: 0;
   text-decoration: none;
-  // box-shadow: none!important;
+
+  margin-bottom: 10px;
+  margin-top: 10px;
+  p {
+    font-family: "Lato", "sans-serif";
+    font-weight: lighter;
+    letter-spacing: 2px;
+    color: $orange;
+    margin-bottom: 3px;
+  }
   &:hover {
     color: $orange;
     background-color: white;
