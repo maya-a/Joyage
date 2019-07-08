@@ -1,6 +1,8 @@
 const timerCountdown = () => {
   // Set the date we're counting down to
-  const countDownDate = new Date("Oct 5, 2019 15:37:25").getTime();
+  const depDate = document.getElementById("date");
+  const date = depDate.dataset.date
+  const countDownDate = new Date(date).getTime();
   // Update the count down every 1 second
   const x = setInterval(function() {
 
