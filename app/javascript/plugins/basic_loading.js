@@ -53,9 +53,9 @@ function handleLoading(){
 
     }
 
-    catch {
+    catch(error) {
       window.location.pathname =  '/';
-      alert('You must type in the correct information');
+      alert(error);
     }
 
   }

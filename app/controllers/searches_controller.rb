@@ -53,15 +53,19 @@ class SearchesController < ApplicationController
 
 
        begin
+        # client = OAuth2::Client.new(ENV["SEARCH_KEY"], ENV["SECRET_KEY"], site: 'https://test.api.amadeus.com', token_url: 'https://test.api.amadeus.com/v1/security/oauth2/token')
+        # token = client.client_credentials.get_token
+
         possible_trips.each do |call|
-          make_trips(call, @search)
+          FlightInfoJob.perform_later(call, @search)
+          # make_trips(call, @search, token)
         end
 
 
-      rescue
+      rescue => e
         respond_to do |format|
           format.html { redirect_to new_search_path }
-          format.js { render status: :internal_server_error}
+          format.js { render status: :internal_server_error, error: e}
           return
         end
       # make_trips(possible_trips.first, @search)
@@ -87,10 +91,10 @@ class SearchesController < ApplicationController
   end
 
 
-  def make_trips(call, search)
+  def make_trips(call, search, token)
     #translating the API
-    client = OAuth2::Client.new(ENV["SEARCH_KEY"], ENV["SECRET_KEY"], site: 'https://test.api.amadeus.com', token_url: 'https://test.api.amadeus.com/v1/security/oauth2/token')
-    token = client.client_credentials.get_token
+    # client = OAuth2::Client.new(ENV["SEARCH_KEY"], ENV["SECRET_KEY"], site: 'https://test.api.amadeus.com', token_url: 'https://test.api.amadeus.com/v1/security/oauth2/token')
+    # token = client.client_credentials.get_token
     response = token.get("https://test.api.amadeus.com/v1/shopping/flight-offers?origin=#{call[:oap_code]}&destination=#{call[:dap_code]}&departureDate=#{call[:dep_date]}&returnDate=#{call[:ret_date]}&max=5")
     itineraries = []
     flight_option = []

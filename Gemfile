@@ -23,6 +23,9 @@ gem 'unsplash'
 gem 'clipboard', '~> 1.3', '>= 1.3.3'
 gem 'clipboard-rails'
 gem 'strftime'
+gem 'sidekiq'
+gem 'sidekiq-failures', '~> 1.0'
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'

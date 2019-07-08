@@ -8,4 +8,9 @@ Rails.application.routes.draw do
   get "thankyou", to: "pages#thankyou"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get "pages/loading", to: 'pages#loading_page'
+
+  require "sidekiq/web"
+  authenticate :user, lambda { |u| u.admin } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
 end
