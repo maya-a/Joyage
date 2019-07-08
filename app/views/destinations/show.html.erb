@@ -72,7 +72,6 @@
           <p id="change" data-toggle="modal" data-target="#changeModal"><strong>See other options</strong></p>
           <p class="price"><strong><%= @flights_infos[0][:price].to_i %> €</strong></p>
           <div class="book">
-
             <p id="book">Book Flight</p>
           </div>
         </div>
@@ -114,6 +113,7 @@
                   <p>Same Price</p>
                 <% else %>
                   <p>Add <%= ((v[:price].to_i) - (@choices.values.first[0][:price].to_i)).round %> €</p>
+                  <p><%= v[:price] %></p>
                 <% end %>
               </div>
             </div>
