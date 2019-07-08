@@ -223,7 +223,7 @@ Origin.create!(
 # end
 
 puts "creating destinations:"
-# puts "creating beach Destinations(1)"
+puts "creating beach Destinations(1)"
 # Destination.create!(
 #   dap_id: 994,
 #   dap_name: "Seychelles International Airport",
@@ -301,17 +301,17 @@ Destination.create!(
 #   category: 1
 #    )
 
-Destination.create!(
-  dap_id: 1760,
-  dap_name: "Punta Cana International Airport",
-  d_city: "Punta Cana",
-  d_country: "Dominican Republic",
-  dap_code: "PUJ",
-  d_latitude: 18.5673999786,
-  d_longitude: -68.3634033203,
-  category: 1,
-  photo: 'https://www.belivehotels.com/imagenes/playas/dgopc_playa.jpg'
-   )
+        # Destination.create!(
+        #   dap_id: 1760,
+        #   dap_name: "Punta Cana International Airport",
+        #   d_city: "Punta Cana",
+        #   d_country: "Dominican Republic",
+        #   dap_code: "PUJ",
+        #   d_latitude: 18.5673999786,
+        #   d_longitude: -68.3634033203,
+        #   category: 1,
+        #   photo: 'https://www.belivehotels.com/imagenes/playas/dgopc_playa.jpg'
+        #    )
 
 # Destination.create!(
 #   dap_id: 1992,
@@ -357,29 +357,7 @@ Destination.create!(
 #   category: 1
 #    )
 
-Destination.create!(
-  dap_id: 2433,
-  dap_name: "Puerto Princesa Airport",
-  d_city: "Puerto Princesa",
-  d_country: "Philippines",
-  dap_code: "PPS",
-  d_latitude: 9.74211978912354,
-  d_longitude: 118.759002685547,
-  category: 1,
-  photo: 'http://balikpinasbaliksaya.com.ph/wp-content/uploads/2018/08/Puerto-Princesa-Palawan-1200x630.jpg'
-   )
 
-Destination.create!(
-  dap_id: 1852,
-  dap_name: "Cancún International Airport",
-  d_city: "Cancun",
-  d_country: "Mexico",
-  dap_code: "CUN",
-  d_latitude: 21.0365009308,
-  d_longitude: -86.8770980835,
-  category: 1,
-  photo:'https://www.mexicodestinos.com/blog/wp-content/uploads/2018/08/sargazo-en-cancun-todo-lo-que-debes-saber-antes-de-tu-viaje.jpg'
-   )
 
 # Destination.create!(
 #   dap_id: 4279,
@@ -615,17 +593,17 @@ puts "creating city Destinations(2)"
 #   category: 2
 #    )
 
-Destination.create!(
-  dap_id: 580,
-  dap_name: "Amsterdam Airport Schiphol",
-  d_city: "Amsterdam",
-  d_country: "Netherlands",
-  dap_code: "AMS",
-  d_latitude: 52.308601,
-  d_longitude: 4.76389,
-  category: 2,
-  photo:'https://cdn.civitatis.com/paises-bajos/amsterdam/galeria/casas-barco-amsterdam.jpg'
-   )
+          Destination.create!(
+            dap_id: 580,
+            dap_name: "Amsterdam Airport Schiphol",
+            d_city: "Amsterdam",
+            d_country: "Netherlands",
+            dap_code: "AMS",
+            d_latitude: 52.308601,
+            d_longitude: 4.76389,
+            category: 2,
+            photo:'https://cdn.civitatis.com/paises-bajos/amsterdam/galeria/casas-barco-amsterdam.jpg'
+             )
 
 # Destination.create!(
 #   dap_id: 1382,
@@ -681,17 +659,17 @@ Destination.create!(
 #   d_longitude: 4.48443984985,
 #   category: 2
 #    )
-Destination.create!(
-  dap_id: 507,
-  dap_name: "London Heathrow Airport",
-  d_city: "London",
-  d_country: "United Kingdom",
-  dap_code: "LHR",
-  d_latitude: 51.4706,
-  d_longitude: -0.461941,
-  category: 2,
-  photo:'https://www.fodors.com/wp-content/uploads/2017/10/HERO_UltimateLondon_Hero_shutterstock412054315.jpg'
-   )
+          # Destination.create!(
+          #   dap_id: 507,
+          #   dap_name: "London Heathrow Airport",
+          #   d_city: "London",
+          #   d_country: "United Kingdom",
+          #   dap_code: "LHR",
+          #   d_latitude: 51.4706,
+          #   d_longitude: -0.461941,
+          #   category: 2,
+          #   photo:'https://www.fodors.com/wp-content/uploads/2017/10/HERO_UltimateLondon_Hero_shutterstock412054315.jpg'
+          #    )
 
 
 # Destination.create!(
@@ -727,17 +705,17 @@ Destination.create!(
 #   category: 2
 #    )
 
-Destination.create!(
-  dap_id: 2188,
-  dap_name: "Dubai International Airport",
-  d_city: "Dubai",
-  d_country: "United Arab Emirates",
-  dap_code: "DXB",
-  d_latitude: 25.2527999878,
-  d_longitude: 55.3643989563,
-  category: 2,
-  photo:'https://io.telkomuniversity.ac.id/wp-content/uploads/2015/03/Dubai-e1434096715956.jpg'
-   )
+          # Destination.create!(
+          #   dap_id: 2188,
+          #   dap_name: "Dubai International Airport",
+          #   d_city: "Dubai",
+          #   d_country: "United Arab Emirates",
+          #   dap_code: "DXB",
+          #   d_latitude: 25.2527999878,
+          #   d_longitude: 55.3643989563,
+          #   category: 2,
+          #   photo:'https://io.telkomuniversity.ac.id/wp-content/uploads/2015/03/Dubai-e1434096715956.jpg'
+          #    )
 
 # Destination.create!(
 #   dap_id: 3484,
@@ -919,17 +897,17 @@ Destination.create!(
   # photo:
   #  )
 
-Destination.create!(
-  dap_id: 2359,
-  dap_name: "Tokyo Haneda International Airport",
-  d_city: "Tokyo",
-  d_country: "Japan",
-  dap_code: "HND",
-  d_latitude: 35.552299,
-  d_longitude:  139.779999,
-  category: 2,
-  photo: 'https://univerlist.com/media/uploads/2018/12/21/mang-gi-khi-di-nhat3.jpg'
-   )
+            # Destination.create!(
+            #   dap_id: 2359,
+            #   dap_name: "Tokyo Haneda International Airport",
+            #   d_city: "Tokyo",
+            #   d_country: "Japan",
+            #   dap_code: "HND",
+            #   d_latitude: 35.552299,
+            #   d_longitude:  139.779999,
+            #   category: 2,
+            #   photo: 'https://univerlist.com/media/uploads/2018/12/21/mang-gi-khi-di-nhat3.jpg'
+            #    )
 
 
 # Destination.create!(
@@ -1147,17 +1125,17 @@ Destination.create!(
 #   category: 3
 #    )
 
-Destination.create!(
-  dap_id: 2789,
-  dap_name: "Jorge Chávez International Airport",
-  d_city: "Lima",
-  d_country: "Peru",
-  dap_code: "LIM",
-  d_latitude: -12.0219,
-  d_longitude: -77.114305,
-  category: 3,
-  photo: 'https://d1ljaggyrdca1l.cloudfront.net/wp-content/uploads/2017/05/Guests-admiring-Machu-Picchu-in-Peru-1600x900.jpg'
-   )
+          # Destination.create!(
+          #   dap_id: 2789,
+          #   dap_name: "Jorge Chávez International Airport",
+          #   d_city: "Lima",
+          #   d_country: "Peru",
+          #   dap_code: "LIM",
+          #   d_latitude: -12.0219,
+          #   d_longitude: -77.114305,
+          #   category: 3,
+          #   photo: 'https://d1ljaggyrdca1l.cloudfront.net/wp-content/uploads/2017/05/Guests-admiring-Machu-Picchu-in-Peru-1600x900.jpg'
+          #    )
 
 # Destination.create!(
 #   dap_id: 1745,
@@ -1227,17 +1205,17 @@ Destination.create!(
 #   category: 3
 #    )
 
-Destination.create!(
-  dap_id: 1741,
-  dap_name: "Podgorica Airport",
-  d_city: "Podgorica",
-  d_country: "Montenegro",
-  dap_code: "TGD",
-  d_latitude: 42.359402,
-  d_longitude: 19.2519,
-  category: 3,
-  photo: "https://www.roughguides.com/wp-content/uploads/2013/04/herceg-novi-montenegro-shutterstock_1035131746.jpg"
-   )
+          # Destination.create!(
+          #   dap_id: 1741,
+          #   dap_name: "Podgorica Airport",
+          #   d_city: "Podgorica",
+          #   d_country: "Montenegro",
+          #   dap_code: "TGD",
+          #   d_latitude: 42.359402,
+          #   d_longitude: 19.2519,
+          #   category: 3,
+          #   photo: "https://www.roughguides.com/wp-content/uploads/2013/04/herceg-novi-montenegro-shutterstock_1035131746.jpg"
+          #    )
 
 # Destination.create!(
 #   dap_id: 2256,
@@ -1392,17 +1370,17 @@ Destination.create!(
 #   category: 4
 #    )
 
-Destination.create!(
-  dap_id: 1610,
-  dap_name: "Innsbruck Airport",
-  d_city: "Innsbruck",
-  d_country: "Austria",
-  dap_code: "INN",
-  d_latitude: 47.260201,
-  d_longitude: 11.344,
-  category: 4,
-  photo: `http://awe365.com/content/uploads/2016/01/Innsbruck-Freeride-snowboarding-in-Kuhtai-by-Tommy-Bause-%C2%A9-2010-TVB-Innsbruck.jpg`
-   )
+            # Destination.create!(
+            #   dap_id: 1610,
+            #   dap_name: "Innsbruck Airport",
+            #   d_city: "Innsbruck",
+            #   d_country: "Austria",
+            #   dap_code: "INN",
+            #   d_latitude: 47.260201,
+            #   d_longitude: 11.344,
+            #   category: 4,
+            #   photo: `http://awe365.com/content/uploads/2016/01/Innsbruck-Freeride-snowboarding-in-Kuhtai-by-Tommy-Bause-%C2%A9-2010-TVB-Innsbruck.jpg`
+            #    )
 
 # Destination.create!(
 #   dap_id: 1665,

@@ -115,9 +115,7 @@ class TripsController < ApplicationController
         end
       end
       arr_avg << sum.fdiv(size)
-      size = 0
     end
-    raise
   #   avgs = []
   #   trips.each do |trip|
   #   sum = 0
@@ -127,7 +125,7 @@ class TripsController < ApplicationController
   #     avgs << sum.fdiv(trip.itineraries.length)
   #   end
   #   raise
-  #   return avgs
+    return arr_avg
   end
 end
 
