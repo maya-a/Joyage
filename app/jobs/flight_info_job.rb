@@ -1,20 +1,31 @@
 class FlightInfoJob < ApplicationJob
   queue_as :default
 
-  def perform(oap_code, dap_code, dep_date,  ret_date, search_id)
+  def perform(oap_code, dap_code, dep_date,  ret_date, search_id, x)
     call = {
       oap_code: oap_code, dap_code: dap_code, dep_date: dep_date.to_date, ret_date: ret_date.to_date
     }
     search = Search.find(search_id)
-      make_trips(call, search)
+      make_trips(call, search, x)
   end
 
 
-   def make_trips(call, search)
-    #translating the API
-    client = OAuth2::Client.new(ENV["SEARCH_KEY"], ENV["SECRET_KEY"], site: 'https://test.api.amadeus.com', token_url: 'https://test.api.amadeus.com/v1/security/oauth2/token')
+   def make_trips(call, search, x)
+    case x
+    when 0, 4, 8
+      client = OAuth2::Client.new(ENV["SEARCH_KEY"], ENV["SECRET_KEY"], site: 'https://test.api.amadeus.com', token_url: 'https://test.api.amadeus.com/v1/security/oauth2/token')
+    when 1, 5, 9
+      client = OAuth2::Client.new(ENV["SEARCH_KEY2"], ENV["SECRET_KEY2"], site: 'https://test.api.amadeus.com', token_url: 'https://test.api.amadeus.com/v1/security/oauth2/token')
+    when 2, 6
+      client = OAuth2::Client.new(ENV["SEARCH_KEY3"], ENV["SECRET_KEY3"], site: 'https://test.api.amadeus.com', token_url: 'https://test.api.amadeus.com/v1/security/oauth2/token')
+    when 3, 7
+      client = OAuth2::Client.new(ENV["SEARCH_KEY4"], ENV["SECRET_KEY4"], site: 'https://test.api.amadeus.com', token_url: 'https://test.api.amadeus.com/v1/security/oauth2/token')
+    else
+      client = OAuth2::Client.new(ENV["SEARCH_KEY"], ENV["SECRET_KEY"], site: 'https://test.api.amadeus.com', token_url: 'https://test.api.amadeus.com/v1/security/oauth2/token')
+    end
     token = client.client_credentials.get_token
-    response = token.get("https://test.api.amadeus.com/v1/shopping/flight-offers?origin=#{call[:oap_code]}&destination=#{call[:dap_code]}&departureDate=#{call[:dep_date]}&returnDate=#{call[:ret_date]}&max=5")
+    #translating the API
+    response = token.get("https://test.api.amadeus.com/v1/shopping/flight-offers?origin=#{call[:oap_code]}&destination=#{call[:dap_code]}&departureDate=#{call[:dep_date]}&returnDate=#{call[:ret_date]}&max=2")
     itineraries = []
     flight_option = []
 

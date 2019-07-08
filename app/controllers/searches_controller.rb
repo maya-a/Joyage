@@ -34,40 +34,39 @@ class SearchesController < ApplicationController
     end
 
       # creating all possible destination-origin combinations for the API calls
-      possible_trips = []
-      @list_destinations = []
-      Destination.where(category: @search.category).each do |destination|
-        @list_destinations << destination.id
-        @search.search_origins.each do |origin|
-          if origin.origin.code != destination.dap_code
-            possible_trips <<
-              {
-               oap_code: origin.origin.code,
-               dap_code: destination.dap_code,
-               dep_date: @search.dep_date, #.slice(0..9),
-               ret_date: @search.ret_date
-              }
-           end
-         end
-       end
-
-
-       begin
-        # client = OAuth2::Client.new(ENV["SEARCH_KEY"], ENV["SECRET_KEY"], site: 'https://test.api.amadeus.com', token_url: 'https://test.api.amadeus.com/v1/security/oauth2/token')
-        # token = client.client_credentials.get_token
-
-        possible_trips.each do |call|
-          FlightInfoJob.perform_later(call[:oap_code], call[:dap_code] ,call[:dep_date].to_s, call[:ret_date].to_s,  @search.id)
-          # make_trips(call, @search, token)
+    possible_trips = []
+    @list_destinations = []
+    Destination.where(category: @search.category).each do |destination|
+      @list_destinations << destination.id
+      @search.search_origins.each do |origin|
+        if origin.origin.code != destination.dap_code
+          possible_trips <<
+          {
+           oap_code: origin.origin.code,
+           dap_code: destination.dap_code,
+             dep_date: @search.dep_date, #.slice(0..9),
+             ret_date: @search.ret_date
+          }
         end
+      end
+    end
 
 
-      rescue => e
-        respond_to do |format|
-          format.html { redirect_to new_search_path }
-          format.js { render status: :internal_server_error, error: e}
-          return
-        end
+    begin
+      x = 0
+      possible_trips.each do |call|
+        FlightInfoJob.perform_later(call[:oap_code], call[:dap_code] ,call[:dep_date].to_s, call[:ret_date].to_s,  @search.id, x)
+        x += 1
+        # make_trips(call, @search, token)
+      end
+
+
+    rescue => e
+      respond_to do |format|
+        format.html { redirect_to new_search_path }
+        format.js { render status: :internal_server_error, error: e}
+        return
+      end
       # make_trips(possible_trips.first, @search)
     end
 
@@ -95,7 +94,7 @@ class SearchesController < ApplicationController
     #translating the API
     # client = OAuth2::Client.new(ENV["SEARCH_KEY"], ENV["SECRET_KEY"], site: 'https://test.api.amadeus.com', token_url: 'https://test.api.amadeus.com/v1/security/oauth2/token')
     # token = client.client_credentials.get_token
-    response = token.get("https://test.api.amadeus.com/v1/shopping/flight-offers?origin=#{call[:oap_code]}&destination=#{call[:dap_code]}&departureDate=#{call[:dep_date]}&returnDate=#{call[:ret_date]}&max=5")
+    response = token.get("https://test.api.amadeus.com/v1/shopping/flight-offers?origin=#{call[:oap_code]}&destination=#{call[:dap_code]}&departureDate=#{call[:dep_date]}&returnDate=#{call[:ret_date]}&max=2")
     itineraries = []
     flight_option = []
 
@@ -115,33 +114,33 @@ class SearchesController < ApplicationController
 
       way_there.each do |flight|
         flight_option <<
-          {
-            origin_city: flight["flightSegment"]["departure"]["iataCode"],
-            arrival_city: flight["flightSegment"]["arrival"]["iataCode"],
-            departure_date: flight["flightSegment"]["departure"]["at"],
-            arrival_date: flight["flightSegment"]["arrival"]["at"],
-            layovers: flight.length,
+        {
+          origin_city: flight["flightSegment"]["departure"]["iataCode"],
+          arrival_city: flight["flightSegment"]["arrival"]["iataCode"],
+          departure_date: flight["flightSegment"]["departure"]["at"],
+          arrival_date: flight["flightSegment"]["arrival"]["at"],
+          layovers: flight.length,
               # if the layovers = 1 then its a direct flight! its its 2 then theres 1 layover!
               duration: flight["flightSegment"]["duration"]
               # flight_option[:destination]
             }
-      end
+          end
 
-      way_back.each do |flight|
-        flight_option <<
-          {
-            return_origin_city: flight["flightSegment"]["departure"]["iataCode"],
-            return_arrival_city: flight["flightSegment"]["arrival"]["iataCode"],
-            return_departure_date: flight["flightSegment"]["departure"]["at"],
-            return_arrival_date: flight["flightSegment"]["arrival"]["at"],
-            return_layovers: flight.length,
+          way_back.each do |flight|
+            flight_option <<
+            {
+              return_origin_city: flight["flightSegment"]["departure"]["iataCode"],
+              return_arrival_city: flight["flightSegment"]["arrival"]["iataCode"],
+              return_departure_date: flight["flightSegment"]["departure"]["at"],
+              return_arrival_date: flight["flightSegment"]["arrival"]["at"],
+              return_layovers: flight.length,
               # if the layovers = 1 then its a direct flight! its its 2 then theres 1 layover!
               return_duration: flight["flightSegment"]["duration"]
             }
-      end
+          end
 
-        itineraries << flight_option
-      end
+          itineraries << flight_option
+        end
     # returns a hash of hashes, the main key is the group and the value is a hash
 
     grouped = itineraries.group_by { |d| d[0][:destination] }

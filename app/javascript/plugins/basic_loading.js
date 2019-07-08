@@ -48,7 +48,7 @@ function handleLoading(){
       if(!loading) {
         setTimeout(function(){
           window.location.href = `/searches/${data.search_id}/trips?list_destinations=${data.list_destinations}`;
-        }, 10000)
+        }, 15000)
       }
 
 
