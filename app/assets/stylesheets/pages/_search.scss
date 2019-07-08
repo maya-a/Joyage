@@ -3,6 +3,7 @@
 $white: #E3E3E3;
 $blue: #467DCF;
 $orange: #EF682E;
+$lightorange: rgba(239, 104, 46, 0.6);
 
 .wrapper {
   background: linear-gradient(160deg, #6a6ed4 0%, #a03cb0 159%);
@@ -160,6 +161,19 @@ $orange: #EF682E;
   background-color: white !important;
 }
 
+.flatpickr-current-month .numInputWrapper {
+  color: $blue !important;
+  fill: $blue !important;
+}
+
+.numInputWrapper span.arrowUp {
+  color: $blue !important;
+}
+
+.numInputWrapper span.arrowDown {
+  color: $blue !important;
+}
+
 .flatpickr-weekdays {
   background-color: white !important;
 }
@@ -169,26 +183,53 @@ $orange: #EF682E;
   color: $blue !important;
 }
 
+// range style
+
+.flatpickr-day {
+border: 0 !important;
+}
+
+.flatpickr-day.selected.startRange + .endRange:not(:nth-child(7n+1)), .flatpickr-day.startRange.startRange + .endRange:not(:nth-child(7n+1)), .flatpickr-day.endRange.startRange + .endRange:not(:nth-child(7n+1)) {
+  -webkit-box-shadow: -10px 0 0 $lightorange !important;
+  box-shadow: -10px 0 0 $lightorange, -5px 0 0 $lightorange !important;
+}
+
+
+.flatpickr-day.selected.startRange, .flatpickr-day.startRange.startRange {
+    -webkit-box-shadow: -10px 0 0 $lightorange !important;
+  box-shadow: 5px 0 0 $lightorange, 0px 0 0 $lightorange !important;
+}
+
+.flatpickr-day.inRange {
+  background-color: $lightorange !important;
+  box-shadow: 5px 0 0 $lightorange !important;
+  border-color: transparent;
+}
+
+.flatpickr-day.selected.range {
+  -webkit-box-shadow: -10px 0 0 $lightorange !important;
+  box-shadow: -10px 0 0 $lightorange!important;
+}
 
 .flatpickr-day.today {
-  border-color: $blue !important;
+  border-color: $orange !important;
   &:hover {
-    background-color: $blue !important;
+    background-color: $orange !important;
   }
 }
 
 .flatpickr-day.selected.startRange, .flatpickr-day.startRange.startRange, {
-  background-color: $blue !important;
-  border-color: $blue !important;
+  background-color: $orange !important;
+  border-color: $orange !important;
 }
 
 .flatpickr-day.selected.endRange, .flatpickr-day.endRange.endRange {
-  background-color: $blue !important;
-  border-color: $blue !important;
+  background-color: $orange !important;
+  border-color: $orange !important;
 }
 
 .flatpickr-day.selected, .flatpickr-day.startRange {
-  background-color: $blue !important;
+  background-color: $lightorange !important;
 }
 
 //silder
