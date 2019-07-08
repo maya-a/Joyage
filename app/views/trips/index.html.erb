@@ -11,16 +11,22 @@
           <% @coordinates %>
           <div class="results">
             <% @destinations.each do |destination| %>
-              <div class="card-trip">
-                <div class="card-photo" style="background-image: linear-gradient(-225deg, rgba(200,101,80,0.6) 0%, rgba(13, 9, 16, 0.72) 50%), url(<% image_path destination.values[-4].photo %>););">
-                  <%= link_to destination[:city], search_destination_path(@search, destination[:destination].id), id:"tripname"  %>
-                </div>
-                <div class="card-trip-infos">
-                  <h4><%=  !destination[:ppp].nil? ?  destination[:ppp].round : "N/A" %>€</h4>
-                  <p>price per person</p>
 
+            <div class="card-trip">
+              <div class="card-photo" style="background-image: linear-gradient(-225deg, rgba(200,101,80,0.6) 0%, rgba(13, 9, 16, 0.72) 50%), url(<%# image_path destination.values[-4].photo %>);">
+              <%= link_to destination[:city], search_destination_path(@search, destination[:destination].id), id:"tripname"  %>
+              <div id="clickme"><i class="fas fa-chevron-up fa-rotate-180"></i></div>
               </div>
-                <%# @flights %>
+              <div class="card-trip-infos">
+                <h4><%=  !destination[:ppp].nil? ?  destination[:ppp].round : "N/A" %>€</h4>
+                <p>price per person</p>
+              </div>
+            </div>
+            <div id="flights" class="d-none">
+              <div class="destination">
+                <h5><%= destination[:city] %></h5>
+                <h5><%= destination[:ppp].round %> €<span class="avg">(avg)</span></h5>
+              </div>
               <div class="flight-cards">
                 <% @flights_infos.each do |i| %>
                 <% if destination[:destination].dap_code == i[:destination_code] %>
@@ -43,12 +49,13 @@
                   </div>
 
                 </div>
+                <!--   <div class="card_separator"></div> -->
                 <% end %>
-                <% end %> <!-- end for flights_info -->
+                <% end %>
               </div>
 
             </div>
-            <% end %> <!-- end for destinations each -->
+            <% end %>
           </div>
           </div>
         </div>
@@ -65,4 +72,6 @@
   </div>
 </div>
 
-
+<%= content_for(:after_js) do %>
+  <%= javascript_pack_tag "toggle" %>
+<% end %>
