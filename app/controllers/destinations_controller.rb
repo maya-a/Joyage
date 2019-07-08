@@ -39,6 +39,7 @@ class DestinationsController < ApplicationController
         @choices = @choices.group_by {|origin| origin[:origin_city_name]}
         @choices.values.each do |value|
           @flights_infos << value.first
+          raise
         end
   end
 end
