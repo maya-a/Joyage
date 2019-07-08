@@ -12,6 +12,20 @@ $orange: #EF682E;
 
 }
 
+[class^='select2'] {
+  border-radius: 0px !important;
+  min-height: 29px !important;
+  border: none !important;
+}
+
+.select2-selection__choice {
+  color: $orange;
+  width: 150px;
+  text-align: left;
+  background-color: white !important;
+  font-size: 20px;
+}
+
 .headline {
   display: flex;
   justify-content: center;
@@ -488,3 +502,4 @@ $orange: #EF682E;
   font-weight: lighter;
 
 }
+

@@ -14,14 +14,13 @@
 
                   <div class="add-origins">
                     <p>Add Hometowns</p>
-                    <div class="origins-box">
-                      <%= select_tag "origins", options_from_collection_for_select(Origin.all, "id", "name"), class: "form-control string optional select2", multiple: true  %>
+                    <div class="origins-box" placeholder="Enter origin airports">
+                      <%= select_tag "origins", options_from_collection_for_select(Origin.all, "id", "city", "code"), class: "form-control string optional select2", placeholder: "Enter", multiple: true  %>
                    <!--    <select class="" placeholder="Enter starting point" type="text" name="search[origin][]" id="search_origin"> -->
 
-                    </div>
                   </div>
-                  <div id="add-origin">+</div>
-
+                </div>
+                <div></div>
                 </div>
                 <div class="date-categories">
 

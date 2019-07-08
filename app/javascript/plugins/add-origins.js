@@ -8,7 +8,7 @@ $(document).ready(function() {
     console.log('here!');
     if(x < maxFields){ //max input box allowed
       x++; //text box increment
-      $(wrapper).append('<%= select_tag "origins", options_from_collection_for_select(Origin.all, "id", "name"), class: "form-control string optional select2"  %>');
+      $(wrapper).append('<%= select_tag "origins", options_from_collection_for_select(Origin.all, "id", "name"), class: "form-control string optional select2",  %>');
        //add input box
     }
     else if(x = maxFields){
