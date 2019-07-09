@@ -37,8 +37,13 @@
   },
   "loading_script.js": "/packs/js/loading_script-b58c2ae06057606e9aec.js",
   "loading_script.js.map": "/packs/js/loading_script-b58c2ae06057606e9aec.js.map",
+<<<<<<< HEAD
   "redirect.js": "/packs/js/redirect-489b1d61aed315607bdb.js",
   "redirect.js.map": "/packs/js/redirect-489b1d61aed315607bdb.js.map",
+=======
+  "redirect.js": "/packs/js/redirect-5cd3f7309b7a9232630b.js",
+  "redirect.js.map": "/packs/js/redirect-5cd3f7309b7a9232630b.js.map",
+>>>>>>> 57e84584cf6d48c4abe9685439fe424691dfa657
   "toggle.js": "/packs/js/toggle-ef59a4109ce895972b30.js",
   "toggle.js.map": "/packs/js/toggle-ef59a4109ce895972b30.js.map"
 }
