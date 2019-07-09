@@ -659,17 +659,17 @@ puts "creating city Destinations(2)"
 #   d_longitude: 4.48443984985,
 #   category: 2
 #    )
-          # Destination.create!(
-          #   dap_id: 507,
-          #   dap_name: "London Heathrow Airport",
-          #   d_city: "London",
-          #   d_country: "United Kingdom",
-          #   dap_code: "LHR",
-          #   d_latitude: 51.4706,
-          #   d_longitude: -0.461941,
-          #   category: 2,
-          #   photo:'https://www.fodors.com/wp-content/uploads/2017/10/HERO_UltimateLondon_Hero_shutterstock412054315.jpg'
-          #    )
+          Destination.create!(
+            dap_id: 507,
+            dap_name: "London Heathrow Airport",
+            d_city: "London",
+            d_country: "United Kingdom",
+            dap_code: "LHR",
+            d_latitude: 51.4706,
+            d_longitude: -0.461941,
+            category: 2,
+            photo:'https://www.fodors.com/wp-content/uploads/2017/10/HERO_UltimateLondon_Hero_shutterstock412054315.jpg'
+             )
 
 
 # Destination.create!(
