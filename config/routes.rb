@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :destinations, only: :show
   end
   get "thankyou", to: "pages#thankyou"
+  get "about", to: "pages#about"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get "pages/loading", to: 'pages#loading_page'
 end
