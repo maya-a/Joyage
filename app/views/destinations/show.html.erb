@@ -1,8 +1,10 @@
+<% content_for :meta_title, "Your #{@flights_infos[0][:destination_city]} trip" %>
+
 <div class="trips container">
   <div class="row">
     <div class="overview col-md-12 col-md-offset-2">
       <div class="headline">
-        <h1> Your trip to <span class="trip-name"><strong><%= @flights_infos[0][:destination_city] %></strong></span></h1>
+        <h1> Your trip to <span class="trip-name" id="you"><strong><%= @flights_infos[0][:destination_city] %></strong></span></h1>
         <button id="share" data-toggle="modal" data-target="#shareModal">Share Trip</button>
       </div>
       <div class="itinearies">

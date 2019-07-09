@@ -3,7 +3,7 @@
 $white: #E3E3E3;
 $blue: #467DCF;
 $orange: #EF682E;
-$lightorange: rgba(239, 104, 46, 0.6);
+$lightorange: rgba(239, 104, 46, 0.3);
 
 .wrapper {
   background: linear-gradient(160deg, #6a6ed4 0%, #a03cb0 159%);
@@ -34,7 +34,11 @@ $lightorange: rgba(239, 104, 46, 0.6);
   justify-content: center;
   align-items: center;
   margin-bottom: 60px;
+<<<<<<< HEAD
   margin-top: 50px;
+=======
+  margin-top: 100px;
+>>>>>>> 0337c388159a0af01a48e6372ca08491eb30c758
   h1 {
     color: $white;
     font-weight: lighter;
