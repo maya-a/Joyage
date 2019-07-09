@@ -15,10 +15,12 @@ $lightorange: rgba(239, 104, 46, 0.6);
 
 [class^='select2'] {
   border-radius: 2px !important;
-  min-height: 29px !important;
+  min-height: 28px !important;
   border: none !important;
 }
-
+.select2-selection--multiple{
+  border:  1px solid rgb(200, 200, 200) !important;
+}
 .select2-selection__choice {
   color: $orange;
   width: 150px;
