@@ -41,6 +41,8 @@ class DestinationsController < ApplicationController
           @flights_infos << value.first
         end
   end
+
+
 end
 
 

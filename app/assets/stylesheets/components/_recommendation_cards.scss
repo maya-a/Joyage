@@ -1,3 +1,7 @@
+$white: #E3E3E3;
+$blue: #467DCF;
+$orange: #EF682E;
+
 .recommendations {
   min-height: 100%;
   display: flex;
@@ -25,15 +29,26 @@
   display: flex;
   color: white;
   font-size: 24px;
-  font-weight: bold;
+  font-weight: lighter;
+  font-family: "Lato", "sans-serif";
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 5px;
   margin: 20px;
+  letter-spacing: 3px;
+  &:hover {
+    text-decoration: none;
+    color: $orange;
+  }
+
 }
 
 .clear-link {
   text-decoration: none;
   color: inherit;
+    &:hover {
+    text-decoration: none;
+    color: $orange;
+  }
 }
 
