@@ -45,6 +45,10 @@ $orange: #EF682E;
     font-weight: lighter;
     letter-spacing: 2px;
   }
+  .user {
+    color: white;
+  }
+
   .user:hover {
     color: $orange;
     cursor: pointer;
