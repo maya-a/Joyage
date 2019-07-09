@@ -11,12 +11,11 @@
   </div>
 
   <!-- User -->
-  <!-- <div class="navbar-right" hidden-md hidden-lg>
+  <div class="navbar-right" hidden-md hidden-lg>
     <%# if current_user %>
-      <p>My Trips</p>
     <%# else %>
-      <p class="user">Log In</p>
-      <p class="user">Sign Up</p>
+      <%= link_to "Our team", about_path, class: "user" %>
+
     <%# end %>
-  </div> -->
+  </div>
 </div>
