@@ -301,17 +301,17 @@ Destination.create!(
 #   category: 1
 #    )
 
-        # Destination.create!(
-        #   dap_id: 1760,
-        #   dap_name: "Punta Cana International Airport",
-        #   d_city: "Punta Cana",
-        #   d_country: "Dominican Republic",
-        #   dap_code: "PUJ",
-        #   d_latitude: 18.5673999786,
-        #   d_longitude: -68.3634033203,
-        #   category: 1,
-        #   photo: 'https://www.belivehotels.com/imagenes/playas/dgopc_playa.jpg'
-        #    )
+        Destination.create!(
+          dap_id: 1760,
+          dap_name: "Punta Cana International Airport",
+          d_city: "Punta Cana",
+          d_country: "Dominican Republic",
+          dap_code: "PUJ",
+          d_latitude: 18.5673999786,
+          d_longitude: -68.3634033203,
+          category: 1,
+          photo: 'https://www.belivehotels.com/imagenes/playas/dgopc_playa.jpg'
+           )
 
 # Destination.create!(
 #   dap_id: 1992,
@@ -335,16 +335,17 @@ Destination.create!(
 #   category: 1
    #)
 
-# Destination.create!(
-#   dap_id: 1638,
-#   dap_name: "Humberto Delgado Airport (Lisbon Portela Airport)",
-#   d_city: "Lisbon",
-#   d_country: "Portugal",
-#   dap_code: "LIS",
-#   d_latitude: 38.7813,
-#   d_longitude: -9.13592,
-#   category: 1
-#    )
+Destination.create!(
+  dap_id: 1638,
+  dap_name: "Humberto Delgado Airport (Lisbon Portela Airport)",
+  d_city: "Lisbon",
+  d_country: "Portugal",
+  dap_code: "LIS",
+  d_latitude: 38.7813,
+  d_longitude: -9.13592,
+  category: 1,
+  photo: 'https://img.flytap.com/countries/portugal.jpg'
+   )
 
 # Destination.create!(
 #   dap_id: 1626,
@@ -659,17 +660,17 @@ puts "creating city Destinations(2)"
 #   d_longitude: 4.48443984985,
 #   category: 2
 #    )
-          # Destination.create!(
-          #   dap_id: 507,
-          #   dap_name: "London Heathrow Airport",
-          #   d_city: "London",
-          #   d_country: "United Kingdom",
-          #   dap_code: "LHR",
-          #   d_latitude: 51.4706,
-          #   d_longitude: -0.461941,
-          #   category: 2,
-          #   photo:'https://www.fodors.com/wp-content/uploads/2017/10/HERO_UltimateLondon_Hero_shutterstock412054315.jpg'
-          #    )
+          Destination.create!(
+            dap_id: 507,
+            dap_name: "London Heathrow Airport",
+            d_city: "London",
+            d_country: "United Kingdom",
+            dap_code: "LHR",
+            d_latitude: 51.4706,
+            d_longitude: -0.461941,
+            category: 2,
+            photo:'https://www.fodors.com/wp-content/uploads/2017/10/HERO_UltimateLondon_Hero_shutterstock412054315.jpg'
+             )
 
 
 # Destination.create!(
@@ -705,17 +706,17 @@ puts "creating city Destinations(2)"
 #   category: 2
 #    )
 
-          # Destination.create!(
-          #   dap_id: 2188,
-          #   dap_name: "Dubai International Airport",
-          #   d_city: "Dubai",
-          #   d_country: "United Arab Emirates",
-          #   dap_code: "DXB",
-          #   d_latitude: 25.2527999878,
-          #   d_longitude: 55.3643989563,
-          #   category: 2,
-          #   photo:'https://io.telkomuniversity.ac.id/wp-content/uploads/2015/03/Dubai-e1434096715956.jpg'
-          #    )
+          Destination.create!(
+            dap_id: 2188,
+            dap_name: "Dubai International Airport",
+            d_city: "Dubai",
+            d_country: "United Arab Emirates",
+            dap_code: "DXB",
+            d_latitude: 25.2527999878,
+            d_longitude: 55.3643989563,
+            category: 2,
+            photo:'https://io.telkomuniversity.ac.id/wp-content/uploads/2015/03/Dubai-e1434096715956.jpg'
+             )
 
 # Destination.create!(
 #   dap_id: 3484,
@@ -1066,20 +1067,21 @@ puts "creating nature Destinations(3)"
 #   dap_code: "GYE",
 #   d_latitude: -2.15741991997,
 #   d_longitude: -79.8835983276,
-#   category: 3
+#   category: 3,
+#   photo: "https://cdn2.wanderlust.co.uk/media/1010/dreamstime_xl_122439680-cotopaxi.jpg?anchor=center&mode=crop&width=1200&height=0&rnd=131806990650000000"
 #    )
 
-Destination.create!(
-  dap_id: 2762,
-  dap_name: "El Alto International Airport",
-  d_city: "La Paz",
-  d_country: "Bolivia",
-  dap_code: "LPB",
-  d_latitude: -16.5132999420166,
-  d_longitude: -68.1922988891602,
-  category: 3,
-    photo: "https://blog.continentalcurrency.ca/wp-content/uploads/2016/05/bolivia-travel-guide-922x610.jpg"
-   )
+# Destination.create!(
+#   dap_id: 2762,
+#   dap_name: "El Alto International Airport",
+#   d_city: "La Paz",
+#   d_country: "Bolivia",
+#   dap_code: "LPB",
+#   d_latitude: -16.5132999420166,
+#   d_longitude: -68.1922988891602,
+#   category: 3,
+#     photo: "https://blog.continentalcurrency.ca/wp-content/uploads/2016/05/bolivia-travel-guide-922x610.jpg"
+#    )
 
 # Destination.create!(
 #   dap_id: 421,
@@ -1103,16 +1105,17 @@ Destination.create!(
 #   category: 3
 #    )
 
-# Destination.create!(
-#   dap_id: 3034,
-#   dap_name: "Phnom Penh International Airport",
-#   d_city: "Phnom-penh",
-#   d_country: "Cambodia",
-#   dap_code: "PNH",
-#   d_latitude: 11.5466003417969,
-#   d_longitude: 104.84400177002,
-#   category: 3
-#    )
+Destination.create!(
+  dap_id: 3034,
+  dap_name: "Phnom Penh International Airport",
+  d_city: "Phnom-penh",
+  d_country: "Cambodia",
+  dap_code: "PNH",
+  d_latitude: 11.5466003417969,
+  d_longitude: 104.84400177002,
+  category: 3,
+  photo: "https://cdn2.wanderlust.co.uk/media/1010/dreamstime_xl_122439680-cotopaxi.jpg?anchor=center&mode=crop&width=1200&height=0&rnd=131806990650000000"
+   )
 
 # Destination.create!(
 #   dap_id: 1863,
@@ -1125,17 +1128,17 @@ Destination.create!(
 #   category: 3
 #    )
 
-          # Destination.create!(
-          #   dap_id: 2789,
-          #   dap_name: "Jorge Chávez International Airport",
-          #   d_city: "Lima",
-          #   d_country: "Peru",
-          #   dap_code: "LIM",
-          #   d_latitude: -12.0219,
-          #   d_longitude: -77.114305,
-          #   category: 3,
-          #   photo: 'https://d1ljaggyrdca1l.cloudfront.net/wp-content/uploads/2017/05/Guests-admiring-Machu-Picchu-in-Peru-1600x900.jpg'
-          #    )
+          Destination.create!(
+            dap_id: 2789,
+            dap_name: "Jorge Chávez International Airport",
+            d_city: "Lima",
+            d_country: "Peru",
+            dap_code: "LIM",
+            d_latitude: -12.0219,
+            d_longitude: -77.114305,
+            category: 3,
+            photo: 'https://d1ljaggyrdca1l.cloudfront.net/wp-content/uploads/2017/05/Guests-admiring-Machu-Picchu-in-Peru-1600x900.jpg'
+             )
 
 # Destination.create!(
 #   dap_id: 1745,
@@ -1205,17 +1208,17 @@ Destination.create!(
 #   category: 3
 #    )
 
-          # Destination.create!(
-          #   dap_id: 1741,
-          #   dap_name: "Podgorica Airport",
-          #   d_city: "Podgorica",
-          #   d_country: "Montenegro",
-          #   dap_code: "TGD",
-          #   d_latitude: 42.359402,
-          #   d_longitude: 19.2519,
-          #   category: 3,
-          #   photo: "https://www.roughguides.com/wp-content/uploads/2013/04/herceg-novi-montenegro-shutterstock_1035131746.jpg"
-          #    )
+          Destination.create!(
+            dap_id: 1741,
+            dap_name: "Podgorica Airport",
+            d_city: "Podgorica",
+            d_country: "Montenegro",
+            dap_code: "TGD",
+            d_latitude: 42.359402,
+            d_longitude: 19.2519,
+            category: 3,
+            photo: "https://www.roughguides.com/wp-content/uploads/2013/04/herceg-novi-montenegro-shutterstock_1035131746.jpg"
+             )
 
 # Destination.create!(
 #   dap_id: 2256,
@@ -1370,17 +1373,17 @@ Destination.create!(
 #   category: 4
 #    )
 
-            # Destination.create!(
-            #   dap_id: 1610,
-            #   dap_name: "Innsbruck Airport",
-            #   d_city: "Innsbruck",
-            #   d_country: "Austria",
-            #   dap_code: "INN",
-            #   d_latitude: 47.260201,
-            #   d_longitude: 11.344,
-            #   category: 4,
-            #   photo: `http://awe365.com/content/uploads/2016/01/Innsbruck-Freeride-snowboarding-in-Kuhtai-by-Tommy-Bause-%C2%A9-2010-TVB-Innsbruck.jpg`
-            #    )
+            Destination.create!(
+              dap_id: 1610,
+              dap_name: "Innsbruck Airport",
+              d_city: "Innsbruck",
+              d_country: "Austria",
+              dap_code: "INN",
+              d_latitude: 47.260201,
+              d_longitude: 11.344,
+              category: 4,
+              photo: `http://awe365.com/content/uploads/2016/01/Innsbruck-Freeride-snowboarding-in-Kuhtai-by-Tommy-Bause-%C2%A9-2010-TVB-Innsbruck.jpg`
+               )
 
 # Destination.create!(
 #   dap_id: 1665,
@@ -1403,16 +1406,18 @@ Destination.create!(
 #   category: 4
 #    )
 
-# Destination.create!(
-#   dap_id: 2513,
-#   dap_name: "San Carlos De Bariloche Airport",
-#   d_city: "San Carlos De Bariloche",
-#   d_country: "Argentina",
-#   dap_code: "BRC",
-#   d_latitude: -41.151199,
-#   d_longitude: -71.157501,
-#   category: 4
-#    )
+Destination.create!(
+  dap_id: 2513,
+  dap_name: "San Carlos De Bariloche Airport",
+  d_city: "San Carlos De Bariloche",
+  d_country: "Argentina",
+  dap_code: "BRC",
+  d_latitude: -41.151199,
+  d_longitude: -71.157501,
+  category: 4,
+  photo: `https://www.telegraph.co.uk/content/dam/Travel/2018/November/argentina-iStock-537901694.jpg?imwidth=450`
+
+   )
 
 
 puts "done"
