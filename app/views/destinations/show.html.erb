@@ -162,9 +162,3 @@
 <%= content_for(:after_js) do %>
   <%= javascript_pack_tag "redirect" %>
 <% end %>
-
-
-<div class="destination-code"><%= @flights_infos[0][:destination_code].downcase %></div>
-<div class="return-code"><%= @flights_infos[0][:origin_city].downcase %></div>
-<div class="departure-date"><%= @flights_infos[0][:departure_date].to_datetime.strftime("%y/%m/%l") %></div>
-<div class="return-date"><%= @flights_infos[0][:return_departure_date].to_datetime.strftime("%y/%m/%l") %></div>
