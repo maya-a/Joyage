@@ -705,17 +705,17 @@ puts "creating city Destinations(2)"
 #   category: 2
 #    )
 
-          # Destination.create!(
-          #   dap_id: 2188,
-          #   dap_name: "Dubai International Airport",
-          #   d_city: "Dubai",
-          #   d_country: "United Arab Emirates",
-          #   dap_code: "DXB",
-          #   d_latitude: 25.2527999878,
-          #   d_longitude: 55.3643989563,
-          #   category: 2,
-          #   photo:'https://io.telkomuniversity.ac.id/wp-content/uploads/2015/03/Dubai-e1434096715956.jpg'
-          #    )
+          Destination.create!(
+            dap_id: 2188,
+            dap_name: "Dubai International Airport",
+            d_city: "Dubai",
+            d_country: "United Arab Emirates",
+            dap_code: "DXB",
+            d_latitude: 25.2527999878,
+            d_longitude: 55.3643989563,
+            category: 2,
+            photo:'https://io.telkomuniversity.ac.id/wp-content/uploads/2015/03/Dubai-e1434096715956.jpg'
+             )
 
 # Destination.create!(
 #   dap_id: 3484,
