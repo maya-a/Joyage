@@ -20,10 +20,10 @@
     },
     "redirect": {
       "js": [
-        "/packs/js/redirect-60124fe426a74a49ba5c.js"
+        "/packs/js/redirect-5cd3f7309b7a9232630b.js"
       ],
       "js.map": [
-        "/packs/js/redirect-60124fe426a74a49ba5c.js.map"
+        "/packs/js/redirect-5cd3f7309b7a9232630b.js.map"
       ]
     },
     "toggle": {
@@ -37,9 +37,8 @@
   },
   "loading_script.js": "/packs/js/loading_script-b58c2ae06057606e9aec.js",
   "loading_script.js.map": "/packs/js/loading_script-b58c2ae06057606e9aec.js.map",
-
-  "redirect.js": "/packs/js/redirect-60124fe426a74a49ba5c.js",
-  "redirect.js.map": "/packs/js/redirect-60124fe426a74a49ba5c.js.map",
+  "redirect.js": "/packs/js/redirect-5cd3f7309b7a9232630b.js",
+  "redirect.js.map": "/packs/js/redirect-5cd3f7309b7a9232630b.js.map",
   "toggle.js": "/packs/js/toggle-ef59a4109ce895972b30.js",
   "toggle.js.map": "/packs/js/toggle-ef59a4109ce895972b30.js.map"
 }

@@ -6,8 +6,8 @@ const redirectPage = () => {
   bookButtons.forEach((button) => {
     button.addEventListener("click", (event) => {
       event.preventDefault();
-      window.open("http://skyscanner.com");
       window.location.href = `/thankyou?destination_city=${destinationCity}`;
+      window.open("http://skyscanner.com");
     });
   });
 }

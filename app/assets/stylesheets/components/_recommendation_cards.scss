@@ -39,9 +39,23 @@ $orange: #EF682E;
   &:hover {
     text-decoration: none;
     color: $orange;
+    font-size: 36px;
   }
-
 }
+
+.timer-headline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 60px;
+  margin-top: 50px;
+  h1 {
+    color: $white;
+    font-weight: lighter;
+    letter-spacing: 17px;
+  }
+}
+
 
 .clear-link {
   text-decoration: none;
@@ -49,6 +63,7 @@ $orange: #EF682E;
     &:hover {
     text-decoration: none;
     color: $orange;
+    font-size: 36px;
   }
 }
 

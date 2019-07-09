@@ -79,6 +79,10 @@ $purple: #6a6ed4;
   color: $white;
   background-color: transparent;
   cursor: pointer;
+  &:hover {
+    color: $orange;
+
+  }
 }
 
 .card-trip-infos {
