@@ -1,77 +1,68 @@
-<% content_for :meta_title, "#{DEFAULT_META["meta_product_name"]} - Your results" %>
+<%# content_for :meta_title, "#{DEFAULT_META["meta_product_name"]} - Your results" %>
 <div class="wrapper">
-  <div class="polygon">
-    <div class="container">
-
-      <div class="row">
-        <div class="new-search col-md-12 col-md-offset-2">
-          <div class="index-headline">
-            <h1>Here is what we found for <span id="you" ><strong>you</strong></span>!</h1>
-            <h3><%= @flights_infos[0][:departure_date].to_datetime.strftime("%b %d")%> to <%= @flights_infos[0][:return_arrival_date].to_datetime.strftime("%b %d, %Y") %></h3>
-          </div>
-          <% @coordinates %>
-          <div class="results">
-            <% @destinations.each do |destination| %>
-
-            <div class="card-trip">
-              <div class="card-photo" style="background-image: linear-gradient(-225deg, rgba(200,101,80,0.6) 0%, rgba(13, 9, 16, 0.72) 50%), url(<%= image_path destination.values[-4].photo %>);">
+  <div class="container">
+    <div class="index-headline">
+      <h1>Here is what we found for <span id="you" ><strong>you</strong></span>!</h1>
+      <h3><%= @flights_infos[0][:departure_date].to_datetime.strftime("%b %d")%> to <%= @flights_infos[0][:return_arrival_date].to_datetime.strftime("%b %d, %Y") %></h3>
+    </div>
+    <div class="results d-flex justify-content-between align-items-start">
+      <div class="cards mr-5 w-50 flex-grow-1">
+        <% @destinations.each do |destination| %>
+          <div class="card-trip">
+            <div class="card-photo" style="background-image: linear-gradient(-225deg, rgba(200,101,80,0.6) 0%, rgba(13, 9, 16, 0.72) 50%), url(<%= image_path destination.values[-4].photo %>);">
               <%= link_to destination[:city], search_destination_path(@search, destination[:destination].id), id:"tripname"  %>
-              <div id="clickme"><i class="fas fa-chevron-up fa-rotate-180"></i></div>
-              </div>
-              <div class="card-trip-infos">
-                <h4><%=  !destination[:ppp].nil? ?  destination[:ppp].round : "N/A" %>€</h4>
-                <p>price per person</p>
+              <div id="clickme">
+                <i class="fas fa-chevron-up fa-rotate-180"></i>
               </div>
             </div>
-            <div id="flights" class="d-none">
-              <div class="destination">
-                <h5><%= destination[:city] %></h5>
-                <h5><%= destination[:ppp].round %> €<span class="avg">(avg)</span></h5>
-              </div>
-              <div class="flight-cards">
-                <% @flights_infos.each do |i| %>
+            <div class="card-trip-infos">
+              <h4><%=  !destination[:ppp].nil? ?  destination[:ppp].round : "N/A" %>€</h4>
+              <p>price per person</p>
+            </div>
+          </div>
+          <div id="flights" class="d-none">
+            <div class="destination">
+              <h5><%= destination[:city] %></h5>
+              <h5><%= destination[:ppp].round %> €<span class="avg">(avg)</span></h5>
+            </div>
+            <div class="flight-cards">
+              <% @flights_infos.each do |i| %>
                 <% if destination[:destination].dap_code == i[:destination_code] %>
-                <div class="flight-card" style="display: center">
-                  <div class="dates">
-                    <p>From <%= i[:origin_city_name] %> (<%= i[:origin_city] %>)</p>
-                  </div>
-                  <div class="times">
-                    <div class="words">
-                      <p>Outbound: </p>
-                      <p>Return:   </p>
+                  <div class="flight-card" style="display: center">
+                    <div class="dates">
+                      <p>From <%= i[:origin_city_name] %> (<%= i[:origin_city] %>)</p>
                     </div>
-                    <div class="time">
-                      <p><%= i[:departure_date].slice(11..15)%>  <i class="fas fa-plane"></i><%= i[:arrival_date].slice(11..15)%> </p>
-                      <p><%= i[:return_departure_date].slice(11..15)%> <i class="fas fa-plane fa-rotate-180"></i>  <%= i[:return_arrival_date].slice(11..15)%></p>
+                    <div class="times">
+                      <div class="words">
+                        <p>Outbound: </p>
+                        <p>Return:   </p>
+                      </div>
+                      <div class="time">
+                        <p>
+                          <%= i[:departure_date].slice(11..15)%>  <i class="fas fa-plane"></i><%= i[:arrival_date].slice(11..15)%>
+                        </p>
+                        <p><%= i[:return_departure_date].slice(11..15)%> <i class="fas fa-plane fa-rotate-180"></i>  <%= i[:return_arrival_date].slice(11..15)%>
+                        </p>
+                      </div>
+                    </div>
+                    <div class="price">
+                      <p><%= i[:price].to_i.round %> €</p>
                     </div>
                   </div>
-                  <div class="price">
-                    <p><%= i[:price].to_i.round %> €</p>
-                  </div>
-
-                </div>
-                <!--   <div class="card_separator"></div> -->
                 <% end %>
-                <% end %>
-              </div>
-
+              <% end %>
             </div>
-            <% end %>
           </div>
-          </div>
-        </div>
+        <% end %>
+      </div>
+    <div id="map" style="width: 40%; height: 100vh; "data-markers="<%= @markers.to_json %>"    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY']%>">
 
-
-
-
-        <div class="row">
-
-          <div id="map" style="width: 100%; height: 300px; "data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY']%>">
-          </div>
-        </div>
     </div>
   </div>
 </div>
+
+
+
 
 <%= content_for(:after_js) do %>
   <%= javascript_pack_tag "toggle" %>
