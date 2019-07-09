@@ -9,8 +9,16 @@ class TripsController < ApplicationController
     @coordinates = []
     @markers = []
     @arr_avg = find_avg(@trips, @list)
-    @list.each_with_index do |id, i|
 
+    @search.origins.each do |origin|
+      @coordinates << {
+        origin_city:origin.name,
+        lat: origin.latitude,
+        lng: origin.longitude
+    }
+    end
+    @list.each_with_index do |id, i|
+      next if @arr_avg[i] > @search.max_budget
       @destinations << {
         destination: Destination.find(id),
         city: Destination.find(id).d_city,
@@ -21,22 +29,13 @@ class TripsController < ApplicationController
         lat: Destination.find(id).d_latitude,
         lng: Destination.find(id).d_longitude
       }
-      @search.origins.each do |origin|
-        @coordinates << {
-          origin_city:origin.name,
-          lat: origin.latitude,
-          lng: origin.longitude
-      }
       end
       @coordinates.each do |x|
         @markers << {lat: x[:lat], lng: x[:lng]
         }
-        @search.origins.each do |origin|
-          @markers << {lat: origin[:lat], lng: origin[:lng]
-          }
-        end
       end
-    end
+    @destinations = @destinations.sort_by {|d|  d[:ppp]}
+
     @travel = @trips.group_by { |d| d[:destination_id] }
     @flights_infos = []
     # getting first flight only
