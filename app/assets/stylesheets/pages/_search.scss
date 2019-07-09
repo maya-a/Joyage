@@ -240,13 +240,13 @@ border: 0 !important;
 .irs--flat .irs-min {
   background-color: transparent !important;
   color: $white !important;
-  font-size: 12px !important;
+  font-size: 16px !important;
 }
 
 .irs--flat .irs-max {
   background-color: transparent !important;
   color: $white !important;
-  font-size: 12px !important;
+  font-size: 16px !important;
 }
 
 .irs--flat .irs-line {
@@ -269,6 +269,15 @@ border: 0 !important;
 
 .irs--flat .irs-from:before, .irs--flat .irs-to:before, .irs--flat .irs-single:before {
   background-color: $orange !important;
+  bottom: -4px !important;
+}
+
+.irs-single {
+    bottom: -50% !important;
+    font-size: 15px !important;
+    padding: 0px 8px !important;
+    margin-bottom: 0px !important;
+    letter-spacing: 2px !important;
 }
 
 
@@ -301,7 +310,7 @@ border: 0 !important;
     border-radius: 4px;
     width: 69px;
     height: 69px;
-    padding: 4px;
+    padding: 7px 4px 4px 4px;
 
   }
   .fas {
