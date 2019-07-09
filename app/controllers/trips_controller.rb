@@ -37,7 +37,7 @@ class TripsController < ApplicationController
         end
       end
     end
-    @destinations.sort_by {|d|  d[:ppp]}
+    @destinations = @destinations.sort_by {|d|  d[:ppp]}
 
     @travel = @trips.group_by { |d| d[:destination_id] }
     @flights_infos = []
