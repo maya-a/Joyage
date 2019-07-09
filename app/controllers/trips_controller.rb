@@ -10,7 +10,7 @@ class TripsController < ApplicationController
     @markers = []
     @arr_avg = find_avg(@trips, @list)
     @list.each_with_index do |id, i|
-
+      next if @arr_avg[i] > @search.max_budget
       @destinations << {
         destination: Destination.find(id),
         city: Destination.find(id).d_city,
@@ -37,6 +37,8 @@ class TripsController < ApplicationController
         end
       end
     end
+    @destinations.sort_by {|d|  d[:ppp]}
+
     @travel = @trips.group_by { |d| d[:destination_id] }
     @flights_infos = []
     # getting first flight only
