@@ -4,5 +4,6 @@ class PagesController < ApplicationController
 
   def thankyou
     @date = Search.last[:dep_date]
+
   end
 end
