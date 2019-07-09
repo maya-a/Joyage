@@ -54,8 +54,8 @@ function handleLoading(){
     }
 
     catch {
-      window.location.pathname =  '/';
-      alert('You must type in the correct information');
+      window.location.href =  'http://www.joyage.fun/searches/130/trips?list_destinations=60,61,62,63';
+      // alert('You must type in the correct information');
     }
 
   }

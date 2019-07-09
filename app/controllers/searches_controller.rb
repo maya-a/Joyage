@@ -58,7 +58,7 @@ class SearchesController < ApplicationController
 
       rescue
         respond_to do |format|
-          format.html { redirect_to new_search_path }
+          format.html { redirect_to "new_search_path" }
           format.js { render status: :internal_server_error}
           return
         end
