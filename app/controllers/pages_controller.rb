@@ -7,4 +7,7 @@ class PagesController < ApplicationController
     @destination_city = params[:destination_city]
 
   end
+
+  def about
+  end
 end
