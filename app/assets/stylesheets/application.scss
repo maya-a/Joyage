@@ -15,13 +15,8 @@
 @import "pages/index";
 
 .fix-content {
-  min-height: calc(100vh - 70px);
+  min-height: calc(100vh - 130px);
 }
-
-.fix-footer {
-  height: 50px;
-}
-
 meta {
   display: none;
 }

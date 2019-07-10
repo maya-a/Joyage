@@ -11,14 +11,21 @@ $sky: #7ea5ba;
   padding: 0;
 }
 
+body {
+    position: relative;
+}
 .footer {
   padding: 5px 0;
   text-align: center;
   width: 100%;
-  left: 0;
   bottom: 0;
-  background: white;
-  margin-top: 20px;
+  height: 130px;
+  // margin-bottom: -150px;
+  background-color: white;
+  a {
+    color: #8654C2;
+    font-weight: lighter;
+  }
 }
 
 .content {
@@ -26,7 +33,7 @@ $sky: #7ea5ba;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   h2 {
     text-align: center;
     font-family: Lato, sans-serif;
@@ -45,9 +52,9 @@ $sky: #7ea5ba;
 
 .social-box {
   height: 23px;
-  padding-bottom: 39px;
   display: flex;
   justify-content: center;
+  background-color: white;
 }
 
 #social {
