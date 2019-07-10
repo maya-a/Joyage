@@ -2,6 +2,17 @@ $white: #E3E3E3;
 $blue: #467DCF;
 $orange: #EF682E;
 
+
+
+.begin {
+  h2 {
+     color: $white;
+  font-family: "Lato", "sans-serif";
+  font-weight: lighter;
+  letter-spacing: 5px;
+  color: $white;
+  }
+}
 .recommendations {
   min-height: 100%;
   display: flex;
