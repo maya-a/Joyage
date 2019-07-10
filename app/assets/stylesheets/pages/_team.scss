@@ -5,6 +5,10 @@
    width: 150px;
    opacity: 0.8;
    transition: 0.2s ease;
+   p {
+  width: 250px;
+  color: white !important;
+  }
 }
 
 .teamate:hover {
@@ -22,10 +26,6 @@
   opacity: 1;
 }
 
-.teamate p {
-  width: 250px;
-  color: white;
-}
 
 a:hover {
   text-decoration: none;
