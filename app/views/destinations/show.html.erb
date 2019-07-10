@@ -4,11 +4,21 @@
   <div class="row">
     <div class="overview col-md-12 col-md-offset-2">
       <div class="headline">
-        <h1> Your trip to <span class="trip-name" id="you"><strong><%= @flights_infos[0][:destination_city] %></strong></span></h1>
+        <h1> Your trip to <span class="trip-name" id="you"><strong><%= @flights_infos[0][:destination_city] %></strong></span>
+        </h1>
+      </div>
+    </div>
+  </div>
+
+    <div class="row justify-content-center">
+      <div class="overview mb-5">
         <button id="share" data-toggle="modal" data-target="#shareModal">Share Trip</button>
       </div>
-      <div class="itinearies">
+    </div>
 
+<div class="row">
+    <div class="overview col-md-12 col-md-offset-2">
+      <div class="itinearies">
         <% @choices.values.each do |value| %>
         <div class="itnineary-card">
           <div class="cities">
@@ -70,6 +80,7 @@
             </div>
           </div>
         </div>
+
         <div class="buttons">
           <p id="change" data-toggle="modal" data-target="#changeModal"><strong>See other options</strong></p>
           <p class="price"><strong><%= value[0][:price].to_i %> €</strong></p>
@@ -81,7 +92,6 @@
       <% end %>
     </div>
   </div>
-</div>
 </div>
 
 <!--Change Modal -->
@@ -131,7 +141,8 @@
     </div>
   </div>
 </div>
-</div>
+
+
 
 
 <!--Share Modal -->

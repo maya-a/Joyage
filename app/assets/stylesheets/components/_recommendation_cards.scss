@@ -48,7 +48,6 @@ $orange: #EF682E;
   justify-content: center;
   align-items: center;
   margin-bottom: 60px;
-  margin-top: 50px;
   h1 {
     color: $white;
     font-weight: lighter;
@@ -60,6 +59,7 @@ $orange: #EF682E;
 .clear-link {
   text-decoration: none;
   color: inherit;
+  transition: 0.2s ease;
     &:hover {
     text-decoration: none;
     color: $orange;
