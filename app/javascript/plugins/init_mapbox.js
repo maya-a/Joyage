@@ -1,7 +1,6 @@
 import mapboxgl from 'mapbox-gl';
-
+import airplane from "images/airplane.png"
 const mapElement = document.getElementById('map');
-
 const buildMap = () => {
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
   return new mapboxgl.Map({
@@ -16,7 +15,7 @@ const addMarkersToMap = (map, markers) => {
     const el = document.createElement('div');
 
     el.className = 'marker';
-    el.style.backgroundImage = "url(https://cdn3.iconfinder.com/data/icons/airport-collection/100/23-512.png)";
+    el.style.backgroundImage = `url(${airplane})`;
     el.style.width = '25px';
     el.style.height = '25px';
     new mapboxgl.Marker(el)
