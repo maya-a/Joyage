@@ -23,7 +23,7 @@
           <div id="flights" class="d-none">
             <div class="destination">
               <h5><%= destination[:city] %></h5>
-              <h5><%= destination[:ppp].round %> €<span class="avg">(avg)</span></h5>
+              <h5><%= destination[:ppp].round %> €<span class="avg">(pp)</span></h5>
             </div>
             <div class="flight-cards">
               <% @flights_infos.each do |i| %>
@@ -55,9 +55,10 @@
           </div>
         <% end %>
       </div>
-    <div id="map" style="width: 40%; height: 100vh; "data-markers="<%= @markers.to_json %>"    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY']%>">
+    <div id="map" style="width: 40%; height: 100vh; "data-markers="<%= @markers.to_json %> "data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY']%>">
 
     </div>
+    <% image_tag("airplane.png", id: "airplane") %>
   </div>
 </div>
 

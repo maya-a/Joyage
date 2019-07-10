@@ -45,10 +45,13 @@ $orange: #EF682E;
     font-weight: lighter;
     letter-spacing: 2px;
   }
-  .user {
-    color: white;
+  a {
+    color: $white;
+    font-family: "Lato", "sans-serif";
+    font-weight: lighter;
+    letter-spacing: 2px;
+    text-decoration: none;
   }
-
   .user:hover {
     color: $orange;
     cursor: pointer;

@@ -11,8 +11,15 @@ const buildMap = () => {
 };
 
 const addMarkersToMap = (map, markers) => {
+
   markers.forEach((marker) => {
-    new mapboxgl.Marker()
+    const el = document.createElement('div');
+
+    el.className = 'marker';
+    el.style.backgroundImage = "url(https://cdn3.iconfinder.com/data/icons/airport-collection/100/23-512.png)";
+    el.style.width = '25px';
+    el.style.height = '25px';
+    new mapboxgl.Marker(el)
       .setLngLat([ marker.lng, marker.lat ])
       .addTo(map);
   });

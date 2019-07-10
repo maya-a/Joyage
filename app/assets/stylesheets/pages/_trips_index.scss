@@ -32,7 +32,6 @@ $purple: #6a6ed4;
   align-items: center;
 }
 
-
 // card-trip
 
 .card-trip {
@@ -176,10 +175,7 @@ $purple: #6a6ed4;
   }
 }
 
+.marker {
+  background-size: contain;
+}
 
-// .trips {
-//   text-align: center;
-//   font-family: "Lato", "sans-serif";
-//   font-weight: lighter;
-//   letter-spacing: 2px;
-// }
