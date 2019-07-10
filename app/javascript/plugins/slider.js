@@ -7,5 +7,5 @@ $(".js-range-slider").ionRangeSlider( {
         max: 1000,
         from: 200,
         to: 800,
-        prefix: "$"
+        prefix: "€"
 });
