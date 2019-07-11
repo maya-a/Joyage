@@ -11,13 +11,13 @@ class TripsController < ApplicationController
     @markers = []
     @arr_avg = find_avg(@trips, @list)
 
-    @search.origins.each do |origin|
-      @coordinates << {
-        origin_city:origin.name,
-        lat: origin.latitude,
-        lng: origin.longitude
-    }
-    end
+    # @search.origins.each do |origin|
+    #   @coordinates << {
+    #     origin_city:origin.name,
+    #     lat: origin.latitude,
+    #     lng: origin.longitude
+    # }
+    # end
     @list.each_with_index do |id, i|
       next if @arr_avg[i] > @search.max_budget
       @destinations << {

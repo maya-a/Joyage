@@ -12,7 +12,7 @@ const redirectPage = () => {
     button.addEventListener("click", (event) => {
       event.preventDefault();
       window.location.href = `/thankyou?destination_city=${destinationCity}`;
-      window.open("https://www.skyscanner.de/transport/fluge/cdg/ams/190717/190724/?adults=1&children=0&adultsv2=1&childrenv2=&infants=0&cabinclass=economy&rtn=1&preferdirects=false&outboundaltsenabled=false&inboundaltsenabled=false&ref=home#results");
+      window.open("https://www.skyscanner.co.il/transport/flights/pari/ams/190717/190724/?adults=1&children=0&adultsv2=1&childrenv2=&infants=0&cabinclass=economy&rtn=1&preferdirects=false&outboundaltsenabled=false&inboundaltsenabled=false&ref=home#results");
     });
   });
 }
